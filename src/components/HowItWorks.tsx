@@ -1,0 +1,68 @@
+import { ClipboardCheck, MessageSquareText, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import AnimatedSection from "./AnimatedSection";
+
+const steps = [
+  {
+    num: "01",
+    icon: ClipboardCheck,
+    title: "I Look at Your Website",
+    text: "You send me your website URL. I run a full audit and find every hidden issue quietly hurting your traffic and sales.",
+  },
+  {
+    num: "02",
+    icon: MessageSquareText,
+    title: "I Tell You Exactly What's Wrong",
+    text: "No jargon. No confusion. I explain the real problems in plain language and give you a clear action plan.",
+  },
+  {
+    num: "03",
+    icon: Rocket,
+    title: "We Fix It, and Your Website Starts Working",
+    text: "The right fixes in the right order. More visibility. More visitors. More people becoming paying customers.",
+  },
+];
+
+const HowItWorks = () => {
+  const scrollToForm = () => {
+    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-20 bg-forest-light">
+      <div className="container mx-auto px-4 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <p className="section-label mb-3">The Process</p>
+          <h2 className="section-title">Simple. Clear. No Guessing.</h2>
+        </AnimatedSection>
+
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {steps.map((s, i) => (
+            <AnimatedSection key={s.num} delay={i * 0.15} className="text-center">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground font-heading font-bold text-lg mb-4">
+                {s.num}
+              </div>
+              <div className="w-12 h-12 mx-auto rounded-xl bg-background flex items-center justify-center mb-4 shadow-sm">
+                <s.icon className="text-primary" size={24} />
+              </div>
+              <h3 className="font-heading font-bold text-xl mb-3 text-foreground">{s.title}</h3>
+              <p className="text-muted-foreground leading-relaxed max-w-xs mx-auto">{s.text}</p>
+            </AnimatedSection>
+          ))}
+        </div>
+
+        <AnimatedSection className="text-center">
+          <Button
+            onClick={scrollToForm}
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8"
+          >
+            Get My Free Website Check →
+          </Button>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+};
+
+export default HowItWorks;

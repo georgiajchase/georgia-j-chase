@@ -1,0 +1,40 @@
+import { Search, MousePointerClick, LinkIcon, Smartphone, MapPin, TrendingDown } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
+
+const cards = [
+  { icon: Search, title: "Google Can't Find You", text: "Your website exists but barely shows up when people search for what you offer." },
+  { icon: MousePointerClick, title: "Visitors Come But Don't Buy", text: "People land on your site and leave without contacting you or making a purchase." },
+  { icon: LinkIcon, title: "You've Tried SEO Before With No Results", text: "You paid an agency or freelancer and still saw little to no real change." },
+  { icon: Smartphone, title: "Your Site Looks Fine But Feels Slow", text: "Speed and technical issues are silently damaging your rankings every day." },
+  { icon: MapPin, title: "Local Customers Can't Find You", text: "Nearby buyers are searching, but your business isn't showing up where it should." },
+  { icon: TrendingDown, title: "Your Competitor Is Outranking You", text: "A business you know is weaker than yours is getting the traffic and customers you deserve." },
+];
+
+const PainPoints = () => (
+  <section className="py-20 bg-background">
+    <div className="container mx-auto px-4 lg:px-8">
+      <AnimatedSection className="text-center mb-14">
+        <p className="section-label mb-3">Does This Sound Familiar?</p>
+        <h2 className="section-title max-w-2xl mx-auto">
+          You Have a Website.<br />But It's Not Working the Way It Should.
+        </h2>
+      </AnimatedSection>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cards.map((c, i) => (
+          <AnimatedSection key={c.title} delay={i * 0.08}>
+            <div className="bg-background border border-border rounded-xl p-6 card-hover h-full">
+              <div className="w-11 h-11 rounded-lg bg-forest-light flex items-center justify-center mb-4">
+                <c.icon className="text-primary" size={22} />
+              </div>
+              <h3 className="font-heading font-bold text-lg mb-2 text-foreground">{c.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{c.text}</p>
+            </div>
+          </AnimatedSection>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default PainPoints;
