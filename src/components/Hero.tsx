@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
-import heroImg from "@/assets/georgia-hero.jpg";
+import heroImg from "@/assets/georgia-hero.png";
 
 const Hero = () => {
   const scrollToForm = () => {
