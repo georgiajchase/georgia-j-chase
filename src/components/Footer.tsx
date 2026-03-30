@@ -37,7 +37,7 @@ const Footer = () => (
         {/* Contact nudge */}
         <div className="md:text-right">
           <p className="font-heading font-semibold text-sm mb-3">Have a question? Just ask.</p>
-          <p className="text-sm text-primary-foreground/70">hello@georgiajchase.com</p>
+          <p className="text-sm text-primary-foreground/70">chasegeorgiaj@gmail.com</p>
         </div>
       </div>
     </div>
