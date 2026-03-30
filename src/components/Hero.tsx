@@ -50,7 +50,7 @@ const Hero = () => {
               <div className="absolute -inset-4 bg-gold/20 rounded-2xl blur-2xl" />
               <img
                 src={heroImg}
-                alt="Georgia J. Chase — SEO Specialist"
+                alt="Georgia J. Chase, SEO Specialist"
                 className="relative rounded-2xl shadow-xl w-full object-cover"
               />
             </div>
