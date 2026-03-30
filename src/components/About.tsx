@@ -30,21 +30,21 @@ const About = () => (
           <h2 className="section-title mb-6">
             I Help Business Owners Go From Overlooked to Found
           </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Is your website not bringing in traffic or customers from Google? You're not alone. And honestly, it's usually not your fault.
-            </p>
-            <p>
-              Most websites have hidden SEO issues quietly blocking their growth. Technical errors, indexing problems, weak on-page signals, poor local visibility. These are the real reasons good businesses stay invisible online.
-            </p>
-            <p className="font-semibold text-foreground">I find those hidden problems and fix them properly.</p>
-            <p>
-              As an SEO Specialist with hands on experience across WordPress, Shopify, Wix, Webflow, and more. I've helped business owners across industries get found, get trusted, and get more paying customers from Google.
-            </p>
-            <p>
-              I don't chase shortcuts or quick fixes. I build strong SEO foundations that hold long term and keep delivering results.
-            </p>
-          </div>
+           <div className="space-y-4 text-muted-foreground leading-relaxed">
+             <p>
+               If your website isn't bringing in the traffic or customers you expected from Google, you're definitely not alone. And honestly, it's usually not your fault.
+             </p>
+             <p>
+               Most websites have hidden SEO issues that are quietly holding them back. Things like technical errors, indexing problems, weak page signals, or poor local visibility. These are the real reasons why good businesses end up staying invisible online.
+             </p>
+             <p className="font-semibold text-foreground">That's where I come in. I find those hidden problems and fix them properly.</p>
+             <p>
+               I'm an SEO Specialist with hands on experience across WordPress, Shopify, Wix, Webflow, and plenty of other platforms. I've helped business owners in all kinds of industries get found on Google, build trust with their audience, and bring in more paying customers.
+             </p>
+             <p>
+               I don't do shortcuts or quick fixes. I focus on building a strong SEO foundation that holds up over time and keeps delivering results long after the work is done.
+             </p>
+           </div>
 
           <div className="mt-8 flex flex-wrap gap-2">
             {skills.map((s) => (

@@ -34,9 +34,9 @@ const Results = () => (
         <div className="bg-background rounded-2xl p-8 text-center shadow-xl">
           <p className="text-5xl md:text-6xl font-extrabold font-heading text-primary">$19,463</p>
           <p className="text-lg font-semibold text-gold mt-1">Per Week</p>
-          <p className="text-muted-foreground mt-4 leading-relaxed text-sm">
-            One client went from struggling with invisible traffic to generating this weekly, after a full website and SEO audit uncovered the exact problems blocking their growth.
-          </p>
+           <p className="text-muted-foreground mt-4 leading-relaxed text-sm">
+             One of my clients was struggling with barely any traffic. After I ran a full website and SEO audit and fixed the problems that were holding them back, they started generating this amount every single week.
+           </p>
         </div>
       </AnimatedSection>
 

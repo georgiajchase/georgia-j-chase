@@ -6,20 +6,20 @@ const steps = [
   {
     num: "01",
     icon: ClipboardCheck,
-    title: "I Look at Your Website",
-    text: "You send me your website URL. I run a full audit and find every hidden issue quietly hurting your traffic and sales.",
+     title: "I Take a Look at Your Website",
+    text: "Just send me your website URL and I'll run a full audit to find every hidden issue that could be hurting your traffic and sales.",
   },
   {
     num: "02",
     icon: MessageSquareText,
-    title: "I Tell You Exactly What's Wrong",
-    text: "No jargon. No confusion. I explain the real problems in plain language and give you a clear action plan.",
+    title: "I Walk You Through What I Found",
+    text: "I'll explain the real problems in plain language so you know exactly what's going on and what we can do about it.",
   },
   {
     num: "03",
     icon: Rocket,
-    title: "We Fix It, and Your Website Starts Working",
-    text: "The right fixes in the right order. More visibility. More visitors. More people becoming paying customers.",
+    title: "We Fix It Together and Your Website Starts Working",
+    text: "I make the right fixes in the right order so your website gets more visibility, more visitors, and more people turning into paying customers.",
   },
 ];
 
@@ -33,7 +33,7 @@ const HowItWorks = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <p className="section-label mb-3">The Process</p>
-          <h2 className="section-title">Simple. Clear. No Guessing.</h2>
+          <h2 className="section-title">Here's How We'll Work Together</h2>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">

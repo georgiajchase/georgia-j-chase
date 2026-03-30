@@ -2,12 +2,12 @@ import { Search, MousePointerClick, LinkIcon, Smartphone, MapPin, TrendingDown }
 import AnimatedSection from "./AnimatedSection";
 
 const cards = [
-  { icon: Search, title: "Google Can't Find You", text: "Your website exists but barely shows up when people search for what you offer." },
-  { icon: MousePointerClick, title: "Visitors Come But Don't Buy", text: "People land on your site and leave without contacting you or making a purchase." },
-  { icon: LinkIcon, title: "You've Tried SEO Before With No Results", text: "You paid an agency or freelancer and still saw little to no real change." },
-  { icon: Smartphone, title: "Your Site Looks Fine But Feels Slow", text: "Speed and technical issues are silently damaging your rankings every day." },
-  { icon: MapPin, title: "Local Customers Can't Find You", text: "Nearby buyers are searching, but your business isn't showing up where it should." },
-  { icon: TrendingDown, title: "Your Competitor Is Outranking You", text: "A business you know is weaker than yours is getting the traffic and customers you deserve." },
+   { icon: Search, title: "Google Can't Find You", text: "Your website is out there, but it barely shows up when people search for what you offer." },
+  { icon: MousePointerClick, title: "Visitors Come But Don't Buy", text: "People land on your site, look around, and leave without reaching out or making a purchase." },
+  { icon: LinkIcon, title: "You've Tried SEO Before and Nothing Changed", text: "You've already paid an agency or freelancer and you're still not seeing any real difference." },
+  { icon: Smartphone, title: "Your Site Looks Good But Feels Slow", text: "Speed and technical issues you can't even see are quietly dragging down your rankings every day." },
+  { icon: MapPin, title: "Local Customers Can't Find You", text: "People nearby are actively searching for what you offer, but your business isn't showing up where it should be." },
+  { icon: TrendingDown, title: "Your Competitor Keeps Showing Up Above You", text: "A business you know isn't as strong as yours is getting the traffic and the customers that should be coming to you." },
 ];
 
 const PainPoints = () => (
@@ -15,9 +15,9 @@ const PainPoints = () => (
     <div className="container mx-auto px-4 lg:px-8">
       <AnimatedSection className="text-center mb-14">
         <p className="section-label mb-3">Does This Sound Familiar?</p>
-        <h2 className="section-title max-w-2xl mx-auto">
-          You Have a Website.<br />But It's Not Working the Way It Should.
-        </h2>
+         <h2 className="section-title max-w-2xl mx-auto">
+           You Have a Website, But It's Not Doing What It Should Be Doing.
+         </h2>
       </AnimatedSection>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

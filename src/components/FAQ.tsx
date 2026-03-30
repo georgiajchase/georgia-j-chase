@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Do I need to be technical to understand your reports?",
-    a: "Not at all. I explain everything in plain, simple English. No jargon. No confusing terms. Just clear answers.",
+    a: "Not at all. I write everything in plain, simple English so it's easy to understand. You won't need to Google any of it.",
   },
   {
     q: "What platforms do you work with?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "How do I get started?",
-    a: "Fill in the form below with your name, email, and website URL. I will take a look and get back to you within 24 hours. No pressure at all.",
+    a: "Just fill in the form below with your name, email, and website URL. I'll take a look and get back to you within 24 hours. There's absolutely no obligation.",
   },
 ];
 

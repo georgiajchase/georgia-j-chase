@@ -42,9 +42,9 @@ const LeadForm = () => {
         <AnimatedSection className="text-center mb-10">
           <p className="section-label mb-3">Get Started</p>
           <h2 className="section-title mb-4">Let's Find What's Blocking Your Website</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Send me your website. I'll take a quick look and tell you what I find. You decide what to do from there. No pressure.
-          </p>
+           <p className="text-muted-foreground leading-relaxed">
+             Just send me your website and I'll take a quick look. I'll tell you what I find, and you can decide what you'd like to do from there. It's completely up to you.
+           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.15}>
@@ -93,9 +93,9 @@ const LeadForm = () => {
                   {submitting ? "Sending..." : "Show Me What's Blocking My Website →"}
                 </Button>
               </form>
-              <p className="text-center text-xs text-muted-foreground mt-4">
-                Free. No obligation. I'll respond within 24 hours.
-              </p>
+               <p className="text-center text-xs text-muted-foreground mt-4">
+                 It's completely free and there's no obligation. I'll get back to you within 24 hours.
+               </p>
             </>
           )}
         </AnimatedSection>
