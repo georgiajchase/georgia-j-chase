@@ -2,7 +2,7 @@ import AnimatedSection from "./AnimatedSection";
 import aboutImg from "@/assets/georgia-about.png";
 
 const skills = [
-  "Technical SEO", "Local SEO", "On-Page SEO", "Ecommerce SEO",
+  "Technical SEO", "Local SEO", "On Page SEO", "Ecommerce SEO",
   "WordPress", "Shopify", "Wix", "Webflow", "Squarespace",
   "Google Search Console", "Joomla", "Drupal", "Magento 1 & 2",
   "GoDaddy", "Google Tag Manager", "Google Analytics",
@@ -19,7 +19,7 @@ const About = () => (
             <div className="absolute -inset-4 bg-gold/15 rounded-2xl blur-2xl" />
             <img
               src={aboutImg}
-              alt="Georgia J. Chase — SEO Specialist"
+              alt="Georgia J. Chase, SEO Specialist"
               className="relative rounded-2xl shadow-xl w-full object-cover"
             />
           </div>
@@ -32,14 +32,14 @@ const About = () => (
           </h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Is your website not bringing in traffic or customers from Google? You're not alone — and honestly, it's usually not your fault.
+              Is your website not bringing in traffic or customers from Google? You're not alone. And honestly, it's usually not your fault.
             </p>
             <p>
-              Most websites have hidden SEO issues quietly blocking their growth. Technical errors, indexing problems, weak on-page signals, poor local visibility — these are the real reasons good businesses stay invisible online.
+              Most websites have hidden SEO issues quietly blocking their growth. Technical errors, indexing problems, weak on-page signals, poor local visibility. These are the real reasons good businesses stay invisible online.
             </p>
             <p className="font-semibold text-foreground">I find those hidden problems and fix them properly.</p>
             <p>
-              As an SEO Specialist with hands-on experience across WordPress, Shopify, Wix, Webflow, and more — I've helped business owners across industries get found, get trusted, and get more paying customers from Google.
+              As an SEO Specialist with hands on experience across WordPress, Shopify, Wix, Webflow, and more. I've helped business owners across industries get found, get trusted, and get more paying customers from Google.
             </p>
             <p>
               I don't chase shortcuts or quick fixes. I build strong SEO foundations that hold long term and keep delivering results.

@@ -8,9 +8,9 @@ const testimonials = [
     role: "Local Service Business Owner",
   },
   {
-    quote: "I had no idea my website had so many hidden errors. The audit was eye-opening, and the results were real.",
+    quote: "I had no idea my website had so many hidden errors. The audit was eye opening, and the results were real.",
     name: "Sandra O.",
-    role: "E-commerce Store Owner",
+    role: "Ecommerce Store Owner",
   },
   {
     quote: "Finally someone who explains SEO in plain English and actually delivers results, not just reports.",
@@ -35,7 +35,7 @@ const Results = () => (
           <p className="text-5xl md:text-6xl font-extrabold font-heading text-primary">$19,463</p>
           <p className="text-lg font-semibold text-gold mt-1">Per Week</p>
           <p className="text-muted-foreground mt-4 leading-relaxed text-sm">
-            One client went from struggling with invisible traffic to generating this weekly — after a full website and SEO audit uncovered the exact problems blocking their growth.
+            One client went from struggling with invisible traffic to generating this weekly, after a full website and SEO audit uncovered the exact problems blocking their growth.
           </p>
         </div>
       </AnimatedSection>

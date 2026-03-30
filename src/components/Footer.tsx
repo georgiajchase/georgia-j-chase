@@ -44,7 +44,7 @@ const Footer = () => (
 
     <div className="border-t border-primary-foreground/10 py-4">
       <p className="text-center text-xs text-primary-foreground/50">
-        © 2025 Georgia J. Chase · SEO Specialist · All rights reserved.
+         © 2025 Georgia J. Chase · SEO Specialist · All rights reserved.
       </p>
     </div>
   </footer>

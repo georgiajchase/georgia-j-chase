@@ -9,12 +9,12 @@ const services = [
   },
   {
     icon: MapPin,
-    title: "On-Page & Local SEO",
-    text: "I optimise your pages, content, and local signals so the right people find you at the right moment — especially buyers already searching for what you offer.",
+    title: "On Page & Local SEO",
+    text: "I optimise your pages, content, and local signals so the right people find you at the right moment. Especially buyers already searching for what you offer.",
   },
   {
     icon: ShoppingCart,
-    title: "E-commerce & Conversion SEO",
+    title: "Ecommerce & Conversion SEO",
     text: "I help your online store rank higher, attract more shoppers, and fix the gaps that stop visitors from becoming buyers. More traffic that actually converts.",
   },
 ];
