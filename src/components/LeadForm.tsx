@@ -6,11 +6,34 @@ import { toast } from "sonner";
 
 const LeadForm = () => {
   const [form, setForm] = useState({ name: "", email: "", website: "" });
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thanks! I'll be in touch within 24 hours.");
-    setForm({ name: "", email: "", website: "" });
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formspree.io/f/mreyovlw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          website: form.website,
+          _replyto: form.email,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setForm({ name: "", email: "", website: "" });
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch {
+      toast.error("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -25,41 +48,56 @@ const LeadForm = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={0.15}>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              placeholder="Your name"
-              required
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="h-12 rounded-lg bg-background"
-            />
-            <Input
-              type="email"
-              placeholder="your@email.com"
-              required
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="h-12 rounded-lg bg-background"
-            />
-            <Input
-              type="url"
-              placeholder="https://yourwebsite.com"
-              required
-              value={form.website}
-              onChange={(e) => setForm({ ...form, website: e.target.value })}
-              className="h-12 rounded-lg bg-background"
-            />
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full bg-primary text-primary-foreground hover:bg-forest-dark rounded-full text-base h-12"
-            >
-              Show Me What's Blocking My Website →
-            </Button>
-          </form>
-          <p className="text-center text-xs text-muted-foreground mt-4">
-            Free. No obligation. I'll respond within 24 hours.
-          </p>
+          {submitted ? (
+            <div className="rounded-xl bg-primary p-8 text-center text-primary-foreground shadow-lg">
+              <h3 className="text-xl font-heading font-bold mb-3">Thank you!</h3>
+              <p className="leading-relaxed">
+                I have received your details and will review your website within 24 hours. Check your inbox for my reply from Georgia.
+              </p>
+            </div>
+          ) : (
+            <>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <Input
+                  placeholder="Your name"
+                  required
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className="h-12 rounded-lg bg-background"
+                  name="name"
+                />
+                <Input
+                  type="email"
+                  placeholder="your@email.com"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className="h-12 rounded-lg bg-background"
+                  name="email"
+                />
+                <Input
+                  type="url"
+                  placeholder="https://yourwebsite.com"
+                  required
+                  value={form.website}
+                  onChange={(e) => setForm({ ...form, website: e.target.value })}
+                  className="h-12 rounded-lg bg-background"
+                  name="website"
+                />
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={submitting}
+                  className="w-full bg-primary text-primary-foreground hover:bg-forest-dark rounded-full text-base h-12"
+                >
+                  {submitting ? "Sending..." : "Show Me What's Blocking My Website →"}
+                </Button>
+              </form>
+              <p className="text-center text-xs text-muted-foreground mt-4">
+                Free. No obligation. I'll respond within 24 hours.
+              </p>
+            </>
+          )}
         </AnimatedSection>
       </div>
     </section>

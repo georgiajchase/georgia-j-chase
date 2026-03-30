@@ -1,5 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
-import aboutImg from "@/assets/georgia-about.jpg";
+import aboutImg from "@/assets/georgia-about.png";
 
 const skills = [
   "Technical SEO", "Local SEO", "On-Page SEO", "Ecommerce SEO",
