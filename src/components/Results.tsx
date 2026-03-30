@@ -8,7 +8,7 @@ const testimonials = [
     role: "Local Service Business Owner",
   },
   {
-    quote: "I had no idea my website had so many hidden errors. The audit was eye-opening, and the results were real.",
+    quote: "I had no idea my website had so many hidden errors. The audit was eye opening, and the results were real.",
     name: "Sandra O.",
     role: "Ecommerce Store Owner",
   },
