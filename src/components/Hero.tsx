@@ -13,35 +13,35 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text */}
           <AnimatedSection>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-foreground">
-              Your Website Should Be{" "}
-              <span className="text-primary">Bringing You Customers.</span>
-              <br />
-              Let's Find Out Why It Isn't.
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-lg leading-relaxed">
-              Most business owners have no idea their website has hidden problems quietly blocking their traffic, sales, and growth. I find those problems, explain them in plain language, and fix them properly.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={scrollToForm}
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 text-base"
-              >
-                Show Me What's Blocking My Website
-              </Button>
-              <Button
-                onClick={scrollToForm}
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-forest-light rounded-full px-8 text-base"
-              >
-                See How It Works ↓
-              </Button>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              No pressure. No jargon. Just clarity.
-            </p>
+             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-foreground">
+               Your Website Should Be{" "}
+               <span className="text-primary">Bringing You Customers.</span>
+               <br />
+               Let Me Help You Figure Out Why It Isn't.
+             </h1>
+             <p className="mt-6 text-lg text-muted-foreground max-w-lg leading-relaxed">
+               Most business owners don't realise their website has hidden problems that are quietly blocking their traffic, sales, and growth. I'll find those problems, explain them to you in plain language, and fix them properly.
+             </p>
+             <div className="mt-8 flex flex-col sm:flex-row gap-4">
+               <Button
+                 onClick={scrollToForm}
+                 size="lg"
+                 className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 text-base"
+               >
+                 Show Me What's Blocking My Website
+               </Button>
+               <Button
+                 onClick={scrollToForm}
+                 size="lg"
+                 variant="outline"
+                 className="border-primary text-primary hover:bg-forest-light rounded-full px-8 text-base"
+               >
+                 See How It Works ↓
+               </Button>
+             </div>
+             <p className="mt-4 text-sm text-muted-foreground">
+               I keep things simple and honest, and I'll never waste your time.
+             </p>
           </AnimatedSection>
 
           {/* Photo */}
