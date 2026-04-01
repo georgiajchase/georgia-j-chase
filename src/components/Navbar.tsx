@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/georgia-logo.png";
@@ -13,16 +13,31 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  const scrollToForm = () => {
-    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+  const smoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setOpen(false);
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      // Small delay so mobile menu closes first for a cleaner feel
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+    }
+  }, []);
+
+  const scrollToForm = () => {
+    setOpen(false);
+    setTimeout(() => {
+      document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+    }, 150);
   };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         {/* Logo */}
-        <a href="#home" className="flex items-center h-16 py-1">
+        <a href="#home" onClick={(e) => smoothScroll(e, "#home")} className="flex items-center h-16 py-1">
           <img src={logo} alt="Georgia J. Chase" className="h-full w-auto object-contain" />
         </a>
 
@@ -32,6 +47,7 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
+              onClick={(e) => smoothScroll(e, l.href)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {l.label}
@@ -59,12 +75,12 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background border-b border-border px-4 pb-4 space-y-3">
+        <div className="md:hidden bg-background border-b border-border px-4 pb-4 space-y-3 animate-fade-in">
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => smoothScroll(e, l.href)}
               className="block text-sm font-medium text-muted-foreground hover:text-foreground py-2"
             >
               {l.label}
