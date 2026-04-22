@@ -34,7 +34,7 @@ const Services = () => (
         {services.map((s, i) => (
           <AnimatedSection key={s.title} delay={i * 0.1}>
             <TiltCard>
-              <div className="bg-background border border-border rounded-xl p-8 h-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+              <div className="group bg-card border border-border hover:border-primary rounded-xl p-8 h-full shadow-sm transition-all duration-300 hover:shadow-[0_0_25px_hsl(var(--primary)/0.5)]">
                 <div className="w-12 h-12 rounded-xl bg-forest-light flex items-center justify-center mb-5">
                   <s.icon className="text-primary" size={24} />
                 </div>
