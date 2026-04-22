@@ -1,5 +1,6 @@
 import { Settings, MapPin, ShoppingCart } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import TiltCard from "./TiltCard";
 
 const services = [
   {
@@ -32,16 +33,18 @@ const Services = () => (
       <div className="grid md:grid-cols-3 gap-6">
         {services.map((s, i) => (
           <AnimatedSection key={s.title} delay={i * 0.1}>
-            <div className="bg-background border border-border rounded-xl p-8 card-hover h-full">
-              <div className="w-12 h-12 rounded-xl bg-forest-light flex items-center justify-center mb-5">
-                <s.icon className="text-primary" size={24} />
+            <TiltCard>
+              <div className="bg-background border border-border rounded-xl p-8 h-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                <div className="w-12 h-12 rounded-xl bg-forest-light flex items-center justify-center mb-5">
+                  <s.icon className="text-primary" size={24} />
+                </div>
+                <h3 className="font-heading font-bold text-xl mb-3 text-foreground">{s.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{s.text}</p>
+                <a href="#lead-form" className="inline-block mt-4 text-sm font-semibold text-gold hover:underline">
+                  Learn More →
+                </a>
               </div>
-              <h3 className="font-heading font-bold text-xl mb-3 text-foreground">{s.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">{s.text}</p>
-              <a href="#lead-form" className="inline-block mt-4 text-sm font-semibold text-gold hover:underline">
-                Learn More →
-              </a>
-            </div>
+            </TiltCard>
           </AnimatedSection>
         ))}
       </div>
