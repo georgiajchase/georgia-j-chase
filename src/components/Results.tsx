@@ -1,5 +1,6 @@
 import { Quote } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import TiltCard from "./TiltCard";
 
 const testimonials = [
   {
@@ -44,12 +45,14 @@ const Results = () => (
       <div className="grid md:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
           <AnimatedSection key={t.name} delay={i * 0.1}>
-            <div className="bg-forest-dark/40 backdrop-blur rounded-xl p-6 h-full border border-primary-foreground/10">
-              <Quote className="text-gold mb-3" size={24} />
-              <p className="text-primary-foreground/90 leading-relaxed mb-4 text-sm">"{t.quote}"</p>
-              <p className="font-heading font-semibold text-sm">{t.name}</p>
-              <p className="text-primary-foreground/60 text-xs">{t.role}</p>
-            </div>
+            <TiltCard>
+              <div className="bg-forest-dark/40 backdrop-blur rounded-xl p-6 h-full border border-primary-foreground/10">
+                <Quote className="text-gold mb-3" size={24} />
+                <p className="text-primary-foreground/90 leading-relaxed mb-4 text-sm">"{t.quote}"</p>
+                <p className="font-heading font-semibold text-sm">{t.name}</p>
+                <p className="text-primary-foreground/60 text-xs">{t.role}</p>
+              </div>
+            </TiltCard>
           </AnimatedSection>
         ))}
       </div>

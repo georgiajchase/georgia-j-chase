@@ -1,5 +1,6 @@
 import { Search, MousePointerClick, LinkIcon, Smartphone, MapPin, TrendingDown } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import TiltCard from "./TiltCard";
 
 const cards = [
    { icon: Search, title: "Google Can't Find You", text: "Your website is out there, but it barely shows up when people search for what you offer." },
@@ -23,13 +24,15 @@ const PainPoints = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {cards.map((c, i) => (
           <AnimatedSection key={c.title} delay={i * 0.08}>
-            <div className="bg-background border border-border rounded-xl p-6 card-hover h-full">
-              <div className="w-11 h-11 rounded-lg bg-forest-light flex items-center justify-center mb-4">
-                <c.icon className="text-primary" size={22} />
+            <TiltCard>
+              <div className="bg-background border border-border rounded-xl p-6 h-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                <div className="w-11 h-11 rounded-lg bg-forest-light flex items-center justify-center mb-4">
+                  <c.icon className="text-primary" size={22} />
+                </div>
+                <h3 className="font-heading font-bold text-lg mb-2 text-foreground">{c.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{c.text}</p>
               </div>
-              <h3 className="font-heading font-bold text-lg mb-2 text-foreground">{c.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{c.text}</p>
-            </div>
+            </TiltCard>
           </AnimatedSection>
         ))}
       </div>
