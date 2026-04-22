@@ -66,7 +66,7 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text */}
           <AnimatedSection>
-             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-foreground md:text-warm-white">
+             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-foreground md:text-warm-white animate-float text-glow-orange">
                Your Website Should Be{" "}
                <span className="text-primary md:text-gold">Bringing You Customers.</span>
                <br />
