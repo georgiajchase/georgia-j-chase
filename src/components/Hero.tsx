@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 import heroImg from "@/assets/georgia-hero.png";
 import * as THREE from "three";
+
+const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const Hero = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
@@ -97,15 +99,13 @@ const Hero = () => {
              </p>
           </AnimatedSection>
 
-          {/* Photo */}
-          <AnimatedSection delay={0.2} className="flex justify-center">
-            <div className="relative w-full max-w-md">
-              <div className="absolute -inset-4 bg-gold/20 rounded-2xl blur-2xl" />
-              <img
-                src={heroImg}
-                alt="Georgia J. Chase, SEO Specialist"
-                className="relative rounded-2xl shadow-xl w-full object-cover"
-              />
+          {/* Spline 3D Globe - desktop only */}
+          <AnimatedSection delay={0.2} className="hidden md:flex justify-center">
+            <div className="relative animate-float" style={{ width: 500, height: 500 }}>
+              <div className="absolute -inset-4 bg-primary/20 rounded-full blur-3xl" />
+              <Suspense fallback={null}>
+                <Spline scene="https://prod.spline.design/F2KD6iBm6WMoQ7sO/scene.splinecode" />
+              </Suspense>
             </div>
           </AnimatedSection>
         </div>
