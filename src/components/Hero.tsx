@@ -79,9 +79,9 @@ const Hero = () => {
                <Button
                  onClick={scrollToForm}
                  size="lg"
-                 className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 text-base"
+                 className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 text-base animate-pulse-glow"
                >
-                 Show Me What's Blocking My Website
+                 Get Found on Google Today →
                </Button>
                <Button
                  onClick={scrollToHowItWorks}
