@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 import heroImg from "@/assets/georgia-hero.png";
 import * as THREE from "three";
+
+const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const Hero = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
