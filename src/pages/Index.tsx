@@ -4,6 +4,7 @@ import TrustBar from "@/components/TrustBar";
 import PainPoints from "@/components/PainPoints";
 import HowItWorks from "@/components/HowItWorks";
 import Results from "@/components/Results";
+import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
@@ -18,7 +19,8 @@ const Index = () => (
     <TrustBar />
     <PainPoints />
     <HowItWorks />
-    <Results />
+      <Results />
+      <Stats />
     <Services />
     <About />
     <FAQ />
