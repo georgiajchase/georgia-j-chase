@@ -1,61 +1,89 @@
 import { useState, useCallback } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/georgia-logo.png";
 
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
-  { label: "About", href: "#about" },
+type NavLink =
+  | { label: string; type: "anchor"; href: string }
+  | { label: string; type: "route"; to: string };
+
+const navLinks: NavLink[] = [
+  { label: "Home", type: "anchor", href: "#home" },
+  { label: "Services", type: "anchor", href: "#services" },
+  { label: "Case Studies", type: "route", to: "/case-studies" },
+  { label: "Blog", type: "route", to: "/blog" },
+  { label: "Contact", type: "anchor", href: "#lead-form" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const smoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const goToAnchor = useCallback(
+    (href: string) => {
+      const id = href.replace("#", "");
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 250);
+      } else {
+        setTimeout(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 150);
+      }
+    },
+    [location.pathname, navigate]
+  );
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setOpen(false);
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      // Small delay so mobile menu closes first for a cleaner feel
-      setTimeout(() => {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 150);
-    }
-  }, []);
+    goToAnchor(href);
+  };
 
   const scrollToForm = () => {
     setOpen(false);
-    setTimeout(() => {
-      document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
-    }, 150);
+    goToAnchor("#lead-form");
+  };
+
+  const renderLink = (l: NavLink, mobile = false) => {
+    const baseClass = mobile
+      ? "block text-sm font-medium text-muted-foreground hover:text-foreground py-2"
+      : "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors";
+
+    if (l.type === "route") {
+      return (
+        <Link key={l.label} to={l.to} onClick={() => setOpen(false)} className={baseClass}>
+          {l.label}
+        </Link>
+      );
+    }
+    return (
+      <a
+        key={l.label}
+        href={l.href}
+        onClick={(e) => handleAnchorClick(e, l.href)}
+        className={baseClass}
+      >
+        {l.label}
+      </a>
+    );
   };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/40 backdrop-blur-xl backdrop-saturate-150 border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.2)]">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-        {/* Logo */}
-        <a href="#home" onClick={(e) => smoothScroll(e, "#home")} className="flex items-center h-16 py-1">
+        <Link to="/" onClick={() => setOpen(false)} className="flex items-center h-16 py-1">
           <img src={logo} alt="Georgia J. Chase" className="h-full w-auto object-contain" />
-        </a>
+        </Link>
 
-        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={(e) => smoothScroll(e, l.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) => renderLink(l))}
         </div>
 
-        {/* Desktop CTA */}
         <Button
           onClick={scrollToForm}
           className="hidden md:inline-flex bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-6"
@@ -63,7 +91,6 @@ const Navbar = () => {
           Get Free Website Check
         </Button>
 
-        {/* Mobile hamburger */}
         <button
           className="md:hidden p-2 text-foreground"
           onClick={() => setOpen(!open)}
@@ -73,19 +100,9 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-background/40 backdrop-blur-xl backdrop-saturate-150 border-b border-white/10 px-4 pb-4 space-y-3 animate-fade-in">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={(e) => smoothScroll(e, l.href)}
-              className="block text-sm font-medium text-muted-foreground hover:text-foreground py-2"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) => renderLink(l, true))}
           <Button
             onClick={scrollToForm}
             className="w-full bg-primary text-primary-foreground hover:bg-forest-dark rounded-full"
