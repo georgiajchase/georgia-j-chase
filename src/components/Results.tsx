@@ -35,15 +35,15 @@ const Results = () => (
     <div className="container mx-auto px-4 lg:px-8">
       <AnimatedSection className="text-center mb-14">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3">Real Results</p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading leading-tight">
-          Here's What Happens When<br />We Fix the Foundation
+        <h2 className="section-title leading-tight">
+          Here's What Happens When<br className="hidden sm:inline" />{" "}We Fix the Foundation
         </h2>
       </AnimatedSection>
 
       {/* Big result card */}
       <AnimatedSection className="max-w-lg mx-auto mb-14">
-        <div className="bg-background rounded-2xl p-8 text-center shadow-xl">
-          <p className="text-5xl md:text-6xl font-extrabold font-heading text-primary">$19,463</p>
+        <div className="bg-background rounded-2xl p-6 sm:p-8 text-center shadow-xl">
+          <p className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-heading text-primary break-words">$19,463</p>
           <p className="text-lg font-semibold text-gold mt-1">Per Week</p>
           <p className="text-muted-foreground mt-4 leading-relaxed text-sm">
             One of my clients was struggling with barely any traffic. After I ran a full website and SEO audit and fixed the problems that were holding them back, they started generating this amount every single week.

@@ -74,9 +74,9 @@ const Pricing = () => {
             <AnimatedSection key={tier.name} delay={i * 0.1} className="h-full">
               <TiltCard>
                 <div
-                  className={`relative h-full rounded-2xl p-8 flex flex-col transition-all duration-300 ${
+                  className={`relative h-full rounded-2xl p-6 sm:p-8 flex flex-col transition-all duration-300 ${
                     tier.highlighted
-                      ? "bg-card border-2 border-primary shadow-[0_0_40px_hsl(var(--primary)/0.4)] md:scale-105"
+                      ? "bg-card border-2 border-primary shadow-[0_0_40px_hsl(var(--primary)/0.4)] lg:scale-105"
                       : "bg-card border border-border hover:border-primary/50"
                   }`}
                 >
