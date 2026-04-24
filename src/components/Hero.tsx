@@ -1,16 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { useIsMobile } from "@/hooks/use-mobile";
-import heroImg from "@/assets/georgia-hero.png";
-import * as THREE from "three";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const Hero = () => {
-  const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
-  const isMobile = useIsMobile();
+  const splineWrapRef = useRef<HTMLDivElement>(null);
+  const [showSpline, setShowSpline] = useState(false);
 
   const scrollToForm = () => {
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
@@ -20,48 +16,39 @@ const Hero = () => {
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Defer Spline globe until the hero is visible AND page has loaded
   useEffect(() => {
-    if (isMobile) {
-      if (vantaEffect) {
-        vantaEffect.destroy();
-        setVantaEffect(null);
-      }
-      return;
-    }
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(max-width: 767px)").matches) return;
 
-    if (!vantaEffect && vantaRef.current) {
-      import("vanta/dist/vanta.globe.min").then((GLOBE: any) => {
-        const effect = (GLOBE.default || GLOBE)({
-          el: vantaRef.current,
-          THREE,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          color: 0xff7a1a,
-          color2: 0xff7a1a,
-          backgroundColor: 0x0a1a2f,
-          size: 1.0,
-        });
-        setVantaEffect(effect);
-      });
-    }
-
-    return () => {
-      if (vantaEffect) {
-        vantaEffect.destroy();
-      }
+    const start = () => {
+      const el = splineWrapRef.current;
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setShowSpline(true);
+              observer.disconnect();
+            }
+          });
+        },
+        { rootMargin: "200px" }
+      );
+      observer.observe(el);
+      return () => observer.disconnect();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile]);
+
+    if (document.readyState === "complete") {
+      return start();
+    }
+    window.addEventListener("load", start, { once: true });
+    return () => window.removeEventListener("load", start);
+  }, []);
 
   return (
     <section
       id="home"
-      ref={vantaRef}
       className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-background overflow-hidden"
     >
       <div className="container relative z-10 mx-auto px-4 lg:px-8">
@@ -99,13 +86,19 @@ const Hero = () => {
              </p>
           </AnimatedSection>
 
-          {/* Spline 3D Globe - desktop only */}
+          {/* Spline 3D Globe - desktop only, lazy via IntersectionObserver */}
           <AnimatedSection delay={0.2} className="hidden md:flex justify-center">
-            <div className="relative animate-float" style={{ width: 500, height: 500 }}>
+            <div
+              ref={splineWrapRef}
+              className="relative animate-float"
+              style={{ width: 500, height: 500 }}
+            >
               <div className="absolute -inset-4 bg-primary/20 rounded-full blur-3xl" />
-              <Suspense fallback={null}>
-                <Spline scene="https://prod.spline.design/F2KD6iBm6WMoQ7sO/scene.splinecode" />
-              </Suspense>
+              {showSpline && (
+                <Suspense fallback={null}>
+                  <Spline scene="https://prod.spline.design/F2KD6iBm6WMoQ7sO/scene.splinecode" />
+                </Suspense>
+              )}
             </div>
           </AnimatedSection>
         </div>
