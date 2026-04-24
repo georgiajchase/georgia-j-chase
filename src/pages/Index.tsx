@@ -9,9 +9,8 @@ import Services from "@/components/Services";
 import Pricing from "@/components/Pricing";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
-import LeadForm from "@/components/LeadForm";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
@@ -20,15 +19,14 @@ const Index = () => (
     <TrustBar />
     <PainPoints />
     <HowItWorks />
-      <Results />
-      <Stats />
-      <Services />
-      <Pricing />
+    <Results />
+    <Stats />
+    <Services />
+    <Pricing />
     <About />
     <FAQ />
-    <LeadForm />
+    <ContactSection />
     <Footer />
-    <WhatsAppButton />
   </div>
 );
 
