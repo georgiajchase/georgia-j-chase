@@ -55,7 +55,7 @@ const HowItWorks = () => {
           <Button
             onClick={scrollToForm}
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8"
+            className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8"
           >
             Get My Free Website Check →
           </Button>

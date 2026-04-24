@@ -38,7 +38,7 @@ const LeadForm = () => {
 
   return (
     <section id="lead-form" className="py-20 bg-forest-light">
-      <div className="container mx-auto px-4 max-w-xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-xl">
         <AnimatedSection className="text-center mb-10">
           <p className="section-label mb-3">Get Started</p>
           <h2 className="section-title mb-4">Let's Find What's Blocking Your Website</h2>
