@@ -11,11 +11,12 @@ const tiers = [
     price: "997",
     description: "Perfect for small businesses ready to fix the foundation and get found locally.",
     features: [
-      "Full Technical SEO Audit",
-      "On Page Optimization",
-      "Local SEO Setup",
-      "Monthly Performance Report",
-      "Email Support",
+      "Up to 10 Pages Optimized",
+      "Keyword Research & Strategy",
+      "Monthly SEO Health Report",
+      "Google Analytics Setup",
+      "Email Support (48hr response)",
+      "Monthly Ranking Update",
     ],
     highlighted: false,
     cta: "Start with Starter",
@@ -26,11 +27,12 @@ const tiers = [
     description: "For growing businesses ready to outrank competitors and drive real revenue.",
     features: [
       "Everything in Starter",
-      "Advanced Keyword Strategy",
-      "Content Optimization (8 pages)",
-      "Backlink Building",
-      "Conversion Rate Optimization",
-      "Priority Support",
+      "Up to 30 Pages Optimized",
+      "Link Building Campaign",
+      "Bi Weekly Ranking Reports",
+      "Competitor Analysis",
+      "Priority Email Support (24hr response)",
+      "Dedicated Slack Channel",
     ],
     highlighted: true,
     cta: "Choose Growth",
@@ -45,7 +47,8 @@ const tiers = [
       "Unlimited Page Optimization",
       "Custom Analytics Dashboard",
       "Dedicated SEO Strategist",
-      "Weekly Strategy Calls",
+      "Weekly Performance Reports",
+      "Monthly Competitor Deep Dive Report",
     ],
     highlighted: false,
     cta: "Go Enterprise",
@@ -137,7 +140,7 @@ const Pricing = () => {
 
         <AnimatedSection className="text-center mt-10">
           <p className="text-sm text-muted-foreground">
-            Not sure which plan fits? Send me your website and I'll recommend the right one for you.
+            Not sure which plan fits? Send me your website URL and I will personally analyze it and recommend the best plan for your business.
           </p>
         </AnimatedSection>
       </div>
