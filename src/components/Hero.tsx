@@ -9,7 +9,7 @@ const Hero = () => {
   const [showSpline, setShowSpline] = useState(false);
 
   const scrollToForm = () => {
-    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToHowItWorks = () => {

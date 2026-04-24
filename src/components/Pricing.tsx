@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 import TiltCard from "./TiltCard";
-import PricingInquiryDialog from "./PricingInquiryDialog";
 
 const tiers = [
   {
@@ -56,8 +54,9 @@ const tiers = [
 ];
 
 const Pricing = () => {
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-  const openInquiry = (plan: string) => setSelectedPlan(plan);
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section id="pricing" className="py-20 bg-background">
@@ -122,7 +121,7 @@ const Pricing = () => {
                   </ul>
 
                   <Button
-                    onClick={() => openInquiry(tier.name)}
+                    onClick={scrollToContact}
                     size="lg"
                     className={`w-full rounded-full ${
                       tier.highlighted
@@ -144,12 +143,6 @@ const Pricing = () => {
           </p>
         </AnimatedSection>
       </div>
-
-      <PricingInquiryDialog
-        open={selectedPlan !== null}
-        onOpenChange={(o) => !o && setSelectedPlan(null)}
-        planName={selectedPlan ?? ""}
-      />
     </section>
   );
 };
