@@ -13,7 +13,7 @@ const navLinks: NavLink[] = [
   { label: "Services", type: "anchor", href: "#services" },
   { label: "Case Studies", type: "route", to: "/case-studies" },
   { label: "Blog", type: "route", to: "/blog" },
-  { label: "Contact", type: "anchor", href: "#lead-form" },
+  { label: "Contact", type: "anchor", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -46,7 +46,7 @@ const Navbar = () => {
 
   const scrollToForm = () => {
     setOpen(false);
-    goToAnchor("#lead-form");
+    goToAnchor("#contact");
   };
 
   const renderLink = (l: NavLink, mobile = false) => {

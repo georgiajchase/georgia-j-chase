@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
 
@@ -70,6 +71,7 @@ const Blog = () => (
         </div>
       </div>
     </main>
+    <ContactSection />
     <Footer />
   </div>
 );

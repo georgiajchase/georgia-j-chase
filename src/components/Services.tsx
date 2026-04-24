@@ -40,7 +40,7 @@ const Services = () => (
                 </div>
                 <h3 className="font-heading font-bold text-xl mb-3 text-foreground">{s.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">{s.text}</p>
-                <a href="#lead-form" className="inline-block mt-4 text-sm font-semibold text-gold hover:underline">
+                <a href="#contact" className="inline-block mt-4 text-sm font-semibold text-gold hover:underline">
                   Learn More →
                 </a>
               </div>

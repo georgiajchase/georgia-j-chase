@@ -3,7 +3,7 @@ const links = [
   { label: "Services", href: "#services" },
   { label: "Results", href: "#results" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "#lead-form" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Footer = () => (
