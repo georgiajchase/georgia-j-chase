@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/georgia-logo.png";
+import logo from "@/assets/georgia-logo.webp";
 
 type NavLink =
   | { label: string; type: "anchor"; href: string }
@@ -77,7 +77,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/40 backdrop-blur-xl backdrop-saturate-150 border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.2)]">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         <Link to="/" onClick={() => setOpen(false)} className="flex items-center h-16 py-1">
-          <img src={logo} alt="Georgia J. Chase" className="h-full w-auto object-contain" />
+          <img src={logo} alt="Georgia J. Chase" width="160" height="56" className="h-full w-auto object-contain" decoding="async" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

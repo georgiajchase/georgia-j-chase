@@ -1,5 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
-import aboutImg from "@/assets/georgia-about.png";
+import aboutImg from "@/assets/georgia-about.webp";
 
 const skills = [
   "Technical SEO", "Local SEO", "On Page SEO", "Ecommerce SEO",
@@ -20,6 +20,10 @@ const About = () => (
             <img
               src={aboutImg}
               alt="Georgia J. Chase, SEO Specialist"
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
               className="relative rounded-2xl shadow-xl w-full object-cover"
             />
           </div>
