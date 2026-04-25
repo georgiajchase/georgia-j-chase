@@ -1,8 +1,34 @@
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 import HeroGlobe from "./HeroGlobe";
+import HeroParticles from "./HeroParticles";
 
 const Hero = () => {
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = parallaxRef.current;
+    if (!el) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    let raf = 0;
+    const update = () => {
+      const y = window.scrollY;
+      el.style.transform = `translate3d(0, ${y * 0.25}px, 0)`;
+      raf = 0;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   const scrollToForm = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -16,14 +42,17 @@ const Hero = () => {
       id="home"
       className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-background overflow-hidden"
     >
-      {/* Premium SVG wireframe globe — desktop only */}
-      <div aria-hidden="true" className="hidden md:block">
-        <HeroGlobe />
+      {/* Parallax background layer (grid + globe) */}
+      <div ref={parallaxRef} className="absolute inset-0 will-change-transform" aria-hidden="true">
+        <div className="hidden md:block">
+          <HeroGlobe />
+        </div>
+        <HeroParticles />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <AnimatedSection>
+          <AnimatedSection className="animate-float-soft">
             <div className="text-center md:text-left">
               <h1 className="fluid-h1 font-extrabold leading-tight text-foreground md:text-warm-white text-glow-orange">
                 Your Website Should Be{" "}
