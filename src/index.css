@@ -262,5 +262,23 @@ html {
 .hero-globe-meridians {
   transform-origin: 0 0;
   transform-box: fill-box;
-  animation: hero-globe-meridian-spin 18s linear infinite;
+  animation: hero-globe-meridian-spin 22s linear infinite;
+}
+
+/* Floating particle pulse on the wireframe surface */
+@keyframes hero-particle-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+.hero-globe-particle {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: hero-particle-pulse 3.2s ease-in-out infinite;
 }
