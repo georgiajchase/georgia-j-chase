@@ -198,12 +198,19 @@ html {
   50% { transform: translate(-50%, -52%) scale(1.02); }
 }
 
+.hero-globe-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .hero-globe {
   position: absolute;
   top: 50%;
-  left: 50%;
-  width: min(90vw, 720px);
-  height: min(90vw, 720px);
+  left: 75%;
+  width: min(60vw, 620px);
+  height: min(60vw, 620px);
   border-radius: 9999px;
   transform: translate(-50%, -50%);
   background:
@@ -244,9 +251,9 @@ html {
 .hero-globe-glow {
   position: absolute;
   top: 50%;
-  left: 50%;
-  width: min(110vw, 900px);
-  height: min(110vw, 900px);
+  left: 75%;
+  width: min(80vw, 800px);
+  height: min(80vw, 800px);
   transform: translate(-50%, -50%);
   border-radius: 9999px;
   background: radial-gradient(circle, hsl(var(--primary) / 0.25) 0%, transparent 60%);
