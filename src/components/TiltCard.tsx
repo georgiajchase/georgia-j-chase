@@ -40,14 +40,28 @@ const TiltCard = ({
     if (frame.current) cancelAnimationFrame(frame.current);
     el.style.transform =
       "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+    el.style.boxShadow = "";
+  };
+
+  const handleEnter = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.boxShadow =
+      "0 20px 40px -12px hsl(25 95% 53% / 0.35), 0 0 24px hsl(25 95% 53% / 0.25)";
   };
 
   return (
     <div
       ref={ref}
+      onMouseEnter={handleEnter}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      style={{ transition: "transform 250ms ease-out", transformStyle: "preserve-3d", willChange: "transform" }}
+      style={{
+        transition: "transform 250ms ease-out, box-shadow 300ms ease-out",
+        transformStyle: "preserve-3d",
+        willChange: "transform",
+        borderRadius: "0.75rem",
+      }}
       className={cn("h-full", className)}
     >
       {children}
@@ -56,3 +70,4 @@ const TiltCard = ({
 };
 
 export default TiltCard;
+
