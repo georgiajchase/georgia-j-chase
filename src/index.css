@@ -186,3 +186,70 @@ html {
 .animate-pulse-glow {
   animation: pulse-glow 2.2s ease-in-out infinite;
 }
+
+/* Animated CSS globe background */
+@keyframes globe-spin {
+  from { background-position: 0 0; }
+  to { background-position: 200% 0; }
+}
+
+@keyframes globe-float {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -52%) scale(1.02); }
+}
+
+.hero-globe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(90vw, 720px);
+  height: min(90vw, 720px);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.55), transparent 55%),
+    radial-gradient(circle at 70% 70%, hsl(var(--primary) / 0.35), transparent 60%),
+    repeating-linear-gradient(
+      90deg,
+      hsl(var(--primary) / 0.18) 0 1px,
+      transparent 1px 40px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      hsl(var(--primary) / 0.18) 0 1px,
+      transparent 1px 40px
+    ),
+    radial-gradient(circle at 50% 50%, hsl(222 50% 12%) 0%, hsl(222 65% 6%) 70%);
+  background-size: 200% 100%, 200% 100%, 200% 100%, 100% 100%, 100% 100%;
+  box-shadow:
+    inset 0 0 80px hsl(var(--primary) / 0.35),
+    inset -40px -40px 120px hsl(222 65% 4%),
+    0 0 120px hsl(var(--primary) / 0.35);
+  animation: globe-spin 30s linear infinite, globe-float 8s ease-in-out infinite;
+  opacity: 0.55;
+  filter: blur(0.3px);
+  pointer-events: none;
+  will-change: background-position, transform;
+}
+
+.hero-globe::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, hsl(0 0% 100% / 0.12), transparent 45%);
+  pointer-events: none;
+}
+
+.hero-globe-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(110vw, 900px);
+  height: min(110vw, 900px);
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: radial-gradient(circle, hsl(var(--primary) / 0.25) 0%, transparent 60%);
+  filter: blur(40px);
+  pointer-events: none;
+}

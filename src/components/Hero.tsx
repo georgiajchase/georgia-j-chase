@@ -15,6 +15,10 @@ const Hero = () => {
       id="home"
       className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-background overflow-hidden"
     >
+      {/* Animated globe background */}
+      <div aria-hidden="true" className="hero-globe-glow" />
+      <div aria-hidden="true" className="hero-globe" />
+
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection>
