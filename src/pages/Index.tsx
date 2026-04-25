@@ -11,23 +11,35 @@ import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
     <Navbar />
     <Hero />
+    <SectionDivider />
     <TrustBar />
+    <SectionDivider />
     <PainPoints />
+    <SectionDivider />
     <HowItWorks />
+    <SectionDivider />
     <Results />
+    <SectionDivider />
     <Stats />
+    <SectionDivider />
     <Services />
+    <SectionDivider />
     <Pricing />
+    <SectionDivider />
     <About />
+    <SectionDivider />
     <FAQ />
+    <SectionDivider />
     <ContactSection />
     <Footer />
   </div>
 );
 
 export default Index;
+
