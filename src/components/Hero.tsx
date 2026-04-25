@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
+import HeroGlobe from "./HeroGlobe";
 
 const Hero = () => {
   const scrollToForm = () => {
@@ -15,10 +16,9 @@ const Hero = () => {
       id="home"
       className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-background overflow-hidden"
     >
-      {/* Decorative globe background — right side on desktop, hidden on mobile */}
-      <div aria-hidden="true" className="hero-globe-wrapper hidden md:block">
-        <div className="hero-globe-glow" />
-        <div className="hero-globe" />
+      {/* Premium SVG wireframe globe — desktop only */}
+      <div aria-hidden="true" className="hidden md:block">
+        <HeroGlobe />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
