@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 import HeroGlobe from "./HeroGlobe";
 import HeroParticles from "./HeroParticles";
+import VantaGlobeBackground from "./VantaGlobeBackground";
 
 const Hero = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -42,9 +43,12 @@ const Hero = () => {
       id="home"
       className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-background overflow-hidden"
     >
+      {/* Vanta animated globe (desktop only) */}
+      <VantaGlobeBackground />
+
       {/* Parallax background layer (grid + globe) */}
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform" aria-hidden="true">
-        <div className="hidden md:block">
+        <div className="hidden md:block opacity-40 mix-blend-screen">
           <HeroGlobe />
         </div>
         <HeroParticles />
