@@ -28,7 +28,7 @@ const VantaGlobeBackground = () => {
 
     (async () => {
       const THREE = await import("three");
-      // @ts-expect-error - vanta has no bundled types
+      // @ts-ignore - vanta has no bundled types
       const GLOBE = (await import("vanta/dist/vanta.globe.min")).default;
       if (cancelled || !containerRef.current) return;
 
