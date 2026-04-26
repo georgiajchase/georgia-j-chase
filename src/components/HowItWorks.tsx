@@ -29,7 +29,7 @@ const HowItWorks = () => {
   };
 
   return (
-    <section id="how-it-works" className="py-20 bg-forest-light">
+    <section id="how-it-works" className="py-20 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <p className="section-label mb-3">The Process</p>
@@ -42,7 +42,7 @@ const HowItWorks = () => {
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground font-heading font-bold text-lg mb-4">
                 {s.num}
               </div>
-              <div className="w-12 h-12 mx-auto rounded-xl bg-background flex items-center justify-center mb-4 shadow-sm">
+              <div className="w-12 h-12 mx-auto rounded-xl bg-card border border-border flex items-center justify-center mb-4 shadow-sm">
                 <s.icon className="text-primary" size={24} />
               </div>
               <h3 className="font-heading font-bold text-xl mb-3 text-foreground">{s.title}</h3>
