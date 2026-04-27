@@ -129,7 +129,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="relative py-20 bg-background overflow-hidden">
+    <section id="contact" className="relative py-14 sm:py-20 bg-background overflow-hidden">
       {/* Ambient orange glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-primary/15 rounded-full blur-3xl" />

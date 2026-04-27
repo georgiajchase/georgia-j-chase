@@ -29,8 +29,8 @@ const HowItWorks = () => {
   };
 
   return (
-    <section id="how-it-works" className="py-20 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="how-it-works" className="py-14 sm:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <p className="section-label mb-3">The Process</p>
           <h2 className="section-title">Here's How We'll Work Together</h2>
