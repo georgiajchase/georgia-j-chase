@@ -33,7 +33,7 @@ const ServicesPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-16 bg-background overflow-hidden">
+      <section className="relative pt-28 pb-12 sm:pt-32 sm:pb-16 bg-background overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
