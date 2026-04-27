@@ -70,7 +70,7 @@ const ServicesPage = () => {
         return (
           <div key={service.slug}>
             <SectionDivider />
-            <section id={service.slug} className="py-20 bg-background scroll-mt-24">
+            <section id={service.slug} className="py-14 sm:py-20 bg-background scroll-mt-24">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
                   {/* Left: description */}
