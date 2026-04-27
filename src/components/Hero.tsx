@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
-import HeroGlobe from "./HeroGlobe";
 import HeroParticles from "./HeroParticles";
 import VantaGlobeBackground from "./VantaGlobeBackground";
 
@@ -46,11 +45,8 @@ const Hero = () => {
       {/* Vanta animated globe (desktop only) */}
       <VantaGlobeBackground />
 
-      {/* Parallax background layer (grid + globe) */}
+      {/* Parallax background layer (particles only; Vanta handles the globe) */}
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform" aria-hidden="true">
-        <div className="hidden md:block opacity-40 mix-blend-screen">
-          <HeroGlobe />
-        </div>
         <HeroParticles />
       </div>
 

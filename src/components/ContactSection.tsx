@@ -36,7 +36,6 @@ const planSchema = z.object({
   plan: z.enum(["Starter", "Growth", "Enterprise"]),
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
-  phone: z.string().trim().min(5, "Phone is required").max(30),
   website: z.string().trim().url("Invalid URL").max(255).or(z.literal("")),
 });
 
@@ -60,7 +59,6 @@ const ContactSection = () => {
     plan: "" as "" | "Starter" | "Growth" | "Enterprise",
     name: "",
     email: "",
-    phone: "",
     website: "",
   });
   const [planSent, setPlanSent] = useState(false);
@@ -119,7 +117,7 @@ const ContactSection = () => {
       });
       if (res.ok) {
         setPlanSent(true);
-        setPlanForm({ plan: "", name: "", email: "", phone: "", website: "" });
+        setPlanForm({ plan: "", name: "", email: "", website: "" });
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -340,15 +338,6 @@ const ContactSection = () => {
                     maxLength={255}
                     value={planForm.email}
                     onChange={(e) => setPlanForm({ ...planForm, email: e.target.value })}
-                    className="h-11 rounded-lg bg-background/60 border-white/10"
-                  />
-                  <Input
-                    type="tel"
-                    placeholder="Phone number"
-                    required
-                    maxLength={30}
-                    value={planForm.phone}
-                    onChange={(e) => setPlanForm({ ...planForm, phone: e.target.value })}
                     className="h-11 rounded-lg bg-background/60 border-white/10"
                   />
                   <Input
