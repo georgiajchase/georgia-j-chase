@@ -104,7 +104,7 @@ const ServicesPage = () => {
                     <Button
                       onClick={scrollToContact}
                       size="lg"
-                      className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 animate-pulse-glow"
+                      className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 animate-pulse-glow"
                     >
                       Get Started <ArrowRight className="ml-2" size={18} />
                     </Button>
