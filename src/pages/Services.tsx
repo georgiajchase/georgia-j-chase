@@ -15,6 +15,19 @@ const scrollToContact = () => {
 };
 
 const ServicesPage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    } else {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [location.hash, location.pathname]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
