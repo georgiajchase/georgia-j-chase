@@ -1,24 +1,8 @@
-import { Settings, MapPin, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import TiltCard from "./TiltCard";
-
-const services = [
-  {
-    icon: Settings,
-    title: "Technical SEO Audit",
-    text: "I'll dig into the hidden technical errors, crawl issues, and indexing problems that are stopping Google from finding and ranking your website. This is the foundation that everything else depends on.",
-  },
-  {
-    icon: MapPin,
-    title: "On Page & Local SEO",
-    text: "I'll optimise your pages, content, and local signals so that the right people can find you at exactly the right moment, especially the ones who are already looking for what you offer.",
-  },
-  {
-    icon: ShoppingCart,
-    title: "Ecommerce & Conversion SEO",
-    text: "I'll help your online store rank higher, bring in more shoppers, and close the gaps that stop visitors from actually buying. The goal is more traffic that turns into real revenue.",
-  },
-];
+import { services } from "@/data/services";
 
 const Services = () => (
   <section id="services" className="py-20 bg-background">
@@ -30,23 +14,42 @@ const Services = () => (
         </h2>
       </AnimatedSection>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {services.map((s, i) => (
-          <AnimatedSection key={s.title} delay={i * 0.1}>
-            <TiltCard>
-              <div className="group bg-card border border-border hover:border-primary rounded-xl p-8 h-full shadow-sm transition-all duration-300 hover:shadow-[0_0_25px_hsl(var(--primary)/0.5)]">
-                <div className="w-12 h-12 rounded-xl bg-forest-light flex items-center justify-center mb-5">
-                  <s.icon className="text-primary" size={24} />
-                </div>
-                <h3 className="font-heading font-bold text-xl mb-3 text-foreground">{s.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{s.text}</p>
-                <a href="#contact" className="inline-block mt-4 text-sm font-semibold text-gold hover:underline">
-                  Learn More →
-                </a>
-              </div>
-            </TiltCard>
-          </AnimatedSection>
-        ))}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((s, i) => {
+          const Icon = s.icon;
+          return (
+            <AnimatedSection key={s.slug} delay={i * 0.08}>
+              <TiltCard>
+                <Link
+                  to={`/services#${s.slug}`}
+                  className="group block bg-card border border-border hover:border-primary rounded-xl p-8 h-full shadow-sm transition-all duration-300 hover:shadow-[0_0_25px_hsl(var(--primary)/0.5)]"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-forest-light flex items-center justify-center mb-5">
+                    <Icon className="text-primary" size={24} />
+                  </div>
+                  <h3 className="font-heading font-bold text-xl mb-3 text-foreground">
+                    {s.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm mb-4">
+                    {s.tagline}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                    Learn More <ArrowRight size={14} />
+                  </span>
+                </Link>
+              </TiltCard>
+            </AnimatedSection>
+          );
+        })}
+      </div>
+
+      <div className="mt-12 text-center">
+        <Link
+          to="/services"
+          className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-forest-dark transition-colors animate-pulse-glow"
+        >
+          See All Services <ArrowRight size={18} />
+        </Link>
       </div>
     </div>
   </section>
