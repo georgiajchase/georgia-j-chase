@@ -42,12 +42,11 @@ const VantaGlobeBackground = () => {
         minWidth: 200.0,
         scale: 1.0,
         scaleMobile: 1.0,
-        // Dark navy backdrop
-        backgroundColor: 0x0a1024,
-        // Orange points + accent
-        color: 0xf57316,
-        color2: 0xff9447,
+        backgroundColor: 0x050a18,
+        color: 0xf97316,
+        color2: 0xf97316,
         size: 1.0,
+        offsetX: 0.5,
       });
     })();
 
