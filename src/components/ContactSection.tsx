@@ -36,7 +36,6 @@ const planSchema = z.object({
   plan: z.enum(["Starter", "Growth", "Enterprise"]),
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
-  phone: z.string().trim().min(5, "Phone is required").max(30),
   website: z.string().trim().url("Invalid URL").max(255).or(z.literal("")),
 });
 
