@@ -12,8 +12,8 @@ const cards = [
 ];
 
 const PainPoints = () => (
-  <section className="py-20 bg-background">
-    <div className="container mx-auto px-4 lg:px-8">
+  <section className="py-14 sm:py-20 bg-background">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedSection className="text-center mb-14">
         <p className="section-label mb-3">Does This Sound Familiar?</p>
          <h2 className="section-title max-w-2xl mx-auto">

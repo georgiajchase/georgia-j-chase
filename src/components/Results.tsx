@@ -31,8 +31,8 @@ const getInitials = (name: string) =>
     .toUpperCase();
 
 const Results = () => (
-  <section id="results" className="py-20 bg-background text-foreground">
-    <div className="container mx-auto px-4 lg:px-8">
+  <section id="results" className="py-14 sm:py-20 bg-background text-foreground">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedSection className="text-center mb-14">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-3">Real Results</p>
         <h2 className="section-title leading-tight">

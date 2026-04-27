@@ -11,8 +11,8 @@ const skills = [
 ];
 
 const About = () => (
-  <section id="about" className="py-20 bg-background">
-    <div className="container mx-auto px-4 lg:px-8">
+  <section id="about" className="py-14 sm:py-20 bg-background">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <AnimatedSection className="flex justify-center">
           <div className="relative w-full max-w-md">

@@ -5,8 +5,8 @@ import TiltCard from "./TiltCard";
 import { services } from "@/data/services";
 
 const Services = () => (
-  <section id="services" className="py-20 bg-background">
-    <div className="container mx-auto px-4 lg:px-8">
+  <section id="services" className="py-14 sm:py-20 bg-background">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedSection className="text-center mb-14">
         <p className="section-label mb-3">What I Do</p>
         <h2 className="section-title max-w-xl mx-auto">
@@ -46,7 +46,7 @@ const Services = () => (
       <div className="mt-12 text-center">
         <Link
           to="/services"
-          className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-forest-dark transition-colors animate-pulse-glow"
+          className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-forest-dark transition-colors animate-pulse-glow"
         >
           See All Services <ArrowRight size={18} />
         </Link>

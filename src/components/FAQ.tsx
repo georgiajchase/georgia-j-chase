@@ -34,7 +34,7 @@ const faqs = [
 ];
 
 const FAQ = () => (
-  <section id="faq" className="py-20 bg-background">
+  <section id="faq" className="py-14 sm:py-20 bg-background">
     <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
       <AnimatedSection className="text-center mb-10">
         <p className="section-label mb-3">Common Questions</p>

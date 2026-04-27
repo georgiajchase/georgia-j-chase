@@ -33,7 +33,7 @@ const ServicesPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-16 bg-background overflow-hidden">
+      <section className="relative pt-28 pb-12 sm:pt-32 sm:pb-16 bg-background overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -70,7 +70,7 @@ const ServicesPage = () => {
         return (
           <div key={service.slug}>
             <SectionDivider />
-            <section id={service.slug} className="py-20 bg-background scroll-mt-24">
+            <section id={service.slug} className="py-14 sm:py-20 bg-background scroll-mt-24">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
                   {/* Left: description */}
@@ -104,7 +104,7 @@ const ServicesPage = () => {
                     <Button
                       onClick={scrollToContact}
                       size="lg"
-                      className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 animate-pulse-glow"
+                      className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 animate-pulse-glow"
                     >
                       Get Started <ArrowRight className="ml-2" size={18} />
                     </Button>
