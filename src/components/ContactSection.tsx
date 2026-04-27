@@ -117,7 +117,7 @@ const ContactSection = () => {
       });
       if (res.ok) {
         setPlanSent(true);
-        setPlanForm({ plan: "", name: "", email: "", phone: "", website: "" });
+        setPlanForm({ plan: "", name: "", email: "", website: "" });
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -338,15 +338,6 @@ const ContactSection = () => {
                     maxLength={255}
                     value={planForm.email}
                     onChange={(e) => setPlanForm({ ...planForm, email: e.target.value })}
-                    className="h-11 rounded-lg bg-background/60 border-white/10"
-                  />
-                  <Input
-                    type="tel"
-                    placeholder="Phone number"
-                    required
-                    maxLength={30}
-                    value={planForm.phone}
-                    onChange={(e) => setPlanForm({ ...planForm, phone: e.target.value })}
                     className="h-11 rounded-lg bg-background/60 border-white/10"
                   />
                   <Input
