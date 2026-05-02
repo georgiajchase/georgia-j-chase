@@ -91,8 +91,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-        <Link to="/" onClick={() => setOpen(false)} className="flex items-center h-16 py-1">
-          <img src={logo} alt="Georgia J. Chase" width="160" height="56" className="h-full w-auto object-contain" decoding="async" />
+        <Link to="/" onClick={() => setOpen(false)} className="flex items-center h-20 py-1">
+          <img src={logo} alt="Georgia J. Chase" width="180" height="60" className="h-14 md:h-16 w-auto object-contain" decoding="async" fetchPriority="high" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
