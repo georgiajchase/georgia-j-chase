@@ -16,7 +16,7 @@ import { z } from "zod";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mreyovlw";
 const EMAIL_ADDRESS = "chasegeorgiaj@gmail.com";
-const WHATSAPP_NUMBER = "16397632098"; // +1 (639) 763-2098
+const WHATSAPP_NUMBER = "16397632098";
 const WHATSAPP_MESSAGE = "Hi Georgia, I'm interested in your SEO services";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE
@@ -28,7 +28,6 @@ const MAILTO_URL = `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
-  phone: z.string().trim().min(5, "Phone is required").max(30),
   message: z.string().trim().min(1, "Message is required").max(1000),
 });
 
@@ -40,16 +39,18 @@ const planSchema = z.object({
 });
 
 const cardClass =
-  "relative bg-white/[0.03] backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-2xl p-6 sm:p-7 h-full shadow-[0_8px_32px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_30px_hsl(var(--primary)/0.35)] hover:-translate-y-1";
+  "relative bg-white/[0.03] backdrop-blur-xl backdrop-saturate-150 border border-primary/30 rounded-2xl p-6 sm:p-7 h-full flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-primary/70 hover:shadow-[0_0_30px_hsl(var(--primary)/0.35)] hover:-translate-y-1";
 
 const iconWrapClass =
-  "w-12 h-12 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center mb-4 text-primary";
+  "w-12 h-12 rounded-xl bg-primary/15 border border-primary/40 flex items-center justify-center mb-4 text-primary shrink-0";
+
+const orangeBtnClass =
+  "w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-11 font-semibold";
 
 const ContactSection = () => {
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
-    phone: "",
     message: "",
   });
   const [contactSent, setContactSent] = useState(false);
@@ -85,7 +86,7 @@ const ContactSection = () => {
       });
       if (res.ok) {
         setContactSent(true);
-        setContactForm({ name: "", email: "", phone: "", message: "" });
+        setContactForm({ name: "", email: "", message: "" });
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -130,7 +131,6 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="relative py-14 sm:py-20 bg-background overflow-hidden">
-      {/* Ambient orange glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-primary/15 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
@@ -145,7 +145,7 @@ const ContactSection = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
           {/* 1. Contact Form */}
           <AnimatedSection className="h-full">
             <div className={cardClass}>
@@ -160,24 +160,20 @@ const ContactSection = () => {
               </p>
 
               {contactSent ? (
-                <div className="rounded-xl bg-primary/15 border border-primary/30 p-5 text-center">
-                  <p className="font-heading font-semibold text-foreground mb-1">
-                    Thank you!
-                  </p>
+                <div className="rounded-xl bg-primary/15 border border-primary/30 p-5 text-center mt-auto">
+                  <p className="font-heading font-semibold text-foreground mb-1">Thank you!</p>
                   <p className="text-sm text-muted-foreground">
                     I'll get back to you within 24 hours.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={submitContact} className="space-y-3">
+                <form onSubmit={submitContact} className="space-y-3 mt-auto">
                   <Input
                     placeholder="Your name"
                     required
                     maxLength={100}
                     value={contactForm.name}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, name: e.target.value })
-                    }
+                    onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
                     className="h-11 rounded-lg bg-background/60 border-white/10"
                   />
                   <Input
@@ -186,20 +182,7 @@ const ContactSection = () => {
                     required
                     maxLength={255}
                     value={contactForm.email}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, email: e.target.value })
-                    }
-                    className="h-11 rounded-lg bg-background/60 border-white/10"
-                  />
-                  <Input
-                    type="tel"
-                    placeholder="Phone number"
-                    required
-                    maxLength={30}
-                    value={contactForm.phone}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, phone: e.target.value })
-                    }
+                    onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
                     className="h-11 rounded-lg bg-background/60 border-white/10"
                   />
                   <Textarea
@@ -208,16 +191,10 @@ const ContactSection = () => {
                     maxLength={1000}
                     rows={3}
                     value={contactForm.message}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, message: e.target.value })
-                    }
+                    onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
                     className="rounded-lg bg-background/60 border-white/10 resize-none"
                   />
-                  <Button
-                    type="submit"
-                    disabled={contactSubmitting}
-                    className="w-full bg-primary text-primary-foreground hover:bg-forest-dark rounded-full h-11"
-                  >
+                  <Button type="submit" disabled={contactSubmitting} className={orangeBtnClass}>
                     {contactSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
@@ -225,86 +202,81 @@ const ContactSection = () => {
             </div>
           </AnimatedSection>
 
-          {/* 2. WhatsApp + 3. Email stacked */}
-          <div className="grid grid-rows-2 gap-6 lg:gap-8 h-full">
-            <AnimatedSection delay={0.1} className="h-full">
+          {/* 2. WhatsApp */}
+          <AnimatedSection delay={0.1} className="h-full">
+            <div className={cardClass}>
+              <div className={iconWrapClass}>
+                <MessageCircle size={22} />
+              </div>
+              <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+                WhatsApp Me
+              </h3>
+              <p className="text-sm text-muted-foreground mb-5">
+                Quickest way to chat. Pre filled message ready to send.
+              </p>
+              <p className="text-sm text-primary font-semibold mb-5 break-all">
+                +1 (639) 763 2098
+              </p>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${cardClass} flex flex-col justify-between group`}
+                className={`${orangeBtnClass} mt-auto inline-flex items-center justify-center gap-2`}
               >
-                <div>
-                  <div className={iconWrapClass}>
-                    <MessageCircle size={22} />
-                  </div>
-                  <h3 className="font-heading font-bold text-xl text-foreground mb-2">
-                    WhatsApp Me
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Quickest way to chat. Pre-filled message ready to send.
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-                  Open WhatsApp →
-                </span>
+                <MessageCircle size={18} /> Open WhatsApp
               </a>
-            </AnimatedSection>
+            </div>
+          </AnimatedSection>
 
-            <AnimatedSection delay={0.2} className="h-full">
+          {/* 3. Email */}
+          <AnimatedSection delay={0.15} className="h-full">
+            <div className={cardClass}>
+              <div className={iconWrapClass}>
+                <Mail size={22} />
+              </div>
+              <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+                Email Me Directly
+              </h3>
+              <p className="text-sm text-muted-foreground mb-5">
+                Opens your email app with the subject already filled in.
+              </p>
               <a
                 href={MAILTO_URL}
-                className={`${cardClass} flex flex-col justify-between group`}
+                className="text-primary font-semibold text-sm hover:underline break-all mb-5 block"
               >
-                <div>
-                  <div className={iconWrapClass}>
-                    <Mail size={22} />
-                  </div>
-                  <h3 className="font-heading font-bold text-xl text-foreground mb-2">
-                    Email Me Directly
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Opens your email app with the subject already filled in.
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all break-all">
-                  {EMAIL_ADDRESS} →
-                </span>
+                {EMAIL_ADDRESS}
               </a>
-            </AnimatedSection>
-          </div>
+              <a
+                href={MAILTO_URL}
+                className={`${orangeBtnClass} mt-auto inline-flex items-center justify-center gap-2`}
+              >
+                <Mail size={18} /> Send Email
+              </a>
+            </div>
+          </AnimatedSection>
 
-          {/* 4. Pricing Plan Selector — full width on its own row */}
-          <AnimatedSection delay={0.15} className="md:col-span-2 h-full">
+          {/* 4. Pricing Plan Selector */}
+          <AnimatedSection delay={0.2} className="h-full">
             <div className={cardClass}>
-              <div className="flex items-start gap-4">
-                <div className={`${iconWrapClass} mb-0 shrink-0`}>
-                  <Sparkles size={22} />
-                </div>
-                <div>
-                  <h3 className="font-heading font-bold text-xl text-foreground mb-2">
-                    Already Know Which Plan You Want?
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Pick a plan and send me your details. I'll confirm everything within 24 hours.
-                  </p>
-                </div>
+              <div className={iconWrapClass}>
+                <Sparkles size={22} />
               </div>
+              <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+                Already Know Your Plan?
+              </h3>
+              <p className="text-sm text-muted-foreground mb-5">
+                Pick a plan and send your details. I'll confirm within 24 hours.
+              </p>
 
               {planSent ? (
-                <div className="mt-5 rounded-xl bg-primary/15 border border-primary/30 p-5 text-center">
-                  <p className="font-heading font-semibold text-foreground mb-1">
-                    Thank you!
-                  </p>
+                <div className="rounded-xl bg-primary/15 border border-primary/30 p-5 text-center mt-auto">
+                  <p className="font-heading font-semibold text-foreground mb-1">Thank you!</p>
                   <p className="text-sm text-muted-foreground">
-                    Your plan request has been sent. I'll be in touch shortly.
+                    Your plan request has been sent.
                   </p>
                 </div>
               ) : (
-                <form
-                  onSubmit={submitPlan}
-                  className="mt-5 grid sm:grid-cols-2 gap-3"
-                >
+                <form onSubmit={submitPlan} className="space-y-3 mt-auto">
                   <Select
                     value={planForm.plan || undefined}
                     onValueChange={(v) =>
@@ -314,7 +286,7 @@ const ContactSection = () => {
                       })
                     }
                   >
-                    <SelectTrigger className="h-11 rounded-lg bg-background/60 border-white/10 sm:col-span-2">
+                    <SelectTrigger className="h-11 rounded-lg bg-background/60 border-white/10">
                       <SelectValue placeholder="Select a plan…" />
                     </SelectTrigger>
                     <SelectContent>
@@ -351,12 +323,12 @@ const ContactSection = () => {
                   <Button
                     type="submit"
                     disabled={planSubmitting || !planForm.plan}
-                    className="sm:col-span-2 w-full bg-primary text-primary-foreground hover:bg-forest-dark rounded-full h-11"
+                    className={orangeBtnClass}
                   >
                     {planSubmitting
                       ? "Sending..."
                       : planForm.plan
-                      ? `Request ${planForm.plan} Plan →`
+                      ? `Submit ${planForm.plan} Request`
                       : "Pick a plan to continue"}
                   </Button>
                 </form>
