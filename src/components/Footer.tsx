@@ -1,50 +1,120 @@
-const links = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+import { Link } from "react-router-dom";
+import { Linkedin, Twitter, Instagram, Facebook, Mail, MessageCircle, ArrowRight } from "lucide-react";
+
+const EMAIL = "chasegeorgiaj@gmail.com";
+const WHATSAPP_NUMBER = "16397632098";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hi Georgia, I'm interested in your SEO services"
+)}`;
+const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent("SEO Services Inquiry")}`;
+
+const quickLinks = [
+  { label: "Home", to: "/" },
+  { label: "Services", to: "/services" },
+  { label: "Case Studies", to: "/case-studies" },
+  { label: "Blog", to: "/blog" },
+  { label: "Contact", to: "/#contact" },
+];
+
+const socials = [
+  { label: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com" },
+  { label: "Twitter", icon: Twitter, href: "https://twitter.com" },
+  { label: "Instagram", icon: Instagram, href: "https://www.instagram.com" },
+  { label: "Facebook", icon: Facebook, href: "https://www.facebook.com" },
 ];
 
 const Footer = () => (
-  <footer className="bg-background text-foreground border-t border-border">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <div className="grid md:grid-cols-3 gap-10">
-        {/* Logo + tagline */}
-        <div>
-          <p className="font-heading font-bold text-xl mb-3 text-foreground">Georgia J. Chase.</p>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Helping business owners get found,<br />trusted, and chosen on Google.
-          </p>
-        </div>
+  <footer
+    className="relative text-foreground border-t-2 border-primary/60"
+    style={{ backgroundColor: "#050a18" }}
+  >
+    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-        {/* Quick links */}
-        <div className="flex flex-col items-start md:items-center">
-          <p className="font-heading font-semibold text-sm mb-3 text-foreground">Quick Links</p>
-          <div className="flex flex-col gap-2">
-            {links.map((l) => (
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+        {/* Left: brand + socials */}
+        <div>
+          <p className="font-heading font-bold text-2xl mb-3 text-white">Georgia J. Chase</p>
+          <p className="text-sm leading-relaxed text-white/60 mb-6 max-w-xs">
+            Helping business owners get found, trusted, and chosen on Google.
+          </p>
+          <div className="flex items-center gap-3">
+            {socials.map(({ label, icon: Icon, href }) => (
               <a
-                key={l.href}
-                href={l.href}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="w-10 h-10 rounded-full border border-primary/40 bg-primary/10 text-primary flex items-center justify-center transition-all hover:bg-primary hover:text-white hover:-translate-y-0.5"
               >
-                {l.label}
+                <Icon size={18} />
               </a>
             ))}
           </div>
         </div>
 
-        {/* Contact nudge */}
+        {/* Middle: Quick Links */}
+        <div className="md:flex md:flex-col md:items-center">
+          <div>
+            <p className="font-heading font-semibold text-sm mb-4 text-white uppercase tracking-wider">
+              Quick Links
+            </p>
+            <ul className="flex flex-col gap-2.5">
+              {quickLinks.map((l) => (
+                <li key={l.to}>
+                  <Link
+                    to={l.to}
+                    className="text-sm text-white/60 hover:text-primary transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Right: Get In Touch */}
         <div className="md:text-right">
-          <p className="font-heading font-semibold text-sm mb-3 text-foreground">Got a question? I'd love to hear from you.</p>
-          <p className="text-sm text-muted-foreground">chasegeorgiaj@gmail.com</p>
+          <p className="font-heading font-semibold text-sm mb-4 text-white uppercase tracking-wider">
+            Get In Touch
+          </p>
+          <ul className="space-y-2.5 mb-5">
+            <li className="md:justify-end flex items-center gap-2">
+              <Mail size={16} className="text-primary md:order-2" />
+              <a
+                href={MAILTO}
+                className="text-sm text-primary font-semibold hover:underline break-all"
+              >
+                {EMAIL}
+              </a>
+            </li>
+            <li className="md:justify-end flex items-center gap-2">
+              <MessageCircle size={16} className="text-primary md:order-2" />
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-primary font-semibold hover:underline"
+              >
+                +1 (639) 763 2098
+              </a>
+            </li>
+          </ul>
+          <Link
+            to="/#contact"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-primary/30"
+          >
+            Get Free Website Check <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </div>
 
-    <div className="border-t border-border py-4">
-      <p className="text-center text-xs text-muted-foreground">
-         © 2025 Georgia J. Chase · SEO Specialist · All rights reserved.
+    <div className="border-t border-white/10 py-5">
+      <p className="text-center text-xs text-white/50">
+        © 2025 Georgia J. Chase · SEO Specialist · All rights reserved.
       </p>
     </div>
   </footer>
