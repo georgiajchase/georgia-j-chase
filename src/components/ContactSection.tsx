@@ -129,7 +129,7 @@ const ContactSection = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          _subject: `New Lead: ${parsed.data.plan} Plan Inquiry`,
+          _subject: `New Lead: ${parsed.data.plan} Plan — ${parsed.data.name}`,
           _replyto: parsed.data.email,
           source: "Pricing Plan Selector",
           ...parsed.data,
@@ -137,7 +137,7 @@ const ContactSection = () => {
       });
       if (res.ok) {
         setPlanSent(true);
-        setPlanForm({ plan: "", name: "", email: "", website: "" });
+        setPlanForm({ plan: "", name: "", email: "", phone: "", website: "", message: "" });
       } else {
         toast.error("Something went wrong. Please try again.");
       }
