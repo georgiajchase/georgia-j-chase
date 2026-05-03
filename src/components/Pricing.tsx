@@ -123,7 +123,7 @@ const Pricing = () => {
                   </ul>
 
                   <Button
-                    onClick={scrollToContact}
+                    onClick={() => goToPlan(tier.name as "Starter" | "Growth" | "Enterprise")}
                     size="lg"
                     className={`w-full rounded-full ${
                       tier.highlighted
