@@ -9,6 +9,8 @@ import CaseStudies from "./pages/CaseStudies.tsx";
 import CaseStudyDetail from "./pages/CaseStudyDetail.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
+import About from "./pages/About.tsx";
+import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ChatWidget from "./components/ChatWidget.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

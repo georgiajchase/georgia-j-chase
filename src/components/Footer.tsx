@@ -13,7 +13,8 @@ const quickLinks = [
   { label: "Services", to: "/services" },
   { label: "Case Studies", to: "/case-studies" },
   { label: "Blog", to: "/blog" },
-  { label: "Contact", to: "/#contact" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const socials = [
@@ -103,7 +104,7 @@ const Footer = () => (
             </li>
           </ul>
           <Link
-            to="/#contact"
+            to="/contact"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-primary/30"
           >
             Get Free Website Check <ArrowRight size={16} />

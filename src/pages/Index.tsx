@@ -7,9 +7,7 @@ import Results from "@/components/Results";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import Pricing from "@/components/Pricing";
-import About from "@/components/About";
 import FAQ from "@/components/FAQ";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 
@@ -32,11 +30,7 @@ const Index = () => (
     <SectionDivider />
     <Pricing />
     <SectionDivider />
-    <About />
-    <SectionDivider />
     <FAQ />
-    <SectionDivider />
-    <ContactSection />
     <Footer />
   </div>
 );
