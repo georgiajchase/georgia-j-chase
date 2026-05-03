@@ -276,7 +276,7 @@ const ContactSection = () => {
 
           {/* 4. Pricing Plan Selector */}
           <AnimatedSection delay={0.2} className="h-full">
-            <div className={cardClass}>
+            <div id="plan-form" className={cardClass + " scroll-mt-28"}>
               <div className={iconWrapClass}>
                 <Sparkles size={22} />
               </div>
@@ -332,12 +332,28 @@ const ContactSection = () => {
                     className="h-11 rounded-lg bg-background/60 border-white/10"
                   />
                   <Input
+                    type="tel"
+                    placeholder="Phone (optional)"
+                    maxLength={40}
+                    value={planForm.phone}
+                    onChange={(e) => setPlanForm({ ...planForm, phone: e.target.value })}
+                    className="h-11 rounded-lg bg-background/60 border-white/10"
+                  />
+                  <Input
                     type="url"
                     placeholder="https://yourbusiness.com (optional)"
                     maxLength={255}
                     value={planForm.website}
                     onChange={(e) => setPlanForm({ ...planForm, website: e.target.value })}
                     className="h-11 rounded-lg bg-background/60 border-white/10"
+                  />
+                  <Textarea
+                    placeholder="Anything I should know? (optional)"
+                    maxLength={1000}
+                    rows={2}
+                    value={planForm.message}
+                    onChange={(e) => setPlanForm({ ...planForm, message: e.target.value })}
+                    className="rounded-lg bg-background/60 border-white/10 resize-none"
                   />
                   <Button
                     type="submit"
