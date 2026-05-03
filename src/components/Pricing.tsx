@@ -55,8 +55,9 @@ const tiers = [
 ];
 
 const Pricing = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const navigate = useNavigate();
+  const goToPlan = (plan: "Starter" | "Growth" | "Enterprise") => {
+    navigate(`/contact?plan=${plan}#plan-form`);
   };
 
   return (
