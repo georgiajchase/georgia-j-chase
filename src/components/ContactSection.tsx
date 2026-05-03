@@ -63,10 +63,26 @@ const ContactSection = () => {
     plan: "" as "" | "Starter" | "Growth" | "Enterprise",
     name: "",
     email: "",
+    phone: "",
     website: "",
+    message: "",
   });
   const [planSent, setPlanSent] = useState(false);
   const [planSubmitting, setPlanSubmitting] = useState(false);
+
+  const location = useLocation();
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
+    if (plan === "Starter" || plan === "Growth" || plan === "Enterprise") {
+      setPlanForm((p) => ({ ...p, plan }));
+    }
+    if (location.hash === "#plan-form" || plan) {
+      setTimeout(() => {
+        document.getElementById("plan-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+    }
+  }, [location.search, location.hash]);
 
   const submitContact = async (e: React.FormEvent) => {
     e.preventDefault();
