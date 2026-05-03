@@ -1,4 +1,5 @@
 import { Check, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 import TiltCard from "./TiltCard";
@@ -54,8 +55,9 @@ const tiers = [
 ];
 
 const Pricing = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const navigate = useNavigate();
+  const goToPlan = (plan: "Starter" | "Growth" | "Enterprise") => {
+    navigate(`/contact?plan=${plan}#plan-form`);
   };
 
   return (
@@ -121,7 +123,7 @@ const Pricing = () => {
                   </ul>
 
                   <Button
-                    onClick={scrollToContact}
+                    onClick={() => goToPlan(tier.name as "Starter" | "Growth" | "Enterprise")}
                     size="lg"
                     className={`w-full rounded-full ${
                       tier.highlighted

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Mail, MessageCircle, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,7 +36,9 @@ const planSchema = z.object({
   plan: z.enum(["Starter", "Growth", "Enterprise"]),
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
+  phone: z.string().trim().max(40).optional().or(z.literal("")),
   website: z.string().trim().url("Invalid URL").max(255).or(z.literal("")),
+  message: z.string().trim().max(1000).optional().or(z.literal("")),
 });
 
 const cardClass =
@@ -60,10 +63,26 @@ const ContactSection = () => {
     plan: "" as "" | "Starter" | "Growth" | "Enterprise",
     name: "",
     email: "",
+    phone: "",
     website: "",
+    message: "",
   });
   const [planSent, setPlanSent] = useState(false);
   const [planSubmitting, setPlanSubmitting] = useState(false);
+
+  const location = useLocation();
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
+    if (plan === "Starter" || plan === "Growth" || plan === "Enterprise") {
+      setPlanForm((p) => ({ ...p, plan }));
+    }
+    if (location.hash === "#plan-form" || plan) {
+      setTimeout(() => {
+        document.getElementById("plan-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+    }
+  }, [location.search, location.hash]);
 
   const submitContact = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,7 +129,7 @@ const ContactSection = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          _subject: `New Lead: ${parsed.data.plan} Plan Inquiry`,
+          _subject: `New Lead: ${parsed.data.plan} Plan — ${parsed.data.name}`,
           _replyto: parsed.data.email,
           source: "Pricing Plan Selector",
           ...parsed.data,
@@ -118,7 +137,7 @@ const ContactSection = () => {
       });
       if (res.ok) {
         setPlanSent(true);
-        setPlanForm({ plan: "", name: "", email: "", website: "" });
+        setPlanForm({ plan: "", name: "", email: "", phone: "", website: "", message: "" });
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -257,7 +276,7 @@ const ContactSection = () => {
 
           {/* 4. Pricing Plan Selector */}
           <AnimatedSection delay={0.2} className="h-full">
-            <div className={cardClass}>
+            <div id="plan-form" className={cardClass + " scroll-mt-28"}>
               <div className={iconWrapClass}>
                 <Sparkles size={22} />
               </div>
@@ -313,12 +332,28 @@ const ContactSection = () => {
                     className="h-11 rounded-lg bg-background/60 border-white/10"
                   />
                   <Input
+                    type="tel"
+                    placeholder="Phone (optional)"
+                    maxLength={40}
+                    value={planForm.phone}
+                    onChange={(e) => setPlanForm({ ...planForm, phone: e.target.value })}
+                    className="h-11 rounded-lg bg-background/60 border-white/10"
+                  />
+                  <Input
                     type="url"
                     placeholder="https://yourbusiness.com (optional)"
                     maxLength={255}
                     value={planForm.website}
                     onChange={(e) => setPlanForm({ ...planForm, website: e.target.value })}
                     className="h-11 rounded-lg bg-background/60 border-white/10"
+                  />
+                  <Textarea
+                    placeholder="Anything I should know? (optional)"
+                    maxLength={1000}
+                    rows={2}
+                    value={planForm.message}
+                    onChange={(e) => setPlanForm({ ...planForm, message: e.target.value })}
+                    className="rounded-lg bg-background/60 border-white/10 resize-none"
                   />
                   <Button
                     type="submit"
