@@ -77,12 +77,12 @@ const Pricing = () => {
                 <div
                   className={`relative h-full rounded-2xl p-6 sm:p-8 flex flex-col transition-all duration-300 ${
                     tier.highlighted
-                      ? "bg-card border-2 border-primary shadow-[0_0_40px_hsl(var(--primary)/0.4)] lg:scale-105"
+                      ? "bg-card border-2 border-conversion shadow-[0_0_40px_hsl(var(--conversion)/0.4)] lg:scale-105"
                       : "bg-card border border-border hover:border-primary/50"
                   }`}
                 >
                   {tier.highlighted && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-conversion text-conversion-foreground px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
                       <Sparkles size={14} />
                       Most Popular
                     </div>

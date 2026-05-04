@@ -105,7 +105,7 @@ const Footer = () => (
           </ul>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-primary/30"
+            className="inline-flex items-center gap-2 bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-5 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-conversion/30"
           >
             Get Free Website Check <ArrowRight size={16} />
           </Link>
