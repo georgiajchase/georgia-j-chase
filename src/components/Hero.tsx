@@ -1,8 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
-import HeroParticles from "./HeroParticles";
-import VantaGlobeBackground from "./VantaGlobeBackground";
+import HeroBackground from "./HeroBackground";
 
 const Hero = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -42,13 +41,11 @@ const Hero = () => {
       id="home"
       className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-background overflow-hidden"
     >
-      {/* Vanta animated globe (desktop only) */}
-      <VantaGlobeBackground />
+      {/* Pure CSS animated background — no JS libraries */}
+      <HeroBackground />
 
-      {/* Parallax background layer (particles only; Vanta handles the globe) */}
-      <div ref={parallaxRef} className="absolute inset-0 will-change-transform" aria-hidden="true">
-        <HeroParticles />
-      </div>
+      {/* Parallax wrapper kept for subtle scroll motion on the bg layer */}
+      <div ref={parallaxRef} className="absolute inset-0 will-change-transform pointer-events-none" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -67,7 +64,7 @@ const Hero = () => {
                 <Button
                   onClick={scrollToForm}
                   size="lg"
-                  className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8 text-base animate-pulse-glow"
+                  className="w-full sm:w-auto bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-8 text-base animate-pulse-glow-green"
                 >
                   Get Found on Google Today →
                 </Button>

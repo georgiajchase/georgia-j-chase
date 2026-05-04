@@ -77,12 +77,12 @@ const Pricing = () => {
                 <div
                   className={`relative h-full rounded-2xl p-6 sm:p-8 flex flex-col transition-all duration-300 ${
                     tier.highlighted
-                      ? "bg-card border-2 border-primary shadow-[0_0_40px_hsl(var(--primary)/0.4)] lg:scale-105"
+                      ? "bg-card border-2 border-conversion shadow-[0_0_40px_hsl(var(--conversion)/0.4)] lg:scale-105"
                       : "bg-card border border-border hover:border-primary/50"
                   }`}
                 >
                   {tier.highlighted && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-conversion text-conversion-foreground px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
                       <Sparkles size={14} />
                       Most Popular
                     </div>
@@ -114,8 +114,8 @@ const Pricing = () => {
                   <ul className="space-y-3 mb-8 flex-grow">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3 text-sm">
-                        <div className="mt-0.5 w-5 h-5 rounded-full bg-forest-light flex items-center justify-center flex-shrink-0">
-                          <Check className="text-primary" size={12} strokeWidth={3} />
+                        <div className="mt-0.5 w-5 h-5 rounded-full bg-conversion/15 flex items-center justify-center flex-shrink-0">
+                          <Check className="text-conversion" size={12} strokeWidth={3} />
                         </div>
                         <span className="text-muted-foreground leading-relaxed">{feature}</span>
                       </li>
@@ -125,10 +125,8 @@ const Pricing = () => {
                   <Button
                     onClick={() => goToPlan(tier.name as "Starter" | "Growth" | "Enterprise")}
                     size="lg"
-                    className={`w-full rounded-full ${
-                      tier.highlighted
-                        ? "bg-primary text-primary-foreground hover:bg-forest-dark animate-pulse-glow"
-                        : "bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground border border-border hover:border-primary"
+                    className={`w-full rounded-full bg-conversion text-conversion-foreground hover:bg-conversion-dark ${
+                      tier.highlighted ? "animate-pulse-glow-green" : ""
                     }`}
                   >
                     {tier.cta}

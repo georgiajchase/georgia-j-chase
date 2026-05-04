@@ -83,11 +83,11 @@ const Stats = () => (
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, i) => (
           <AnimatedSection key={stat.label} delay={i * 0.1}>
-            <div className="bg-card border border-border rounded-xl p-8 text-center h-full hover:border-primary transition-all duration-300 hover:shadow-[0_0_25px_hsl(var(--primary)/0.4)]">
+            <div className="bg-card border border-border rounded-xl p-8 text-center h-full hover:border-conversion transition-all duration-300 hover:shadow-[0_0_25px_hsl(var(--conversion)/0.4)]">
               <div className="w-12 h-12 mx-auto rounded-xl bg-forest-light flex items-center justify-center mb-4">
                 <stat.icon className="text-primary" size={24} />
               </div>
-              <p className="text-4xl md:text-5xl font-extrabold font-heading text-primary text-glow-orange mb-2">
+              <p className="text-4xl md:text-5xl font-extrabold font-heading text-conversion mb-2" style={{ textShadow: "0 0 20px hsl(var(--conversion) / 0.5)" }}>
                 <Counter stat={stat} />
               </p>
               <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>

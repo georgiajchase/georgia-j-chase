@@ -51,6 +51,11 @@
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 222 40% 18%;
     --sidebar-ring: 25 95% 53%;
+
+    /* Conversion green — used for CTA buttons, key stats, success markers */
+    --conversion: 142 71% 45%;
+    --conversion-foreground: 0 0% 100%;
+    --conversion-dark: 142 71% 38%;
   }
 
   .dark {
@@ -328,4 +333,98 @@ html {
   transform-origin: center;
   transform-box: fill-box;
   animation: hero-particle-pulse 3.2s ease-in-out infinite;
+}
+
+/* ===== Pure CSS Hero Background (replaces Vanta) ===== */
+.hero-bg-root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 80% 50%, #0a1024 0%, #050a18 70%);
+}
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249, 115, 22, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 80%);
+}
+.hero-bg-glow {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  width: 60vw;
+  max-width: 800px;
+  height: 60vw;
+  max-height: 800px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.35) 0%, rgba(249, 115, 22, 0.08) 40%, transparent 70%);
+  filter: blur(40px);
+  animation: hero-bg-pulse 6s ease-in-out infinite;
+}
+@keyframes hero-bg-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+.hero-bg-wireframe {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  width: min(70vw, 700px);
+  height: min(70vw, 700px);
+  transform: translateY(-50%);
+  animation: hero-bg-spin 40s linear infinite;
+  filter: drop-shadow(0 0 25px rgba(249, 115, 22, 0.4));
+}
+@keyframes hero-bg-spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+.hero-bg-particles {
+  position: absolute;
+  inset: 0;
+}
+.hero-bg-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: #f97316;
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.8);
+  opacity: 0;
+  animation: hero-bg-float 12s ease-in-out infinite;
+}
+@keyframes hero-bg-float {
+  0%   { opacity: 0; transform: translateY(20px) scale(0.6); }
+  20%  { opacity: 0.9; }
+  80%  { opacity: 0.9; }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-wireframe,
+  .hero-bg-glow,
+  .hero-bg-particle { animation: none; }
+}
+
+/* Conversion (green) glow for CTA buttons */
+@keyframes pulse-glow-green {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 hsl(var(--conversion) / 0.55),
+      0 0 20px 4px hsl(var(--conversion) / 0.45),
+      0 0 40px 8px hsl(var(--conversion) / 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 0 12px hsl(var(--conversion) / 0),
+      0 0 35px 10px hsl(var(--conversion) / 0.7),
+      0 0 70px 20px hsl(var(--conversion) / 0.4);
+  }
+}
+.animate-pulse-glow-green {
+  animation: pulse-glow-green 2.2s ease-in-out infinite;
 }
