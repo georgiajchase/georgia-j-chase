@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/georgia-logo.webp";
+import BrandLogo from "./BrandLogo";
 
 type NavLink =
   | { label: string; type: "anchor"; href: string }
@@ -24,7 +24,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 0);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -85,23 +85,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 animate-slide-down border-b transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 animate-slide-down transition-all duration-500 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-xl border-border shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
-          : "bg-background/40 backdrop-blur-xl backdrop-saturate-150 border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.2)]"
+          ? "bg-[#0a0f1e]/95 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-20 px-4 lg:px-8">
         <Link to="/" onClick={() => setOpen(false)} className="flex items-center h-20 py-1">
-          <img
-            src={logo}
-            alt="Georgia J. Chase"
-            width="200"
-            height="64"
-            className="h-[50px] md:h-[60px] w-auto min-w-[160px] object-contain"
-            decoding="async"
-            fetchPriority="high"
-          />
+          <BrandLogo className="h-[42px] md:h-[50px] w-[120px] md:w-[160px]" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -110,7 +102,7 @@ const Navbar = () => {
 
         <Button
           onClick={scrollToForm}
-          className="hidden md:inline-flex bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-6"
+          className="hidden md:inline-flex bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-6"
         >
           Get Free Website Check
         </Button>
@@ -125,11 +117,11 @@ const Navbar = () => {
       </div>
 
       {open && (
-        <div className="md:hidden bg-background/40 backdrop-blur-xl backdrop-saturate-150 border-b border-white/10 px-4 pb-4 space-y-3 animate-fade-in">
+        <div className="md:hidden bg-[#0a0f1e]/95 backdrop-blur-xl border-b border-white/10 px-4 pb-4 space-y-3 animate-fade-in">
           {navLinks.map((l) => renderLink(l, true))}
           <Button
             onClick={scrollToForm}
-            className="w-full bg-primary text-primary-foreground hover:bg-forest-dark rounded-full"
+            className="w-full bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full"
           >
             Get Free Website Check
           </Button>
