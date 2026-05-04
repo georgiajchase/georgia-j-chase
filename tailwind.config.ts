@@ -33,6 +33,11 @@ export default {
           light: "hsl(var(--gold-light))",
         },
         "warm-white": "hsl(var(--warm-white))",
+        conversion: {
+          DEFAULT: "hsl(var(--conversion))",
+          foreground: "hsl(var(--conversion-foreground))",
+          dark: "hsl(var(--conversion-dark))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
