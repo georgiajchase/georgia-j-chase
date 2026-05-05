@@ -6,30 +6,30 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+export const faqs = [
   {
-    q: "How long does an SEO audit take?",
-    a: "Most audits are completed within 2 to 3 business days. You will receive a clear report explaining exactly what was found and what needs to be fixed.",
+    q: "How quickly will I see results?",
+    a: "Most clients see measurable ranking improvements within 30 to 60 days. Page 1 results typically happen between 60 and 90 days. I show you exactly where you stand before we start.",
   },
   {
-    q: "Do I need to be technical to understand your reports?",
-    a: "Not at all. I write everything in plain, simple English so it's easy to understand. You won't need to Google any of it.",
+    q: "What makes this different from other SEO agencies?",
+    a: "I do not outsource, use bots, or sell you monthly reports that change nothing. I personally audit your site, fix the real problems, and stay until results happen.",
   },
   {
-    q: "What platforms do you work with?",
-    a: "I work with WordPress, Shopify, Wix, Webflow, Squarespace, WooCommerce, Magento, BigCommerce, GoDaddy, and more. If you have a website, I can work with it.",
+    q: "Do I need to sign a long contract?",
+    a: "No. Every plan is month to month. You stay because results keep coming, not because you are locked in.",
   },
   {
-    q: "I already paid for SEO before and got no results. How is this different?",
-    a: "Most agencies focus on keywords and traffic without fixing the foundation first. I start with what is actually broken before anything else. That is the difference.",
+    q: "What if my website is on WordPress, Shopify, or Squarespace?",
+    a: "All of them. I have worked on every major platform and know exactly how to optimize each one properly.",
   },
   {
     q: "How much does it cost?",
-    a: "Send me your website first. I will take a look and give you a clear, honest answer based on what your site actually needs.",
+    a: "Plans start at $997 per month. Before any money changes hands I do a free website audit so you know exactly what needs fixing and whether working together makes sense.",
   },
   {
-    q: "How do I get started?",
-    a: "Just fill in the form below with your name, email, and website URL. I'll take a look and get back to you within 24 hours. There's absolutely no obligation.",
+    q: "Will you work with my industry?",
+    a: "If your customers search on Google I can help you rank. I have worked across 40 plus industries.",
   },
 ];
 
@@ -38,21 +38,21 @@ const FAQ = () => (
     <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
       <AnimatedSection className="text-center mb-10">
         <p className="section-label mb-3">Common Questions</p>
-        <h2 className="section-title mb-4">Frequently Asked Questions</h2>
+        <h2 className="section-title mb-4">Everything You Need to Know Before We Start</h2>
       </AnimatedSection>
 
       <AnimatedSection delay={0.15}>
-        <Accordion type="single" collapsible className="space-y-3">
+        <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq, i) => (
             <AccordionItem
               key={i}
               value={`faq-${i}`}
-              className="border border-border rounded-xl px-4 sm:px-6 bg-card shadow-sm"
+              className="border-2 border-primary/30 rounded-xl px-5 sm:px-7 bg-white/[0.03] backdrop-blur-xl hover:border-primary/60 transition-colors"
             >
-              <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:no-underline hover:text-primary">
+              <AccordionTrigger className="text-left font-heading font-semibold text-white hover:no-underline hover:text-primary [&>svg]:text-primary [&>svg]:h-5 [&>svg]:w-5 py-6">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
+              <AccordionContent className="text-white/75 leading-relaxed pb-6 text-base">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>

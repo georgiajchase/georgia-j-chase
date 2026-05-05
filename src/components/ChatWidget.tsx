@@ -12,167 +12,171 @@ const CONTACT_EMAIL = "chasegeorgiaj@gmail.com";
 const WHATSAPP_NUMBER = "16397632098";
 
 const INITIAL_QUICK_REPLIES = [
-  "What does SEO cost?",
-  "Which plan is right for me?",
-  "How long until I see results?",
-  "What services do you offer?",
-  "Get a free website check",
+  "I run a local business",
+  "I have an ecommerce store",
+  "I run a SaaS",
+  "Pricing",
+  "Free website check",
 ];
 
 const INITIAL_GREETING: Msg = {
   role: "assistant",
   content:
-    "Hi, I'm Georgia's SEO assistant 👋 I can help with pricing, services, expected results, or set you up with a free website check. What can I help you with?",
+    "Hey, I am Georgia's assistant. Quick question — what does your website do? I will tell you exactly what SEO issues are likely holding it back.",
   quickReplies: INITIAL_QUICK_REPLIES,
 };
 
-// Smart pre-written responses based on keyword matching
 const getSmartReply = (text: string): Msg => {
   const t = text.toLowerCase();
 
   // Lead capture intent
   if (
-    /\b(get started|sign me up|book|free check|free website check|review my site|audit|i'?m ready|ready to start|interested|let'?s do it|sign up)\b/.test(
+    /\b(get started|sign me up|book|free check|free website check|review my site|audit|i'?m ready|ready to start|let'?s do it|sign up|yes please|drop my details)\b/.test(
       t
     )
   ) {
     return {
       role: "assistant",
       content:
-        "Amazing! I'll set you up with a free website check from Georgia. Just drop your details below and she'll personally review your site within 24 hours.",
+        "Perfect — drop your name, email and website URL and Georgia personally reviews every site within 24 hours with a specific action plan.",
       showLeadForm: true,
     };
   }
 
-  // Pricing
+  // Pricing → ask page count first
   if (/\b(price|pricing|cost|how much|plan|plans|package|fee|monthly|budget)\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Here are Georgia's monthly SEO plans:\n\n• Starter — $997/mo (great for local businesses)\n• Growth — $1,997/mo (most popular, for scaling traffic)\n• Enterprise — $3,997/mo (full-service for ecommerce & SaaS)\n\nWant me to help you pick the right one?",
-      quickReplies: ["Which plan is right for me?", "Get a free website check"],
+        "Plans are $997, $1,997 or $3,997 a month. How many pages does your site have so I can tell you which one fits?",
+      quickReplies: ["Under 10 pages", "10 to 50 pages", "Over 50 pages"],
     };
   }
 
-  // Plan recommendation
-  if (/\b(which plan|right plan|recommend|best plan|which one|suggest)\b/.test(t)) {
+  if (/\bunder 10\b|\b1[-\s]?10\b|\bsmall site\b|\bfew pages\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Quick guide:\n\n• Local business or service area? → Starter ($997)\n• Want serious traffic & lead growth? → Growth ($1,997)\n• Ecommerce or SaaS scaling fast? → Enterprise ($3,997)\n\nWhat type of business do you run?",
-      quickReplies: ["Local business", "Ecommerce store", "SaaS / Software", "Get a free website check"],
+        "Starter at $997 a month is the right fit — under 10 pages means we can lock down on-page SEO and local rankings fast. Want a free check on your site?",
+      quickReplies: ["Yes, free check", "What is included?"],
+    };
+  }
+  if (/\b10 to 50\b|\b10[-\s]?50\b|\bmedium\b/.test(t)) {
+    return {
+      role: "assistant",
+      content:
+        "Growth at $1,997 a month is built for sites this size — enough pages to need real architecture, internal linking and content depth. Want me to set up your free check?",
+      quickReplies: ["Yes, free check", "What is included?"],
+    };
+  }
+  if (/\bover 50\b|\b50\+\b|\blarge\b|\bbig site\b/.test(t)) {
+    return {
+      role: "assistant",
+      content:
+        "Enterprise at $3,997 a month — sites over 50 pages need crawl budget management, schema at scale and ongoing technical work. Ready for a free site check?",
+      quickReplies: ["Yes, free check", "What is included?"],
     };
   }
 
-  if (/\blocal business\b/.test(t)) {
+  // Business types — tailored pain
+  if (/\blocal\b|\brestaurant\b|\bplumber\b|\bdentist\b|\bclinic\b|\bsalon\b|\bservice area\b|\bcontractor\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Perfect — the Starter plan ($997/mo) is built for local businesses. Georgia ranked a local client #1 in Google Maps in 30 days, with leads up 280%. Want a free check on your site?",
-      quickReplies: ["Get a free website check", "What does Local SEO include?"],
+        "Local businesses usually lose to weak Google Business Profiles, missing location pages and zero review velocity. Are you ranking on Google Maps for your main service yet?",
+      quickReplies: ["Not really", "Sometimes", "Free website check"],
     };
   }
-
-  if (/\becommerce\b|\be-?commerce\b|\bonline store\b|\bshopify\b/.test(t)) {
+  if (/\becommerce\b|\bonline store\b|\bshopify\b|\bwoocommerce\b|\bproducts?\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Ecommerce SEO is one of Georgia's specialties. One client went from page 5 to #1 in 60 days, traffic up 340%, revenue grew $127K. Growth ($1,997) or Enterprise ($3,997) plans work best for stores.",
-      quickReplies: ["Get a free website check", "What does Ecommerce SEO include?"],
+        "Ecommerce sites bleed traffic from thin product copy, broken category structure and missing schema. How many products are on the site so I can scope what is breaking?",
+      quickReplies: ["Under 50", "50 to 500", "Over 500"],
     };
   }
-
-  if (/\bsaas\b|\bsoftware\b/.test(t)) {
+  if (/\bsaas\b|\bsoftware\b|\bb2b\b|\bplatform\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "For SaaS, Georgia grew one client from 200 to 15,000 organic visitors/mo in 6 months. The Enterprise plan ($3,997) is the right fit for SaaS scaling.",
-      quickReplies: ["Get a free website check", "How long until I see results?"],
+        "SaaS sites usually have a weak content engine and zero topic authority — that is what kills organic signups. Do you have a real blog or content strategy in place?",
+      quickReplies: ["No content yet", "Some content", "Free website check"],
+    };
+  }
+  if (/\bblog\b|\bcontent creator\b|\bpersonal\b/.test(t)) {
+    return {
+      role: "assistant",
+      content:
+        "Content sites usually fail at search intent matching and internal linking — meaning Google never sees the topic depth. What is the niche?",
+      quickReplies: ["Tell me more", "Free website check"],
+    };
+  }
+  if (/\bagency\b|\bmarketing\b|\bconsult\b/.test(t)) {
+    return {
+      role: "assistant",
+      content:
+        "Agencies usually have nice design and zero technical SEO — fast bounce rate, no schema, weak service pages. Want a free audit so I can show you what is actually broken?",
+      quickReplies: ["Yes, free check", "Tell me more"],
     };
   }
 
   // Results / timeline
-  if (
-    /\b(how long|results|when|timeline|time frame|how soon|quickly|fast|see results|take to)\b/.test(
-      t
-    )
-  ) {
+  if (/\b(how long|results|when|timeline|how soon|quickly|fast|see results|take to)\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Most clients see meaningful movement in 30–90 days:\n\n• 30 days — technical fixes ranking, early traffic lift\n• 60 days — keyword positions climbing, more leads\n• 90 days — compounding traffic & revenue growth\n\nSEO is a long game, but Georgia's approach gets early wins fast.",
-      quickReplies: ["What does SEO cost?", "Get a free website check"],
+        "Most clients see ranking movement in 30 to 60 days and page 1 results between 60 and 90 days. Want me to set up a free website check so you know exactly where you stand?",
+      quickReplies: ["Yes, free check", "Pricing"],
     };
   }
 
   // Services
-  if (
-    /\b(service|services|what do you do|what does|offer|specialize|specialty|help with)\b/.test(t)
-  ) {
+  if (/\b(service|services|what do you do|offer|specialize|specialty|help with)\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Georgia offers 5 core services:\n\n• Local SEO — rank in Google Maps & local search\n• Ecommerce SEO — drive product page traffic & revenue\n• Technical SEO Audit — fix what's holding your site back\n• Link Building — authority through quality backlinks\n• Content Strategy — content that ranks and converts\n\nWhich one sounds most relevant to you?",
-      quickReplies: [
-        "Local SEO",
-        "Ecommerce SEO",
-        "Technical Audit",
-        "Link Building",
-        "Content Strategy",
-      ],
+        "Six services — Local SEO, Ecommerce SEO, Technical Audit, Link Building, Content Strategy, and Website SEO Design. Which one matches what your business needs right now?",
+      quickReplies: ["Local SEO", "Ecommerce SEO", "Technical Audit", "Free website check"],
     };
   }
-
   if (/\blocal seo\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Local SEO gets you found by nearby customers — Google Maps rankings, local pack visibility, optimized Google Business Profile, location pages, and local citations. Typical timeline: 30–60 days for first ranking moves.",
-      quickReplies: ["What does it cost?", "Get a free website check"],
+        "Local SEO covers Google Business Profile, Maps rankings, location pages and citations — designed for service area businesses. Want me to check how visible your business is right now?",
+      quickReplies: ["Yes, free check", "Pricing"],
     };
   }
-
-  if (/\becommerce seo\b/.test(t)) {
+  if (/\btechnical\b|\baudit\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Ecommerce SEO covers product page optimization, category architecture, schema markup, technical performance, and content that drives buyers. Built for revenue, not just traffic.",
-      quickReplies: ["What does it cost?", "Get a free website check"],
+        "The Technical Audit hands you a prioritized fix list — speed, indexing, Core Web Vitals, schema, broken paths. Want yours started this week?",
+      quickReplies: ["Yes, free check", "Pricing"],
     };
   }
-
-  if (/\btechnical (audit|seo)\b|\baudit\b/.test(t)) {
+  if (/\bcontent\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "The Technical SEO Audit finds everything blocking your rankings — site speed, crawl issues, indexing, Core Web Vitals, broken links, and on-page issues. You get a prioritized fix list.",
-      quickReplies: ["Get a free website check", "What does it cost?"],
+        "Content Strategy maps every article to real search intent and revenue — not vanity topics. Do you already have a blog live or starting from scratch?",
+      quickReplies: ["Have a blog", "Starting fresh", "Free website check"],
     };
   }
-
-  if (/\blink building\b|\bbacklinks?\b/.test(t)) {
+  if (/\blink\b|\bbacklinks?\b/.test(t)) {
     return {
       role: "assistant",
       content:
-        "Quality over quantity — Georgia builds authority through editorial links, guest posts, digital PR, and niche-relevant placements. No spam, no PBNs.",
-      quickReplies: ["What does it cost?", "Get a free website check"],
-    };
-  }
-
-  if (/\bcontent (strategy|marketing)\b|\bblog\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Content Strategy = keyword research → content briefs → SEO-optimized articles → internal linking. Built to rank AND convert visitors into leads.",
-      quickReplies: ["What does it cost?", "Get a free website check"],
+        "Link Building here means editorial placements and digital PR — no PBNs, no spam. What does your current backlink profile look like, any idea?",
+      quickReplies: ["No idea", "Few links", "Free website check"],
     };
   }
 
   // Contact
-  if (/\b(contact|email|reach|whatsapp|phone|call|talk to georgia)\b/.test(t)) {
+  if (/\b(contact|email|reach|whatsapp|call|talk to georgia)\b/.test(t)) {
     return {
       role: "assistant",
-      content: `You can reach Georgia directly:\n\n📧 ${CONTACT_EMAIL}\n💬 WhatsApp: +1 (639) 763-2098\n\nOr drop your details below and she'll come to you within 24 hours.`,
+      content: `Reach Georgia direct at ${CONTACT_EMAIL} or WhatsApp +1 (639) 763-2098. Want to drop your details for a free site review instead?`,
       showLeadForm: true,
     };
   }
@@ -181,44 +185,18 @@ const getSmartReply = (text: string): Msg => {
   if (/^(hi|hey|hello|yo|sup|howdy)\b/.test(t)) {
     return {
       role: "assistant",
-      content: "Hey! 👋 What would you like to know — pricing, services, or expected results?",
-      quickReplies: INITIAL_QUICK_REPLIES,
-    };
-  }
-
-  if (/\b(thanks|thank you|ty|cheers)\b/.test(t)) {
-    return {
-      role: "assistant",
-      content: "Anytime! Want me to set you up with a free website check from Georgia?",
-      quickReplies: ["Yes, get me started", "Maybe later"],
-    };
-  }
-
-  if (/\bmaybe later\b|\bnot now\b/.test(t)) {
-    return {
-      role: "assistant",
-      content: "No worries! I'm here whenever you're ready. Anything else I can help with?",
-      quickReplies: INITIAL_QUICK_REPLIES,
-    };
-  }
-
-  if (/\byes\b.*\b(get me started|started)\b|^yes$/.test(t)) {
-    return {
-      role: "assistant",
       content:
-        "Great! Drop your details below and Georgia will personally review your site within 24 hours.",
-      showLeadForm: true,
+        "Hey, glad you stopped by. What does your website do — local service, ecommerce, SaaS, something else?",
+      quickReplies: INITIAL_QUICK_REPLIES,
     };
   }
 
-  // Fallback
+  // Catch-all — describe site triggers tailored response framework
   return {
     role: "assistant",
     content:
-      "Good question! I can help with pricing, services, expected results, or set you up with a free website check. Or reach Georgia directly at " +
-      CONTACT_EMAIL +
-      ". What would you like?",
-    quickReplies: INITIAL_QUICK_REPLIES,
+      "Got it. Most sites in that space lose rankings to weak technical SEO, thin content, or missing schema — Georgia can pinpoint the exact issue free in 24 hours. Want to send your URL?",
+    quickReplies: ["Yes, free check", "Pricing", "Services"],
   };
 };
 

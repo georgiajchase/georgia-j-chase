@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
@@ -10,6 +11,11 @@ import { blogPosts } from "@/data/blogPosts";
 
 const Blog = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="SEO Blog | Tips, Strategies and Insights | Georgia J. Chase"
+      description="Free SEO tips, strategies, and insights for business owners who want to rank on Google and grow organic traffic."
+      path="/blog"
+    />
     <Navbar />
     <main className="pt-28 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">

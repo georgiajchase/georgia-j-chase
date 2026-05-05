@@ -1,4 +1,4 @@
-import { MapPin, ShoppingCart, Settings, Link2, FileText, type LucideIcon } from "lucide-react";
+import { MapPin, ShoppingCart, Settings, Link2, FileText, Layout, type LucideIcon } from "lucide-react";
 
 export type Service = {
   slug: string;
@@ -95,5 +95,22 @@ export const services: Service[] = [
       "Internal linking strategy across new content",
     ],
     timeline: "Strategy delivered in 2 weeks. Compounding traffic growth from month 3 onward.",
+  },
+  {
+    slug: "website-seo-design",
+    title: "Website SEO Design and Redesign",
+    icon: Layout,
+    tagline: "Websites built to rank and convert from day one.",
+    description:
+      "I design and redesign websites specifically built to rank on Google and convert visitors into paying clients. This is not just a pretty website. Every element is built with SEO structure, conversion psychology, and Google's ranking signals in mind.",
+    deliverables: [
+      "Custom website design or redesign",
+      "On-page SEO built in from day one",
+      "Conversion-optimized layout and copywriting",
+      "Mobile-first responsive build",
+      "Google Analytics and Search Console setup",
+      "PageSpeed score above 90",
+    ],
+    timeline: "2 to 4 weeks.",
   },
 ];

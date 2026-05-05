@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Award, Target, TrendingUp, Users } from "lucide-react";
@@ -16,14 +18,19 @@ const skills = [
 ];
 
 const stats = [
-  { icon: Users, value: "120+", label: "Clients Helped" },
-  { icon: TrendingUp, value: "287%", label: "Avg Traffic Growth" },
-  { icon: Award, value: "8+ yrs", label: "SEO Experience" },
-  { icon: Target, value: "94%", label: "Client Retention" },
+  { icon: Users, end: 500, suffix: "+", label: "Clients Helped" },
+  { icon: TrendingUp, end: 287, suffix: "%", label: "Avg Traffic Growth" },
+  { icon: Award, end: 8, suffix: "+", label: "Years Experience" },
+  { icon: Target, end: 98, suffix: "%", label: "Client Retention" },
 ];
 
 const About = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="About Georgia J. Chase | SEO Specialist | 500+ Businesses Ranked"
+      description="Meet Georgia J. Chase — SEO Specialist with 8+ years experience helping business owners get found on Google. 500+ clients ranked."
+      path="/about"
+    />
     <Navbar />
 
     {/* Hero */}
@@ -68,8 +75,10 @@ const About = () => (
             <AnimatedSection key={s.label} delay={i * 0.05}>
               <div className="rounded-2xl bg-white/[0.03] border border-primary/30 p-6 text-center backdrop-blur-xl">
                 <s.icon className="text-primary mx-auto mb-3" size={28} />
-                <p className="font-heading font-bold text-3xl text-foreground">{s.value}</p>
-                <p className="text-sm text-muted-foreground mt-1">{s.label}</p>
+                <p className="font-heading font-bold text-4xl text-conversion drop-shadow-[0_0_18px_hsl(var(--conversion)/0.45)]">
+                  <AnimatedCounter end={s.end} suffix={s.suffix} />
+                </p>
+                <p className="text-sm text-white mt-1">{s.label}</p>
               </div>
             </AnimatedSection>
           ))}
