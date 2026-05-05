@@ -1,10 +1,16 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const Contact = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="Contact Georgia J. Chase | Free SEO Website Check"
+      description="Get in touch with Georgia J. Chase for a free website SEO check. Reply within 24 hours."
+      path="/contact"
+    />
     <Navbar />
 
     <section className="relative pt-32 pb-8 sm:pt-40 sm:pb-12 overflow-hidden">

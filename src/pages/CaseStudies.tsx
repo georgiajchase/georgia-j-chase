@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Quote, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
@@ -10,6 +11,11 @@ import { caseStudies } from "@/data/caseStudies";
 
 const CaseStudies = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="SEO Case Studies | Proven Results | Georgia J. Chase"
+      description="Deep-dive case studies showing exactly how Georgia J. Chase helped businesses rank on page 1 and grow organic revenue."
+      path="/case-studies"
+    />
     <Navbar />
     <main className="pt-28 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">

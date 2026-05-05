@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Check, Clock, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
@@ -10,12 +11,15 @@ import SectionDivider from "@/components/SectionDivider";
 import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 
-const scrollToContact = () => {
-  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
-};
-
 const ServicesPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    else navigate("/contact");
+  };
 
   useEffect(() => {
     if (location.hash) {
@@ -30,6 +34,11 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="SEO Services | Local SEO, Technical Audit, Link Building | Georgia J. Chase"
+        description="Professional SEO services including Local SEO, Ecommerce SEO, Technical Audits, Link Building and Content Strategy. Results in 30-90 days."
+        path="/services"
+      />
       <Navbar />
 
       {/* Hero */}
@@ -45,7 +54,7 @@ const ServicesPage = () => {
               Done-For-You SEO That <span className="text-primary">Actually Moves the Needle</span>
             </h1>
             <p className="fluid-lead text-muted-foreground max-w-2xl mx-auto">
-              Five focused services. Every one designed to fix a specific problem holding your business back from showing up, getting clicks, and turning traffic into revenue.
+              Six focused services. Every one designed to fix a specific problem holding your business back from showing up, getting clicks, and turning traffic into revenue.
             </p>
           </AnimatedSection>
 
