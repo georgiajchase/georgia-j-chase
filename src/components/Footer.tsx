@@ -11,8 +11,10 @@ const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent("SEO Services Inqui
 const quickLinks = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
+  { label: "Portfolio", to: "/portfolio" },
   { label: "Case Studies", to: "/case-studies" },
   { label: "Blog", to: "/blog" },
+  { label: "Reviews", to: "/reviews" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

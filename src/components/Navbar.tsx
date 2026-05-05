@@ -12,6 +12,7 @@ const navLinks: NavLink[] = [
   { label: "Home", type: "anchor", href: "#home" },
   { label: "Services", type: "route", to: "/services" },
   { label: "Case Studies", type: "route", to: "/case-studies" },
+  { label: "Portfolio", type: "route", to: "/portfolio" },
   { label: "Blog", type: "route", to: "/blog" },
   { label: "About", type: "route", to: "/about" },
   { label: "Contact", type: "route", to: "/contact" },
