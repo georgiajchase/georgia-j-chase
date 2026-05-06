@@ -1,5 +1,17 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  Clock,
+  User,
+  Search,
+  MapPin,
+  ListChecks,
+  Link as LinkIcon,
+  Gauge,
+  SearchCheck,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -8,6 +20,15 @@ import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
+
+const slugIcon: Record<string, typeof Search> = {
+  "rank-number-1-on-google-in-90-days": Search,
+  "local-seo-2026-what-actually-works": MapPin,
+  "audit-your-website-in-30-minutes": ListChecks,
+  "backlinks-that-actually-work": LinkIcon,
+  "core-web-vitals-page-speed-2026": Gauge,
+  "keyword-research-that-finds-buyers": SearchCheck,
+};
 
 const Blog = () => (
   <div className="min-h-screen bg-background">
@@ -34,20 +55,31 @@ const Blog = () => (
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {blogPosts.map((post, i) => (
+          {blogPosts.map((post, i) => {
+            const Icon = slugIcon[post.slug] ?? Search;
+            return (
             <AnimatedSection key={post.slug} delay={i * 0.08}>
               <TiltCard>
                 <article className="group bg-card border border-white/10 rounded-2xl overflow-hidden h-full flex flex-col hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)] transition-all">
-                  <div className="relative aspect-[16/9] overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      width={1280}
-                      height={720}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  <div
+                    className="relative aspect-[16/9] overflow-hidden flex items-center justify-center"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #050a18 0%, #0a1530 45%, #f97316 140%)",
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 opacity-40 transition-opacity group-hover:opacity-60"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 70% 70%, rgba(249,115,22,0.45) 0%, transparent 60%)",
+                      }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                    <Icon
+                      size={64}
+                      className="relative z-10 text-white/90 transition-transform duration-700 group-hover:scale-110"
+                      strokeWidth={1.5}
+                    />
                   </div>
 
                   <div className="p-6 flex flex-col flex-1">
@@ -86,7 +118,7 @@ const Blog = () => (
                 </article>
               </TiltCard>
             </AnimatedSection>
-          ))}
+          );})}
         </div>
       </div>
     </main>
