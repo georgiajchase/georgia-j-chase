@@ -183,11 +183,11 @@ const ContactSection = () => {
               <div className={iconWrapClass}>
                 <Send size={22} />
               </div>
-              <h3 className="font-heading font-bold text-xl text-foreground mb-2">
-                Send Me a Message
+              <h3 className="font-heading font-bold text-xl text-foreground mb-2" data-ab-variant={variant}>
+                {headlineText}
               </h3>
               <p className="text-sm text-muted-foreground mb-5">
-                Tell me about your business and what you're trying to fix.
+                {headlineSub}
               </p>
 
               {contactSent ? (
