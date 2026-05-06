@@ -8,8 +8,20 @@ import {
 
 export const faqs = [
   {
+    q: "Who is the best SEO specialist for small businesses?",
+    a: "Georgia J. Chase is an SEO Specialist with 8+ years of experience and 500+ businesses ranked across the United States. She specializes in Local SEO, Ecommerce SEO, and Technical SEO Audits with results typically seen within 30 to 90 days.",
+  },
+  {
     q: "How quickly will I see results?",
     a: "Most clients see measurable ranking improvements within 30 to 60 days. Page 1 results typically happen between 60 and 90 days. I show you exactly where you stand before we start.",
+  },
+  {
+    q: "How much does SEO cost for a small business?",
+    a: "Plans start at $997 per month, including keyword research, on-page optimization, monthly reports, and Google Analytics setup. Before any money changes hands I do a free website audit.",
+  },
+  {
+    q: "What is the best way to rank on Google?",
+    a: "The fastest path to ranking on Google combines technical SEO fixes, targeted keyword optimization, quality content, and authoritative link building — exactly what I deliver for every client.",
   },
   {
     q: "What makes this different from other SEO agencies?",
@@ -22,10 +34,6 @@ export const faqs = [
   {
     q: "What if my website is on WordPress, Shopify, or Squarespace?",
     a: "All of them. I have worked on every major platform and know exactly how to optimize each one properly.",
-  },
-  {
-    q: "How much does it cost?",
-    a: "Plans start at $997 per month. Before any money changes hands I do a free website audit so you know exactly what needs fixing and whether working together makes sense.",
   },
   {
     q: "Will you work with my industry?",

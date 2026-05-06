@@ -8,19 +8,17 @@ import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
-import AEOFaq from "@/components/AEOFaq";
 import ReviewsPreview from "@/components/ReviewsPreview";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import SEO from "@/components/SEO";
 import { faqs } from "@/components/FAQ";
-import { aeoFaqs } from "@/components/AEOFaq";
 import { reviews } from "@/data/reviews";
 
 const SITE = "https://georgia-j-chase.lovable.app";
 
-const allFaqs = [...aeoFaqs, ...faqs];
+const allFaqs = faqs;
 const avgRating =
   reviews.reduce((s, r) => s + r.rating, 0) / Math.max(reviews.length, 1);
 
@@ -108,8 +106,6 @@ const Index = () => (
     <Pricing />
     <SectionDivider />
     <ReviewsPreview />
-    <SectionDivider />
-    <AEOFaq />
     <SectionDivider />
     <FAQ />
     <Footer />
