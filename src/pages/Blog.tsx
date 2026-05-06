@@ -55,20 +55,31 @@ const Blog = () => (
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {blogPosts.map((post, i) => (
+          {blogPosts.map((post, i) => {
+            const Icon = slugIcon[post.slug] ?? Search;
+            return (
             <AnimatedSection key={post.slug} delay={i * 0.08}>
               <TiltCard>
                 <article className="group bg-card border border-white/10 rounded-2xl overflow-hidden h-full flex flex-col hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.25)] transition-all">
-                  <div className="relative aspect-[16/9] overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      width={1280}
-                      height={720}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  <div
+                    className="relative aspect-[16/9] overflow-hidden flex items-center justify-center"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #050a18 0%, #0a1530 45%, #f97316 140%)",
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 opacity-40 transition-opacity group-hover:opacity-60"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 70% 70%, rgba(249,115,22,0.45) 0%, transparent 60%)",
+                      }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                    <Icon
+                      size={64}
+                      className="relative z-10 text-white/90 transition-transform duration-700 group-hover:scale-110"
+                      strokeWidth={1.5}
+                    />
                   </div>
 
                   <div className="p-6 flex flex-col flex-1">
