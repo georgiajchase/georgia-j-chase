@@ -393,7 +393,7 @@ html {
   width: 4px;
   height: 4px;
   border-radius: 9999px;
-  background: #f97316;
+  background: #22c55e;
   box-shadow: 0 0 8px rgba(249, 115, 22, 0.8);
   opacity: 0;
   animation: hero-bg-float 12s ease-in-out infinite;
