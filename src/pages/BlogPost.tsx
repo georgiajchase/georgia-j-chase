@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import { getPostBySlug } from "@/data/blogPosts";
@@ -13,14 +14,22 @@ const BlogPost = () => {
 
   useEffect(() => {
     if (!post) return;
-    document.title = `${post.title} | Georgia J. Chase`;
-    const desc = document.querySelector('meta[name="description"]');
-    const text = post.excerpt.slice(0, 155);
-    if (desc) desc.setAttribute("content", text);
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [post]);
 
   if (!post) return <Navigate to="/blog" replace />;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription,
+    image: post.image,
+    author: { "@type": "Person", name: post.author },
+    keywords: post.focusKeyword,
+    datePublished: post.date,
+  };
+
 
   return (
     <div className="min-h-screen bg-background">
