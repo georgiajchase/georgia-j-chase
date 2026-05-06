@@ -24,7 +24,8 @@ const StarRow = ({ value }: { value: number }) => (
       <Star
         key={i}
         size={16}
-        className={i <= value ? "text-primary fill-primary" : "text-white/20"}
+        style={i <= value ? { color: "#f97316", fill: "#f97316" } : undefined}
+        className={i <= value ? "" : "text-white/20"}
       />
     ))}
   </div>
@@ -75,9 +76,9 @@ const Reviews = () => {
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
           <AnimatedSection>
             <p className="section-label mb-3">Reviews</p>
-            <h1 className="section-title mb-5">What Clients Say About Working With Georgia</h1>
+            <h1 className="section-title mb-5">What Clients Say</h1>
             <p className="fluid-lead text-muted-foreground">
-              Real results. Real businesses. Read what they experienced.
+              Real results from real business owners.
             </p>
           </AnimatedSection>
         </div>
@@ -173,7 +174,8 @@ const Reviews = () => {
                     >
                       <Star
                         size={28}
-                        className={n <= form.rating ? "text-primary fill-primary" : "text-white/20"}
+                        style={n <= form.rating ? { color: "#f97316", fill: "#f97316" } : undefined}
+                        className={n <= form.rating ? "" : "text-white/20"}
                       />
                     </button>
                   ))}
@@ -196,7 +198,7 @@ const Reviews = () => {
                 className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-conversion text-conversion-foreground hover:bg-conversion-dark px-6 py-3 font-semibold transition-all disabled:opacity-60"
               >
                 {submitting && <Loader2 className="animate-spin" size={18} />}
-                Submit My Review
+                Send My Review
               </button>
             </form>
           </AnimatedSection>
