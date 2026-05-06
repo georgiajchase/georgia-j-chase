@@ -28,17 +28,17 @@ const socials = [
 
 const Footer = () => (
   <footer
-    className="relative text-foreground border-t-2 border-primary/60"
+    className="relative text-white border-t-2 border-primary/60"
     style={{ backgroundColor: "#050a18" }}
   >
     <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
 
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 items-start">
         {/* Left: brand + socials */}
         <div>
           <p className="font-heading font-bold text-2xl mb-3 text-white">Georgia J. Chase</p>
-          <p className="text-sm leading-relaxed text-white/60 mb-6 max-w-xs">
+          <p className="text-sm leading-relaxed text-gray-300 mb-6 max-w-xs">
             Helping business owners get found, trusted, and chosen on Google.
           </p>
           <div className="flex items-center gap-3">
@@ -57,49 +57,46 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* Middle: Quick Links */}
-        <div className="md:flex md:flex-col md:items-center">
-          <div>
-            <p className="font-heading font-semibold text-sm mb-4 text-white uppercase tracking-wider">
-              Quick Links
-            </p>
-            <ul className="flex flex-col gap-2.5">
-              {quickLinks.map((l) => (
-                <li key={l.to}>
-                  <Link
-                    to={l.to}
-                    className="text-sm text-white/60 hover:text-primary transition-colors"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        {/* Middle: Quick Links 2-col grid */}
+        <div>
+          <p className="font-heading font-semibold text-sm mb-4 text-white uppercase tracking-wider">
+            Quick Links
+          </p>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-2.5">
+            {quickLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="text-sm text-gray-300 hover:text-white transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
           </div>
         </div>
 
         {/* Right: Get In Touch */}
-        <div className="md:text-right">
+        <div>
           <p className="font-heading font-semibold text-sm mb-4 text-white uppercase tracking-wider">
             Get In Touch
           </p>
           <ul className="space-y-2.5 mb-5">
-            <li className="md:justify-end flex items-center gap-2">
-              <Mail size={16} className="text-primary md:order-2" />
+            <li className="flex items-center gap-2">
+              <Mail size={16} className="text-primary" />
               <a
                 href={MAILTO}
-                className="text-sm text-primary font-semibold hover:underline break-all"
+                className="text-sm text-gray-300 hover:text-white transition-colors break-all"
               >
                 {EMAIL}
               </a>
             </li>
-            <li className="md:justify-end flex items-center gap-2">
-              <MessageCircle size={16} className="text-primary md:order-2" />
+            <li className="flex items-center gap-2">
+              <MessageCircle size={16} className="text-primary" />
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-primary font-semibold hover:underline"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
               >
                 Message me on WhatsApp
               </a>
@@ -116,7 +113,7 @@ const Footer = () => (
     </div>
 
     <div className="border-t border-white/10 py-5">
-      <p className="text-center text-xs text-white/50">
+      <p className="text-center text-xs text-gray-400">
         © 2025 Georgia J. Chase · SEO Specialist · All rights reserved.
       </p>
     </div>
