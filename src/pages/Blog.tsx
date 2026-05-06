@@ -21,7 +21,7 @@ import TiltCard from "@/components/TiltCard";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
 
-const slugIcon: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const slugIcon: Record<string, typeof Search> = {
   "rank-number-1-on-google-in-90-days": Search,
   "local-seo-2026-what-actually-works": MapPin,
   "audit-your-website-in-30-minutes": ListChecks,
