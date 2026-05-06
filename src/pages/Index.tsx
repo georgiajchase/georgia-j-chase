@@ -12,6 +12,7 @@ import ReviewsPreview from "@/components/ReviewsPreview";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 import MarqueeTicker from "@/components/MarqueeTicker";
+import LeadMagnet from "@/components/LeadMagnet";
 import SEO from "@/components/SEO";
 import { faqs } from "@/components/FAQ";
 import { reviews } from "@/data/reviews";
@@ -90,6 +91,7 @@ const Index = () => (
     />
     <Navbar />
     <Hero />
+    <LeadMagnet />
     <MarqueeTicker />
     <TrustBar />
     <SectionDivider />
