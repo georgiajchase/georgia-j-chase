@@ -70,7 +70,7 @@ const BlogPost = () => {
             <div className="relative rounded-2xl overflow-hidden border border-white/10 mb-10 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
               <img
                 src={post.image}
-                alt={post.title}
+                alt={post.imageAlt}
                 width={1280}
                 height={720}
                 loading="lazy"
