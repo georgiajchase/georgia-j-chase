@@ -1,5 +1,17 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  Clock,
+  User,
+  Search,
+  MapPin,
+  ListChecks,
+  Link as LinkIcon,
+  Gauge,
+  SearchCheck,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -8,6 +20,15 @@ import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
+
+const slugIcon: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  "rank-number-1-on-google-in-90-days": Search,
+  "local-seo-2026-what-actually-works": MapPin,
+  "audit-your-website-in-30-minutes": ListChecks,
+  "backlinks-that-actually-work": LinkIcon,
+  "core-web-vitals-page-speed-2026": Gauge,
+  "keyword-research-that-finds-buyers": SearchCheck,
+};
 
 const Blog = () => (
   <div className="min-h-screen bg-background">
