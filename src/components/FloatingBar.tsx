@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowRight, Flame } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 
 const FloatingBar = () => {
   const [show, setShow] = useState(false);
