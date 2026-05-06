@@ -9,11 +9,14 @@ export type BlogPost = {
   slug: string;
   title: string;
   image: string;
+  imageAlt: string;
   date: string;
   readTime: string;
   author: string;
   excerpt: string;
-  /** Array of paragraphs forming the full article body. */
+  focusKeyword: string;
+  metaDescription: string;
+  /** Array of paragraphs forming the full article body. May contain inline HTML for links/headings. */
   content: string[];
 };
 
