@@ -63,7 +63,7 @@ const Hero = () => {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                 <Button
-                  onClick={scrollToForm}
+                  onClick={goToContact}
                   size="lg"
                   className="w-full sm:w-auto bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-8 text-base animate-pulse-glow-green"
                 >
