@@ -1,12 +1,10 @@
 /**
  * Pure CSS / SVG hero background.
- * - Dark navy base
- * - Subtle orange grid lines
- * - Slow rotating wireframe circle on the right (SVG + CSS keyframes)
- * - Floating orange particles (CSS animation only)
- * Zero JS libraries. Replaces the previous Vanta + Three.js setup.
+ * Dark navy base, subtle orange grid, slow rotating wireframe sphere on the right,
+ * and 8 floating orange dots. Sphere and dots hidden on mobile via CSS.
  */
-const particles = Array.from({ length: 14 });
+const ORANGE = "#f97316";
+const particles = Array.from({ length: 8 });
 
 const HeroBackground = () => (
   <div aria-hidden="true" className="hero-bg-root">
@@ -20,22 +18,20 @@ const HeroBackground = () => (
     >
       <defs>
         <radialGradient id="wfGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#22c55e" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
+          <stop offset="0%" stopColor={ORANGE} stopOpacity="0.18" />
+          <stop offset="100%" stopColor={ORANGE} stopOpacity="0" />
         </radialGradient>
       </defs>
       <circle cx="200" cy="200" r="195" fill="url(#wfGlow)" />
-      <g fill="none" stroke="#22c55e" strokeOpacity="0.45" strokeWidth="0.8">
+      <g fill="none" stroke={ORANGE} strokeOpacity="0.4" strokeWidth="0.8">
         <circle cx="200" cy="200" r="190" />
         <circle cx="200" cy="200" r="150" />
         <circle cx="200" cy="200" r="110" />
         <circle cx="200" cy="200" r="70" />
-        {/* meridians */}
         <ellipse cx="200" cy="200" rx="190" ry="60" />
         <ellipse cx="200" cy="200" rx="190" ry="120" />
         <ellipse cx="200" cy="200" rx="60" ry="190" />
         <ellipse cx="200" cy="200" rx="120" ry="190" />
-        {/* cross lines */}
         <line x1="10" y1="200" x2="390" y2="200" />
         <line x1="200" y1="10" x2="200" y2="390" />
       </g>
@@ -47,10 +43,10 @@ const HeroBackground = () => (
           key={i}
           className="hero-bg-particle"
           style={{
-            left: `${(i * 7.3) % 100}%`,
-            top: `${(i * 11.7) % 100}%`,
-            animationDelay: `${(i % 7) * 0.8}s`,
-            animationDuration: `${8 + (i % 5) * 2}s`,
+            left: `${10 + i * 11}%`,
+            top: `${70 + (i % 3) * 8}%`,
+            animationDelay: `${i * 1.4}s`,
+            animationDuration: `${10 + (i % 4) * 2}s`,
           }}
         />
       ))}

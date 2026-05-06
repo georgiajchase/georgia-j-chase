@@ -341,17 +341,17 @@ html {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  background: radial-gradient(ellipse at 80% 50%, #0a1024 0%, #050a18 70%);
+  background: #050a18;
 }
 .hero-bg-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(249, 115, 22, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249, 115, 22, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.15) 1px, transparent 1px);
   background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 80%);
+  mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 90%);
 }
 .hero-bg-glow {
   position: absolute;
@@ -362,9 +362,12 @@ html {
   height: 60vw;
   max-height: 800px;
   transform: translateY(-50%);
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.35) 0%, rgba(249, 115, 22, 0.08) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.18) 0%, rgba(249, 115, 22, 0.04) 50%, transparent 75%);
   filter: blur(40px);
   animation: hero-bg-pulse 6s ease-in-out infinite;
+}
+@media (max-width: 767px) {
+  .hero-bg-glow { display: none; }
 }
 @keyframes hero-bg-pulse {
   0%, 100% { opacity: 0.6; }
@@ -378,7 +381,11 @@ html {
   height: min(70vw, 700px);
   transform: translateY(-50%);
   animation: hero-bg-spin 40s linear infinite;
-  filter: drop-shadow(0 0 25px rgba(249, 115, 22, 0.4));
+  filter: drop-shadow(0 0 18px rgba(249, 115, 22, 0.35));
+  opacity: 0.9;
+}
+@media (max-width: 767px) {
+  .hero-bg-wireframe { display: none; }
 }
 @keyframes hero-bg-spin {
   from { transform: translateY(-50%) rotate(0deg); }
@@ -388,21 +395,24 @@ html {
   position: absolute;
   inset: 0;
 }
+@media (max-width: 767px) {
+  .hero-bg-particles { display: none; }
+}
 .hero-bg-particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   border-radius: 9999px;
-  background: #22c55e;
-  box-shadow: 0 0 8px rgba(249, 115, 22, 0.8);
+  background: #f97316;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.85);
   opacity: 0;
   animation: hero-bg-float 12s ease-in-out infinite;
 }
 @keyframes hero-bg-float {
-  0%   { opacity: 0; transform: translateY(20px) scale(0.6); }
-  20%  { opacity: 0.9; }
-  80%  { opacity: 0.9; }
-  100% { opacity: 0; transform: translateY(-40px) scale(1.2); }
+  0%   { opacity: 0; transform: translateY(40px) scale(0.6); }
+  20%  { opacity: 0.85; }
+  80%  { opacity: 0.85; }
+  100% { opacity: 0; transform: translateY(-80px) scale(1.1); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-wireframe,
