@@ -92,7 +92,7 @@ const Index = () => (
     />
     <Navbar />
     <Hero />
-    <SectionDivider />
+    <MarqueeTicker />
     <TrustBar />
     <SectionDivider />
     <PainPoints />
