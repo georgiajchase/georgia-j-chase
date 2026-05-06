@@ -74,11 +74,14 @@ const About = () => (
           {stats.map((s, i) => (
             <AnimatedSection key={s.label} delay={i * 0.05}>
               <div className="rounded-2xl bg-white/[0.03] border border-primary/30 p-6 text-center backdrop-blur-xl">
-                <s.icon className="text-primary mx-auto mb-3" size={28} />
-                <p className="font-heading font-bold text-4xl text-conversion drop-shadow-[0_0_18px_hsl(var(--conversion)/0.45)]">
-                  <AnimatedCounter end={s.end} suffix={s.suffix} />
+                <s.icon className="mx-auto mb-3" size={28} style={{ color: "#22c55e" }} />
+                <p
+                  className="font-heading font-extrabold text-4xl md:text-5xl"
+                  style={{ color: "#22c55e", textShadow: "0 0 20px rgba(34, 197, 94, 0.5)" }}
+                >
+                  <AnimatedCounter end={s.end} suffix={s.suffix} duration={2000} />
                 </p>
-                <p className="text-sm text-white mt-1">{s.label}</p>
+                <p className="text-sm font-medium mt-2 text-white">{s.label}</p>
               </div>
             </AnimatedSection>
           ))}
