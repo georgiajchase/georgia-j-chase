@@ -342,14 +342,6 @@ const ContactSection = () => {
                     className="h-11 rounded-lg bg-background/60 border-white/10"
                   />
                   <Input
-                    type="tel"
-                    placeholder="Phone (optional)"
-                    maxLength={40}
-                    value={planForm.phone}
-                    onChange={(e) => setPlanForm({ ...planForm, phone: e.target.value })}
-                    className="h-11 rounded-lg bg-background/60 border-white/10"
-                  />
-                  <Input
                     type="url"
                     placeholder="https://yourbusiness.com (optional)"
                     maxLength={255}
