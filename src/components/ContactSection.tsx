@@ -71,6 +71,16 @@ const ContactSection = () => {
   const [planSent, setPlanSent] = useState(false);
   const [planSubmitting, setPlanSubmitting] = useState(false);
 
+  // A/B test: lead capture form headline + primary CTA copy
+  const variant = useABTest("contact_form_headline_cta_v1");
+  const headlineText =
+    variant === "A" ? "Send Me a Message" : "Get Your Free Website Check";
+  const headlineSub =
+    variant === "A"
+      ? "Tell me about your business and what you're trying to fix."
+      : "Tell me about your site. I'll reply within 24 hours with the 3 biggest issues holding it back, free.";
+  const ctaText = variant === "A" ? "Send Message" : "Get My Free Check";
+
   const location = useLocation();
   useEffect(() => {
     const params = new URLSearchParams(location.search);
