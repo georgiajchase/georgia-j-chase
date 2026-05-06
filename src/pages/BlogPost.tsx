@@ -82,14 +82,9 @@ const BlogPost = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <div className="prose prose-invert max-w-none">
-              {post.content.map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="text-foreground/90 text-base sm:text-lg leading-relaxed mb-6"
-                >
-                  {paragraph}
-                </p>
+            <div className="prose prose-invert max-w-none text-foreground/90 text-base sm:text-lg leading-relaxed [&_p]:mb-6">
+              {post.content.map((html, i) => (
+                <div key={i} dangerouslySetInnerHTML={{ __html: html }} />
               ))}
             </div>
           </AnimatedSection>
