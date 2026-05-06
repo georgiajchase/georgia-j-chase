@@ -50,7 +50,7 @@ const iconWrapClass =
 const orangeBtnClass =
   "w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-11 font-semibold";
 
-const ContactSection = () => {
+const ContactSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) => {
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
