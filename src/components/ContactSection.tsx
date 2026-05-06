@@ -14,6 +14,7 @@ import {
 import { toast } from "sonner";
 import AnimatedSection from "./AnimatedSection";
 import { z } from "zod";
+import { useABTest, trackABConversion } from "@/hooks/useABTest";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mreyovlw";
 const EMAIL_ADDRESS = "chasegeorgiaj@gmail.com";
@@ -36,7 +37,6 @@ const planSchema = z.object({
   plan: z.enum(["Starter", "Growth", "Enterprise"]),
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
-  phone: z.string().trim().max(40).optional().or(z.literal("")),
   website: z.string().trim().url("Invalid URL").max(255).or(z.literal("")),
   message: z.string().trim().max(1000).optional().or(z.literal("")),
 });
@@ -63,12 +63,21 @@ const ContactSection = () => {
     plan: "" as "" | "Starter" | "Growth" | "Enterprise",
     name: "",
     email: "",
-    phone: "",
     website: "",
     message: "",
   });
   const [planSent, setPlanSent] = useState(false);
   const [planSubmitting, setPlanSubmitting] = useState(false);
+
+  // A/B test: lead capture form headline + primary CTA copy
+  const variant = useABTest("contact_form_headline_cta_v1");
+  const headlineText =
+    variant === "A" ? "Send Me a Message" : "Get Your Free Website Check";
+  const headlineSub =
+    variant === "A"
+      ? "Tell me about your business and what you're trying to fix."
+      : "Tell me about your site. I'll reply within 24 hours with the 3 biggest issues holding it back, free.";
+  const ctaText = variant === "A" ? "Send Message" : "Get My Free Check";
 
   const location = useLocation();
   useEffect(() => {
@@ -106,6 +115,7 @@ const ContactSection = () => {
       if (res.ok) {
         setContactSent(true);
         setContactForm({ name: "", email: "", message: "" });
+        trackABConversion("contact_form_headline_cta_v1", variant, "contact_form_submit");
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -137,7 +147,7 @@ const ContactSection = () => {
       });
       if (res.ok) {
         setPlanSent(true);
-        setPlanForm({ plan: "", name: "", email: "", phone: "", website: "", message: "" });
+        setPlanForm({ plan: "", name: "", email: "", website: "", message: "" });
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -171,11 +181,11 @@ const ContactSection = () => {
               <div className={iconWrapClass}>
                 <Send size={22} />
               </div>
-              <h3 className="font-heading font-bold text-xl text-foreground mb-2">
-                Send Me a Message
+              <h3 className="font-heading font-bold text-xl text-foreground mb-2" data-ab-variant={variant}>
+                {headlineText}
               </h3>
               <p className="text-sm text-muted-foreground mb-5">
-                Tell me about your business and what you're trying to fix.
+                {headlineSub}
               </p>
 
               {contactSent ? (
@@ -214,7 +224,7 @@ const ContactSection = () => {
                     className="rounded-lg bg-background/60 border-white/10 resize-none"
                   />
                   <Button type="submit" disabled={contactSubmitting} className={orangeBtnClass}>
-                    {contactSubmitting ? "Sending..." : "Send Message"}
+                    {contactSubmitting ? "Sending..." : ctaText}
                   </Button>
                 </form>
               )}
@@ -329,14 +339,6 @@ const ContactSection = () => {
                     maxLength={255}
                     value={planForm.email}
                     onChange={(e) => setPlanForm({ ...planForm, email: e.target.value })}
-                    className="h-11 rounded-lg bg-background/60 border-white/10"
-                  />
-                  <Input
-                    type="tel"
-                    placeholder="Phone (optional)"
-                    maxLength={40}
-                    value={planForm.phone}
-                    onChange={(e) => setPlanForm({ ...planForm, phone: e.target.value })}
                     className="h-11 rounded-lg bg-background/60 border-white/10"
                   />
                   <Input
