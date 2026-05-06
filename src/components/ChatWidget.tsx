@@ -11,192 +11,161 @@ type Msg = {
 const CONTACT_EMAIL = "chasegeorgiaj@gmail.com";
 const WHATSAPP_NUMBER = "16397632098";
 
+type Stage =
+  | "ask_business"
+  | "ask_revenue"
+  | "ask_pages"
+  | "recommend_plan"
+  | "ready"
+  | "post_lead";
+
 const INITIAL_QUICK_REPLIES = [
-  "I run a local business",
-  "I have an ecommerce store",
-  "I run a SaaS",
-  "Pricing",
-  "Free website check",
+  "Local service business",
+  "Ecommerce store",
+  "SaaS / software",
+  "Agency / consulting",
 ];
 
 const INITIAL_GREETING: Msg = {
   role: "assistant",
   content:
-    "Hey, I am Georgia's assistant. Quick question — what does your website do? I will tell you exactly what SEO issues are likely holding it back.",
+    "Hey, quick question — what does your website actually do? Tell me and I will point out exactly what SEO issues are likely holding it back.",
   quickReplies: INITIAL_QUICK_REPLIES,
 };
 
-const getSmartReply = (text: string): Msg => {
-  const t = text.toLowerCase();
+const detectBusinessIssue = (t: string): string => {
+  if (/\b(local|restaurant|plumber|dentist|clinic|salon|contractor|service area|hvac|electrician|lawyer)\b/.test(t)) {
+    return "Local businesses like yours almost always lose Maps rankings to a half-finished Google Business Profile and zero review velocity.";
+  }
+  if (/\b(ecommerce|shop|store|shopify|woocommerce|product|amazon)\b/.test(t)) {
+    return "Ecommerce stores typically bleed traffic from thin product copy and broken category architecture that Google cannot crawl properly.";
+  }
+  if (/\b(saas|software|platform|app|b2b)\b/.test(t)) {
+    return "SaaS sites usually have weak topic authority — Google does not trust the domain on commercial keywords because the content depth is not there.";
+  }
+  if (/\b(agency|consult|marketing|coach)\b/.test(t)) {
+    return "Agency sites usually look great but have zero technical SEO — fast bounce, missing schema, and weak service pages that never rank.";
+  }
+  if (/\b(blog|content|news|publication|media)\b/.test(t)) {
+    return "Content sites almost always fail at search intent matching and internal linking, so Google never sees the topic depth that is actually there.";
+  }
+  if (/\b(real estate|realtor|property|agent)\b/.test(t)) {
+    return "Real estate sites usually fail because city and neighborhood pages are thin and duplicated — Google folds them together and ranks none of them.";
+  }
+  return "Sites like yours usually lose rankings to weak technical SEO, thin landing pages, and missing schema — invisible problems doing real damage.";
+};
 
-  // Lead capture intent
-  if (
-    /\b(get started|sign me up|book|free check|free website check|review my site|audit|i'?m ready|ready to start|let'?s do it|sign up|yes please|drop my details)\b/.test(
-      t
-    )
-  ) {
+const planFromPages = (t: string): { plan: string; price: string; reason: string } => {
+  const isEcom = /\becom|shop|store|product|shopify|woocommerce\b/.test(t);
+  const num = parseInt((t.match(/\d+/) || ["0"])[0], 10);
+  if (isEcom || num > 30 || /\b(many|lots|hundreds|over 30|30\+|50\+)\b/.test(t)) {
     return {
-      role: "assistant",
-      content:
-        "Perfect — drop your name, email and website URL and Georgia personally reviews every site within 24 hours with a specific action plan.",
-      showLeadForm: true,
+      plan: "Enterprise",
+      price: "$3,997",
+      reason:
+        "At that size you need crawl budget management, schema at scale, and ongoing technical work — Starter and Growth do not cover it.",
     };
   }
-
-  // Pricing → ask page count first
-  if (/\b(price|pricing|cost|how much|plan|plans|package|fee|monthly|budget)\b/.test(t)) {
+  if (num >= 10 || /\b(10 to 30|10-30|medium|twenty|fifteen)\b/.test(t)) {
     return {
-      role: "assistant",
-      content:
-        "Plans are $997, $1,997 or $3,997 a month. How many pages does your site have so I can tell you which one fits?",
-      quickReplies: ["Under 10 pages", "10 to 50 pages", "Over 50 pages"],
+      plan: "Growth",
+      price: "$1,997",
+      reason:
+        "That is the sweet spot for real site architecture, internal linking, and content depth — exactly what Growth is built for.",
     };
   }
-
-  if (/\bunder 10\b|\b1[-\s]?10\b|\bsmall site\b|\bfew pages\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Starter at $997 a month is the right fit — under 10 pages means we can lock down on-page SEO and local rankings fast. Want a free check on your site?",
-      quickReplies: ["Yes, free check", "What is included?"],
-    };
-  }
-  if (/\b10 to 50\b|\b10[-\s]?50\b|\bmedium\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Growth at $1,997 a month is built for sites this size — enough pages to need real architecture, internal linking and content depth. Want me to set up your free check?",
-      quickReplies: ["Yes, free check", "What is included?"],
-    };
-  }
-  if (/\bover 50\b|\b50\+\b|\blarge\b|\bbig site\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Enterprise at $3,997 a month — sites over 50 pages need crawl budget management, schema at scale and ongoing technical work. Ready for a free site check?",
-      quickReplies: ["Yes, free check", "What is included?"],
-    };
-  }
-
-  // Business types — tailored pain
-  if (/\blocal\b|\brestaurant\b|\bplumber\b|\bdentist\b|\bclinic\b|\bsalon\b|\bservice area\b|\bcontractor\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Local businesses usually lose to weak Google Business Profiles, missing location pages and zero review velocity. Are you ranking on Google Maps for your main service yet?",
-      quickReplies: ["Not really", "Sometimes", "Free website check"],
-    };
-  }
-  if (/\becommerce\b|\bonline store\b|\bshopify\b|\bwoocommerce\b|\bproducts?\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Ecommerce sites bleed traffic from thin product copy, broken category structure and missing schema. How many products are on the site so I can scope what is breaking?",
-      quickReplies: ["Under 50", "50 to 500", "Over 500"],
-    };
-  }
-  if (/\bsaas\b|\bsoftware\b|\bb2b\b|\bplatform\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "SaaS sites usually have a weak content engine and zero topic authority — that is what kills organic signups. Do you have a real blog or content strategy in place?",
-      quickReplies: ["No content yet", "Some content", "Free website check"],
-    };
-  }
-  if (/\bblog\b|\bcontent creator\b|\bpersonal\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Content sites usually fail at search intent matching and internal linking — meaning Google never sees the topic depth. What is the niche?",
-      quickReplies: ["Tell me more", "Free website check"],
-    };
-  }
-  if (/\bagency\b|\bmarketing\b|\bconsult\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Agencies usually have nice design and zero technical SEO — fast bounce rate, no schema, weak service pages. Want a free audit so I can show you what is actually broken?",
-      quickReplies: ["Yes, free check", "Tell me more"],
-    };
-  }
-
-  // Results / timeline
-  if (/\b(how long|results|when|timeline|how soon|quickly|fast|see results|take to)\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Most clients see ranking movement in 30 to 60 days and page 1 results between 60 and 90 days. Want me to set up a free website check so you know exactly where you stand?",
-      quickReplies: ["Yes, free check", "Pricing"],
-    };
-  }
-
-  // Services
-  if (/\b(service|services|what do you do|offer|specialize|specialty|help with)\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Six services — Local SEO, Ecommerce SEO, Technical Audit, Link Building, Content Strategy, and Website SEO Design. Which one matches what your business needs right now?",
-      quickReplies: ["Local SEO", "Ecommerce SEO", "Technical Audit", "Free website check"],
-    };
-  }
-  if (/\blocal seo\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Local SEO covers Google Business Profile, Maps rankings, location pages and citations — designed for service area businesses. Want me to check how visible your business is right now?",
-      quickReplies: ["Yes, free check", "Pricing"],
-    };
-  }
-  if (/\btechnical\b|\baudit\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "The Technical Audit hands you a prioritized fix list — speed, indexing, Core Web Vitals, schema, broken paths. Want yours started this week?",
-      quickReplies: ["Yes, free check", "Pricing"],
-    };
-  }
-  if (/\bcontent\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Content Strategy maps every article to real search intent and revenue — not vanity topics. Do you already have a blog live or starting from scratch?",
-      quickReplies: ["Have a blog", "Starting fresh", "Free website check"],
-    };
-  }
-  if (/\blink\b|\bbacklinks?\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Link Building here means editorial placements and digital PR — no PBNs, no spam. What does your current backlink profile look like, any idea?",
-      quickReplies: ["No idea", "Few links", "Free website check"],
-    };
-  }
-
-  // Contact
-  if (/\b(contact|email|reach|whatsapp|call|talk to georgia)\b/.test(t)) {
-    return {
-      role: "assistant",
-      content: `Reach Georgia direct at ${CONTACT_EMAIL} or via WhatsApp. Want to drop your details for a free site review instead?`,
-      showLeadForm: true,
-    };
-  }
-
-  // Greetings
-  if (/^(hi|hey|hello|yo|sup|howdy)\b/.test(t)) {
-    return {
-      role: "assistant",
-      content:
-        "Hey, glad you stopped by. What does your website do — local service, ecommerce, SaaS, something else?",
-      quickReplies: INITIAL_QUICK_REPLIES,
-    };
-  }
-
-  // Catch-all — describe site triggers tailored response framework
   return {
-    role: "assistant",
-    content:
-      "Got it. Most sites in that space lose rankings to weak technical SEO, thin content, or missing schema — Georgia can pinpoint the exact issue free in 24 hours. Want to send your URL?",
-    quickReplies: ["Yes, free check", "Pricing", "Services"],
+    plan: "Starter",
+    price: "$997",
+    reason:
+      "Under 10 pages means we can lock down on-page SEO and local rankings fast — Starter is the right fit.",
+  };
+};
+
+const READY_RX = /\b(yes|yeah|yep|sure|ok|okay|sounds good|let'?s do it|i'?m in|sign me up|book|ready|go|do it|please|definitely|absolutely)\b/;
+
+const getReply = (text: string, stage: Stage): { reply: Msg; nextStage: Stage } => {
+  const t = text.toLowerCase().trim();
+
+  if (stage === "ask_business") {
+    const issue = detectBusinessIssue(t);
+    return {
+      reply: {
+        role: "assistant",
+        content: `${issue} What is your monthly revenue target right now?`,
+        quickReplies: ["Under $10K", "$10K to $50K", "Over $50K"],
+      },
+      nextStage: "ask_revenue",
+    };
+  }
+
+  if (stage === "ask_revenue") {
+    return {
+      reply: {
+        role: "assistant",
+        content: "Got it. How many pages does your website have?",
+        quickReplies: ["Under 10 pages", "10 to 30 pages", "Over 30 pages"],
+      },
+      nextStage: "ask_pages",
+    };
+  }
+
+  if (stage === "ask_pages") {
+    const { plan, price, reason } = planFromPages(t);
+    return {
+      reply: {
+        role: "assistant",
+        content: `Recommend the ${plan} plan at ${price}/mo. ${reason}`,
+        quickReplies: ["Sounds good", "Tell me more"],
+      },
+      nextStage: "recommend_plan",
+    };
+  }
+
+  if (stage === "recommend_plan") {
+    if (READY_RX.test(t) || /sounds good/.test(t)) {
+      return {
+        reply: {
+          role: "assistant",
+          content:
+            "This is exactly what Georgia fixes. Drop your name, email and website URL and she will personally audit your site within 24 hours and send you a specific action plan — completely free.",
+          showLeadForm: true,
+        },
+        nextStage: "ready",
+      };
+    }
+    return {
+      reply: {
+        role: "assistant",
+        content:
+          "Every plan is month to month and starts with a free audit so you see the specific issues before paying. Want Georgia to take a look at your site?",
+        quickReplies: ["Yes, audit my site", "Not yet"],
+      },
+      nextStage: "recommend_plan",
+    };
+  }
+
+  if (stage === "ready") {
+    return {
+      reply: {
+        role: "assistant",
+        content:
+          "Drop your name, email and website URL below and Georgia will personally audit your site within 24 hours.",
+        showLeadForm: true,
+      },
+      nextStage: "ready",
+    };
+  }
+
+  // post_lead / fallback
+  return {
+    reply: {
+      role: "assistant",
+      content:
+        "Georgia will email you within 24 hours. Anything else you want to know in the meantime?",
+      quickReplies: ["How long until results?", "What is included?"],
+    },
+    nextStage: "post_lead",
   };
 };
 
