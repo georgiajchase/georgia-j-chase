@@ -243,8 +243,8 @@ const ContactSection = () => {
               <p className="text-sm text-muted-foreground mb-5">
                 Quickest way to chat. Pre filled message ready to send.
               </p>
-              <p className="text-sm text-primary font-semibold mb-5 break-all">
-                +1 (639) 763 2098
+              <p className="text-sm text-primary font-semibold mb-5">
+                Tap to open WhatsApp
               </p>
               <a
                 href={WHATSAPP_URL}

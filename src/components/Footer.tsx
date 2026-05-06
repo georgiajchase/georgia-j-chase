@@ -101,7 +101,7 @@ const Footer = () => (
                 rel="noopener noreferrer"
                 className="text-sm text-primary font-semibold hover:underline"
               >
-                +1 (639) 763 2098
+                Message me on WhatsApp
               </a>
             </li>
           </ul>
