@@ -6,7 +6,7 @@ import HeroBackground from "./HeroBackground";
 
 const Hero = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const el = parallaxRef.current;
     if (!el) return;
