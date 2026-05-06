@@ -12,6 +12,7 @@ import BlogPost from "./pages/BlogPost.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
+import PortfolioDetail from "./pages/PortfolioDetail.tsx";
 import Reviews from "./pages/Reviews.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ChatWidget from "./components/ChatWidget.tsx";
