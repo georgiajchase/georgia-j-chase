@@ -29,8 +29,8 @@ const Hero = () => {
     };
   }, []);
 
-  const scrollToForm = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const goToContact = () => {
+    navigate("/contact");
   };
 
   const scrollToHowItWorks = () => {
