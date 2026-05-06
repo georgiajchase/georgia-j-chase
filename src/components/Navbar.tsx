@@ -93,6 +93,7 @@ const Navbar = () => {
           : "bg-transparent border-b border-transparent"
       }`}
     >
+      <AnnouncementBar />
       <div className="container mx-auto flex items-center justify-between h-20 px-4 lg:px-8">
         <Link to="/" onClick={() => setOpen(false)} className="flex items-center h-20 py-1">
           <BrandLogo className="h-[42px] md:h-[50px] w-[120px] md:w-[160px]" />
