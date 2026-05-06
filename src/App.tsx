@@ -16,6 +16,9 @@ import Reviews from "./pages/Reviews.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ChatWidget from "./components/ChatWidget.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
+import AnnouncementBar from "./components/AnnouncementBar.tsx";
+import FloatingBar from "./components/FloatingBar.tsx";
+import ExitIntentPopup from "./components/ExitIntentPopup.tsx";
 
 const queryClient = new QueryClient();
 
