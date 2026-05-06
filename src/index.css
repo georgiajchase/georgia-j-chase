@@ -15,7 +15,7 @@
     --popover: 225 55% 8%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 25 95% 53%;
+    --primary: 142 71% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 222 40% 14%;
@@ -24,7 +24,7 @@
     --muted: 222 40% 14%;
     --muted-foreground: 0 0% 85%;
 
-    --accent: 25 95% 53%;
+    --accent: 142 71% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,7 +32,7 @@
 
     --border: 222 40% 18%;
     --input: 222 40% 18%;
-    --ring: 25 95% 53%;
+    --ring: 142 71% 45%;
 
     --radius: 0.5rem;
 
@@ -45,12 +45,12 @@
 
     --sidebar-background: 222 65% 6%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 25 95% 53%;
+    --sidebar-primary: 142 71% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 222 40% 14%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 222 40% 18%;
-    --sidebar-ring: 25 95% 53%;
+    --sidebar-ring: 142 71% 45%;
 
     /* Conversion green — used for CTA buttons, key stats, success markers */
     --conversion: 142 71% 45%;
@@ -393,7 +393,7 @@ html {
   width: 4px;
   height: 4px;
   border-radius: 9999px;
-  background: #f97316;
+  background: #22c55e;
   box-shadow: 0 0 8px rgba(249, 115, 22, 0.8);
   opacity: 0;
   animation: hero-bg-float 12s ease-in-out infinite;

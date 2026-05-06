@@ -176,7 +176,7 @@ const getSmartReply = (text: string): Msg => {
   if (/\b(contact|email|reach|whatsapp|call|talk to georgia)\b/.test(t)) {
     return {
       role: "assistant",
-      content: `Reach Georgia direct at ${CONTACT_EMAIL} or WhatsApp +1 (639) 763-2098. Want to drop your details for a free site review instead?`,
+      content: `Reach Georgia direct at ${CONTACT_EMAIL} or via WhatsApp. Want to drop your details for a free site review instead?`,
       showLeadForm: true,
     };
   }
@@ -294,7 +294,7 @@ const ChatWidget = () => {
         <button
           onClick={() => setOpen(true)}
           aria-label="Open chat with Georgia's SEO assistant"
-          className="fixed z-50 right-5 bottom-24 h-14 w-14 rounded-full bg-[#f97316] text-white shadow-[0_8px_30px_rgba(249,115,22,0.55)] flex items-center justify-center hover:scale-105 transition-transform animate-pulse"
+          className="fixed z-50 right-5 bottom-24 h-14 w-14 rounded-full bg-[#22c55e] text-white shadow-[0_8px_30px_rgba(34,197,94,0.55)] flex items-center justify-center hover:scale-105 transition-transform animate-pulse"
         >
           <MessageCircle className="h-6 w-6" strokeWidth={2.25} />
           {!hasOpened && (
@@ -321,17 +321,17 @@ const ChatWidget = () => {
       {/* Chat window — bottom right */}
       {open && (
         <div
-          className="fixed z-50 right-5 bottom-5 flex flex-col rounded-2xl border border-[#f97316]/30 bg-[#050a18] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden animate-fade-in"
+          className="fixed z-50 right-5 bottom-5 flex flex-col rounded-2xl border border-[#22c55e]/30 bg-[#050a18] shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden animate-fade-in"
           style={{
             width: "min(340px, calc(100vw - 2.5rem))",
             height: "min(540px, calc(100vh - 2.5rem))",
           }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-[#0a0f1e] border-b border-[#f97316]/30">
+          <div className="flex items-center justify-between px-4 py-3 bg-[#0a0f1e] border-b border-[#22c55e]/30">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="h-9 w-9 rounded-full bg-[#f97316] flex items-center justify-center text-white font-semibold text-sm">
+                <div className="h-9 w-9 rounded-full bg-[#22c55e] flex items-center justify-center text-white font-semibold text-sm">
                   G
                 </div>
                 <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-[#0a0f1e]" />
@@ -363,8 +363,8 @@ const ChatWidget = () => {
                 <div
                   className={
                     m.role === "user"
-                      ? "max-w-[80%] rounded-2xl rounded-br-sm px-3 py-2 text-sm bg-[#f97316] text-white whitespace-pre-wrap break-words"
-                      : "max-w-[85%] rounded-2xl rounded-bl-sm px-3 py-2 text-sm bg-[#0a0f1e] text-white/90 border border-[#f97316]/40 whitespace-pre-wrap break-words"
+                      ? "max-w-[80%] rounded-2xl rounded-br-sm px-3 py-2 text-sm bg-[#22c55e] text-white whitespace-pre-wrap break-words"
+                      : "max-w-[85%] rounded-2xl rounded-bl-sm px-3 py-2 text-sm bg-[#0a0f1e] text-white/90 border border-[#22c55e]/40 whitespace-pre-wrap break-words"
                   }
                 >
                   {m.content}
@@ -374,11 +374,11 @@ const ChatWidget = () => {
 
             {isTyping && (
               <div className="flex justify-start">
-                <div className="max-w-[85%] rounded-2xl rounded-bl-sm px-3 py-2 bg-[#0a0f1e] border border-[#f97316]/40">
+                <div className="max-w-[85%] rounded-2xl rounded-bl-sm px-3 py-2 bg-[#0a0f1e] border border-[#22c55e]/40">
                   <span className="inline-flex gap-1 items-center">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#f97316] animate-bounce" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#f97316] animate-bounce [animation-delay:120ms]" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#f97316] animate-bounce [animation-delay:240ms]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] animate-bounce" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] animate-bounce [animation-delay:120ms]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] animate-bounce [animation-delay:240ms]" />
                   </span>
                 </div>
               </div>
@@ -391,7 +391,7 @@ const ChatWidget = () => {
                   <button
                     key={q}
                     onClick={() => send(q)}
-                    className="text-xs px-3 py-1.5 rounded-full bg-transparent text-[#f97316] border border-[#f97316] hover:bg-[#f97316] hover:text-white transition-colors"
+                    className="text-xs px-3 py-1.5 rounded-full bg-transparent text-[#22c55e] border border-[#22c55e] hover:bg-[#22c55e] hover:text-white transition-colors"
                   >
                     {q}
                   </button>
@@ -403,7 +403,7 @@ const ChatWidget = () => {
             {showLeadForm && (
               <form
                 onSubmit={submitLead}
-                className="mt-2 space-y-2 rounded-xl border border-[#f97316]/40 bg-[#0a0f1e] p-3"
+                className="mt-2 space-y-2 rounded-xl border border-[#22c55e]/40 bg-[#0a0f1e] p-3"
               >
                 <p className="text-xs text-white/70">Free website check — Georgia replies in 24h</p>
                 <input
@@ -412,7 +412,7 @@ const ChatWidget = () => {
                   placeholder="Your name"
                   value={lead.name}
                   onChange={(e) => setLead({ ...lead, name: e.target.value })}
-                  className="w-full bg-[#050a18] text-white placeholder-white/40 text-sm rounded-md px-3 py-2 border border-[#f97316]/30 focus:outline-none focus:border-[#f97316]"
+                  className="w-full bg-[#050a18] text-white placeholder-white/40 text-sm rounded-md px-3 py-2 border border-[#22c55e]/30 focus:outline-none focus:border-[#22c55e]"
                 />
                 <input
                   type="email"
@@ -420,7 +420,7 @@ const ChatWidget = () => {
                   placeholder="your@email.com"
                   value={lead.email}
                   onChange={(e) => setLead({ ...lead, email: e.target.value })}
-                  className="w-full bg-[#050a18] text-white placeholder-white/40 text-sm rounded-md px-3 py-2 border border-[#f97316]/30 focus:outline-none focus:border-[#f97316]"
+                  className="w-full bg-[#050a18] text-white placeholder-white/40 text-sm rounded-md px-3 py-2 border border-[#22c55e]/30 focus:outline-none focus:border-[#22c55e]"
                 />
                 <input
                   type="url"
@@ -428,12 +428,12 @@ const ChatWidget = () => {
                   placeholder="https://yourbusiness.com"
                   value={lead.website}
                   onChange={(e) => setLead({ ...lead, website: e.target.value })}
-                  className="w-full bg-[#050a18] text-white placeholder-white/40 text-sm rounded-md px-3 py-2 border border-[#f97316]/30 focus:outline-none focus:border-[#f97316]"
+                  className="w-full bg-[#050a18] text-white placeholder-white/40 text-sm rounded-md px-3 py-2 border border-[#22c55e]/30 focus:outline-none focus:border-[#22c55e]"
                 />
                 <button
                   type="submit"
                   disabled={leadSubmitting}
-                  className="w-full bg-[#f97316] hover:bg-[#ea6a0a] text-white text-sm font-semibold rounded-md py-2 transition-colors disabled:opacity-60"
+                  className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white text-sm font-semibold rounded-md py-2 transition-colors disabled:opacity-60"
                 >
                   {leadSubmitting ? "Sending..." : "Send my details"}
                 </button>
@@ -444,7 +444,7 @@ const ChatWidget = () => {
           {/* Input */}
           <form
             onSubmit={onSubmit}
-            className="flex items-center gap-2 px-3 py-3 bg-[#0a0f1e] border-t border-[#f97316]/30"
+            className="flex items-center gap-2 px-3 py-3 bg-[#0a0f1e] border-t border-[#22c55e]/30"
           >
             <input
               ref={inputRef}
@@ -453,13 +453,13 @@ const ChatWidget = () => {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about SEO, pricing, results..."
               disabled={isTyping}
-              className="flex-1 bg-[#050a18] text-white placeholder-white/40 text-sm rounded-full px-4 py-2 border border-[#f97316]/30 focus:outline-none focus:border-[#f97316] disabled:opacity-60"
+              className="flex-1 bg-[#050a18] text-white placeholder-white/40 text-sm rounded-full px-4 py-2 border border-[#22c55e]/30 focus:outline-none focus:border-[#22c55e] disabled:opacity-60"
             />
             <button
               type="submit"
               disabled={isTyping || !input.trim()}
               aria-label="Send message"
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-[#f97316] text-white hover:bg-[#ea6a0a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-[#22c55e] text-white hover:bg-[#16a34a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send className="h-4 w-4" />
             </button>

@@ -20,12 +20,12 @@ const HeroBackground = () => (
     >
       <defs>
         <radialGradient id="wfGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#f97316" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+          <stop offset="0%" stopColor="#22c55e" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
         </radialGradient>
       </defs>
       <circle cx="200" cy="200" r="195" fill="url(#wfGlow)" />
-      <g fill="none" stroke="#f97316" strokeOpacity="0.45" strokeWidth="0.8">
+      <g fill="none" stroke="#22c55e" strokeOpacity="0.45" strokeWidth="0.8">
         <circle cx="200" cy="200" r="190" />
         <circle cx="200" cy="200" r="150" />
         <circle cx="200" cy="200" r="110" />
