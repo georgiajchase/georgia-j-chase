@@ -80,6 +80,11 @@ const Hero = () => {
               <p className="mt-4 text-sm text-muted-foreground md:text-warm-white/70">
                 I keep things simple and honest, and I'll never waste your time.
               </p>
+              <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs sm:text-sm text-warm-white/70">
+                <span className="inline-flex items-center gap-1.5"><span className="text-conversion">✓</span> 27 sites ranked on page 1</span>
+                <span className="inline-flex items-center gap-1.5"><span className="text-gold">★</span> 5.0 average rating</span>
+                <span className="inline-flex items-center gap-1.5"><span className="text-primary">●</span> Verified results in 30 to 90 days</span>
+              </div>
             </div>
           </AnimatedSection>
 

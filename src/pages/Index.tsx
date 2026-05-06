@@ -12,6 +12,7 @@ import AEOFaq from "@/components/AEOFaq";
 import ReviewsPreview from "@/components/ReviewsPreview";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import SEO from "@/components/SEO";
 import { faqs } from "@/components/FAQ";
 import { aeoFaqs } from "@/components/AEOFaq";
@@ -91,7 +92,7 @@ const Index = () => (
     />
     <Navbar />
     <Hero />
-    <SectionDivider />
+    <MarqueeTicker />
     <TrustBar />
     <SectionDivider />
     <PainPoints />
