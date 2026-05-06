@@ -176,7 +176,7 @@ const getSmartReply = (text: string): Msg => {
   if (/\b(contact|email|reach|whatsapp|call|talk to georgia)\b/.test(t)) {
     return {
       role: "assistant",
-      content: `Reach Georgia direct at ${CONTACT_EMAIL} or WhatsApp +1 (639) 763-2098. Want to drop your details for a free site review instead?`,
+      content: `Reach Georgia direct at ${CONTACT_EMAIL} or via WhatsApp. Want to drop your details for a free site review instead?`,
       showLeadForm: true,
     };
   }
