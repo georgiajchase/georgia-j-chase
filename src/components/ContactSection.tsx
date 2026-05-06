@@ -147,7 +147,7 @@ const ContactSection = () => {
       });
       if (res.ok) {
         setPlanSent(true);
-        setPlanForm({ plan: "", name: "", email: "", phone: "", website: "", message: "" });
+        setPlanForm({ plan: "", name: "", email: "", website: "", message: "" });
       } else {
         toast.error("Something went wrong. Please try again.");
       }
