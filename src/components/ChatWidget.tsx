@@ -173,6 +173,7 @@ const ChatWidget = () => {
   const [open, setOpen] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([INITIAL_GREETING]);
+  const [stage, setStage] = useState<Stage>("ask_business");
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
@@ -204,10 +205,10 @@ const ChatWidget = () => {
     setInput("");
     setIsTyping(true);
 
-    // Simulate thinking delay
     setTimeout(() => {
-      const reply = getSmartReply(trimmed);
+      const { reply, nextStage } = getReply(trimmed, stage);
       setMessages((prev) => [...prev, reply]);
+      setStage(nextStage);
       setIsTyping(false);
     }, 600 + Math.random() * 400);
   };
@@ -239,10 +240,11 @@ const ChatWidget = () => {
         },
         {
           role: "assistant",
-          content: `Got it, ${lead.name.split(" ")[0]}! 🎉 Georgia will personally review ${lead.website} and email you back within 24 hours at ${lead.email}. Talk soon!`,
-          quickReplies: ["What does SEO cost?", "How long until I see results?"],
+          content: `Got it, ${lead.name.split(" ")[0]}. Georgia will personally review ${lead.website} and email you within 24 hours.`,
+          quickReplies: ["How long until results?", "What is included?"],
         },
       ]);
+      setStage("post_lead");
       setLead({ name: "", email: "", website: "" });
       setLeadSubmitting(false);
     }, 400);
