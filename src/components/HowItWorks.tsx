@@ -53,7 +53,7 @@ const HowItWorks = () => {
 
         <AnimatedSection className="text-center">
           <Button
-            onClick={scrollToForm}
+            onClick={goToContact}
             size="lg"
             className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8"
           >
