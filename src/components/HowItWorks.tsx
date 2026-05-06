@@ -25,9 +25,8 @@ const steps = [
 ];
 
 const HowItWorks = () => {
-  const scrollToForm = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
+  const goToContact = () => navigate("/contact");
 
   return (
     <section id="how-it-works" className="py-14 sm:py-20 bg-background">
