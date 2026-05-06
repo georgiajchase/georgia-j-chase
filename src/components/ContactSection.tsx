@@ -226,7 +226,7 @@ const ContactSection = () => {
                     className="rounded-lg bg-background/60 border-white/10 resize-none"
                   />
                   <Button type="submit" disabled={contactSubmitting} className={orangeBtnClass}>
-                    {contactSubmitting ? "Sending..." : "Send Message"}
+                    {contactSubmitting ? "Sending..." : ctaText}
                   </Button>
                 </form>
               )}
