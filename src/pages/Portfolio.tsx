@@ -68,7 +68,7 @@ const Portfolio = () => (
                 </div>
 
                 <Link
-                  to="/contact"
+                  to={`/portfolio/${p.slug}`}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-conversion text-conversion-foreground hover:bg-conversion-dark px-5 py-2.5 text-sm font-semibold transition-all"
                 >
                   View Details <ArrowRight size={14} />

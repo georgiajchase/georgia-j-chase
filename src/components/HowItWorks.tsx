@@ -1,4 +1,5 @@
 import { ClipboardCheck, MessageSquareText, Rocket } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 
@@ -24,9 +25,8 @@ const steps = [
 ];
 
 const HowItWorks = () => {
-  const scrollToForm = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
+  const goToContact = () => navigate("/contact");
 
   return (
     <section id="how-it-works" className="py-14 sm:py-20 bg-background">
@@ -53,7 +53,7 @@ const HowItWorks = () => {
 
         <AnimatedSection className="text-center">
           <Button
-            onClick={scrollToForm}
+            onClick={goToContact}
             size="lg"
             className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8"
           >

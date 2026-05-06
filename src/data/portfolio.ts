@@ -9,7 +9,7 @@ export type PortfolioProject = {
 
 export const portfolio: PortfolioProject[] = [
   {
-    slug: "barclay-group-insurance",
+    slug: "barclay-group",
     name: "The Barclay Group Insurance",
     industry: "Insurance",
     challenge:

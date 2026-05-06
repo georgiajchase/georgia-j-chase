@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 import HeroBackground from "./HeroBackground";
 
 const Hero = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const el = parallaxRef.current;
     if (!el) return;
@@ -28,8 +29,8 @@ const Hero = () => {
     };
   }, []);
 
-  const scrollToForm = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const goToContact = () => {
+    navigate("/contact");
   };
 
   const scrollToHowItWorks = () => {
@@ -62,7 +63,7 @@ const Hero = () => {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                 <Button
-                  onClick={scrollToForm}
+                  onClick={goToContact}
                   size="lg"
                   className="w-full sm:w-auto bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-8 text-base animate-pulse-glow-green"
                 >
