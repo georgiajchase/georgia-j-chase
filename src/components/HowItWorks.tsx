@@ -1,4 +1,5 @@
 import { ClipboardCheck, MessageSquareText, Rocket } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
 
