@@ -39,7 +39,7 @@ const FloatingBar = () => {
         <Link
           to="/contact"
           className="shrink-0 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all hover:opacity-90"
-          style={{ backgroundColor: "#C9A84C", color: "#1B4332" }}
+          style={{ backgroundColor: "#22c55e", color: "#FFFFFF" }}
         >
           Claim Yours <ArrowRight size={14} />
         </Link>
