@@ -118,7 +118,7 @@ const Blog = () => (
                 </article>
               </TiltCard>
             </AnimatedSection>
-          ))}
+          );})}
         </div>
       </div>
     </main>
