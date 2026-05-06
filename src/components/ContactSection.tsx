@@ -63,7 +63,6 @@ const ContactSection = () => {
     plan: "" as "" | "Starter" | "Growth" | "Enterprise",
     name: "",
     email: "",
-    phone: "",
     website: "",
     message: "",
   });
