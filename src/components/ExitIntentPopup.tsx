@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { X, ArrowRight, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { X, Download } from "lucide-react";
+import { LeadMagnetForm } from "./LeadMagnet";
 
 const ExitIntentPopup = () => {
   const [open, setOpen] = useState(false);
@@ -38,8 +38,8 @@ const ExitIntentPopup = () => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-md w-full rounded-2xl p-8 shadow-2xl animate-scale-in border"
-        style={{ backgroundColor: "#1B4332", borderColor: "rgba(201, 168, 76, 0.5)", color: "#FAFAF8" }}
+        className="relative max-w-md w-full rounded-2xl p-8 shadow-2xl animate-scale-in border-2"
+        style={{ backgroundColor: "#050a18", borderColor: "#f97316", color: "#FAFAF8" }}
       >
         <button
           onClick={() => setOpen(false)}
@@ -51,31 +51,18 @@ const ExitIntentPopup = () => {
         </button>
         <div
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4"
-          style={{ backgroundColor: "rgba(201, 168, 76, 0.18)", color: "#C9A84C" }}
+          style={{ backgroundColor: "rgba(249, 115, 22, 0.18)", color: "#f97316" }}
         >
-          <Sparkles size={14} /> Wait, before you go
+          <Download size={14} /> Free Download
         </div>
         <h3 className="text-2xl font-bold mb-3" style={{ color: "#FAFAF8" }}>
-          Get a free 15 minute SEO audit on me.
+          Wait, grab this before you go
         </h3>
         <p className="text-sm mb-6" style={{ color: "rgba(250, 250, 248, 0.8)" }}>
-          I'll personally check your site for the 3 biggest issues blocking your traffic. No pitch, no pressure.
+          The 27-Point SEO Checklist I use to audit every client website. Find out exactly what is
+          holding your site back.
         </p>
-        <Link
-          to="/contact"
-          onClick={() => setOpen(false)}
-          className="inline-flex items-center justify-center gap-2 w-full rounded-full px-6 py-3 text-sm font-semibold transition-all hover:opacity-90"
-          style={{ backgroundColor: "#C9A84C", color: "#1B4332" }}
-        >
-          Claim My Free Audit <ArrowRight size={16} />
-        </Link>
-        <button
-          onClick={() => setOpen(false)}
-          className="block w-full mt-3 text-xs hover:opacity-100 opacity-60"
-          style={{ color: "#FAFAF8" }}
-        >
-          No thanks, I'll pass
-        </button>
+        <LeadMagnetForm />
       </div>
     </div>
   );
