@@ -15,6 +15,7 @@ const navLinks: NavLink[] = [
   { label: "Case Studies", type: "route", to: "/case-studies" },
   { label: "Portfolio", type: "route", to: "/portfolio" },
   { label: "Blog", type: "route", to: "/blog" },
+  { label: "Reviews", type: "route", to: "/reviews" },
   { label: "About", type: "route", to: "/about" },
   { label: "Contact", type: "route", to: "/contact" },
 ];
