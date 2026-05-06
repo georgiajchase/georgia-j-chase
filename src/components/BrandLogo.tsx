@@ -6,7 +6,7 @@ interface BrandLogoProps {
 /**
  * Inline SVG brand logo.
  * - White "G" lettermark
- * - Orange #f97316 lightning bolt accent inside the G
+ * - Orange #22c55e lightning bolt accent inside the G
  * - White "Georgia J. Chase" wordmark
  * - Fully transparent background, scales cleanly.
  */
@@ -28,7 +28,7 @@ const BrandLogo = ({ className, showText = true }: BrandLogoProps) => (
       {/* Orange lightning bolt accent inside the G */}
       <path
         d="M40 18 L26 42 L36 42 L30 60 L50 34 L40 34 L46 18 Z"
-        fill="#f97316"
+        fill="#22c55e"
       />
     </g>
 
