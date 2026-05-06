@@ -117,6 +117,7 @@ const ContactSection = () => {
       if (res.ok) {
         setContactSent(true);
         setContactForm({ name: "", email: "", message: "" });
+        trackABConversion("contact_form_headline_cta_v1", variant, "contact_form_submit");
       } else {
         toast.error("Something went wrong. Please try again.");
       }
