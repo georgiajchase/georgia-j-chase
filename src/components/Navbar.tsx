@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BrandLogo from "./BrandLogo";
+import AnnouncementBar from "./AnnouncementBar";
 
 type NavLink =
   | { label: string; type: "anchor"; href: string }
