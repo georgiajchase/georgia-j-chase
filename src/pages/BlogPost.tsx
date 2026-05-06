@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import { getPostBySlug } from "@/data/blogPosts";
@@ -13,17 +14,32 @@ const BlogPost = () => {
 
   useEffect(() => {
     if (!post) return;
-    document.title = `${post.title} | Georgia J. Chase`;
-    const desc = document.querySelector('meta[name="description"]');
-    const text = post.excerpt.slice(0, 155);
-    if (desc) desc.setAttribute("content", text);
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [post]);
 
   if (!post) return <Navigate to="/blog" replace />;
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription,
+    image: post.image,
+    author: { "@type": "Person", name: post.author },
+    keywords: post.focusKeyword,
+    datePublished: post.date,
+  };
+
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${post.title} | Georgia J. Chase`}
+        description={post.metaDescription}
+        path={`/blog/${post.slug}`}
+        image={post.image}
+        jsonLd={articleSchema}
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
@@ -54,7 +70,7 @@ const BlogPost = () => {
             <div className="relative rounded-2xl overflow-hidden border border-white/10 mb-10 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
               <img
                 src={post.image}
-                alt={post.title}
+                alt={post.imageAlt}
                 width={1280}
                 height={720}
                 loading="lazy"
@@ -66,14 +82,9 @@ const BlogPost = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <div className="prose prose-invert max-w-none">
-              {post.content.map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="text-foreground/90 text-base sm:text-lg leading-relaxed mb-6"
-                >
-                  {paragraph}
-                </p>
+            <div className="prose prose-invert max-w-none text-foreground/90 text-base sm:text-lg leading-relaxed [&_p]:mb-6">
+              {post.content.map((html, i) => (
+                <div key={i} dangerouslySetInnerHTML={{ __html: html }} />
               ))}
             </div>
           </AnimatedSection>

@@ -50,7 +50,7 @@ const iconWrapClass =
 const orangeBtnClass =
   "w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-11 font-semibold";
 
-const ContactSection = () => {
+const ContactSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) => {
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
@@ -166,13 +166,15 @@ const ContactSection = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-12 max-w-2xl mx-auto">
-          <p className="section-label mb-3">Get In Touch</p>
-          <h2 className="section-title mb-4">Pick the Way That Works Best for You</h2>
-          <p className="fluid-lead text-muted-foreground">
-            Four simple ways to reach me. Whichever you choose, I'll get back to you within 24 hours.
-          </p>
-        </AnimatedSection>
+        {!hideHeader && (
+          <AnimatedSection className="text-center mb-12 max-w-2xl mx-auto">
+            <p className="section-label mb-3">Get In Touch</p>
+            <h2 className="section-title mb-4">Pick the Way That Works Best for You</h2>
+            <p className="fluid-lead text-muted-foreground">
+              Four simple ways to reach me. Whichever you choose, I'll get back to you within 24 hours.
+            </p>
+          </AnimatedSection>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
           {/* 1. Contact Form */}
