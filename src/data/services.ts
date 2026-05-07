@@ -135,7 +135,7 @@ export const services: Service[] = [
   {
     slug: "pinterest-marketing",
     title: "Pinterest Marketing and Traffic",
-    icon: PinIcon,
+    icon: Pin,
     tagline: "Turn Pinterest into a 24/7 traffic engine.",
     description:
       "Pinterest drives consistent long term traffic that compounds over time, unlike social media posts that disappear in hours. I build and optimize your Pinterest presence with keyword rich pins, boards, and a content strategy designed to bring buyers to your site every single day without paid ads.",
