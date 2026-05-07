@@ -18,7 +18,7 @@ export const services: Service[] = [
     icon: MapPin,
     tagline: "Be the business locals find first.",
     description:
-      "I help local businesses dominate Google Maps and the local pack so the right customers in your area find you before they find your competitors. From Google Business Profile optimisation to local citations and review strategy, every move is built to bring more calls, foot traffic, and bookings from people in your service area.",
+      "We help local businesses dominate Google Maps and the local pack so the right customers in your area find you before they find your competitors. From Google Business Profile optimisation to local citations and review strategy, every move is built to bring more calls, foot traffic, and bookings from people in your service area.",
     deliverables: [
       "Google Business Profile audit & full optimisation",
       "Local keyword research mapped to service areas",
@@ -35,7 +35,7 @@ export const services: Service[] = [
     icon: ShoppingCart,
     tagline: "More shoppers. More revenue. Less ad spend.",
     description:
-      "I help online stores rank higher for the products people actually buy. From category page architecture to product schema and conversion optimisation, every fix is designed to bring qualified shoppers to your store and turn more of them into paying customers. Without burning more on ads.",
+      "We help online stores rank higher for the products people actually buy. From category page architecture to product schema and conversion optimisation, every fix is designed to bring qualified shoppers to your store and turn more of them into paying customers. Without burning more on ads.",
     deliverables: [
       "Full ecommerce technical audit (Shopify, WooCommerce, Magento)",
       "Product & category page keyword strategy",
@@ -52,7 +52,7 @@ export const services: Service[] = [
     icon: Settings,
     tagline: "Find the hidden errors holding your site back.",
     description:
-      "Most websites are leaking traffic from problems the owner has no idea exist. Broken crawl paths, slow pages, indexing issues, and Core Web Vitals failures. I'll dig into every layer of your site and hand you a plain-English report of exactly what's broken, why it matters, and how to fix it.",
+      "Most websites are leaking traffic from problems the owner has no idea exist. Broken crawl paths, slow pages, indexing issues, and Core Web Vitals failures. We'll dig into every layer of your site and hand you a plain-English report of exactly what's broken, why it matters, and how to fix it.",
     deliverables: [
       "Full crawl & indexation analysis",
       "Core Web Vitals & page speed deep dive",
@@ -69,7 +69,7 @@ export const services: Service[] = [
     icon: Link2,
     tagline: "Authority links from sites that actually matter.",
     description:
-      "Google still treats links as votes of trust — but only the right ones count. I build relevant, editorially-earned backlinks from real publications and niche-relevant sites. No PBNs, no spam, no link farms. Just authority signals that move rankings and stand up to algorithm updates.",
+      "Google still treats links as votes of trust — but only the right ones count. We build relevant, editorially-earned backlinks from real publications and niche-relevant sites. No PBNs, no spam, no link farms. Just authority signals that move rankings and stand up to algorithm updates.",
     deliverables: [
       "Backlink profile audit & toxic link cleanup",
       "Competitor link gap analysis",
@@ -86,7 +86,7 @@ export const services: Service[] = [
     icon: FileText,
     tagline: "Content that ranks, reads well, and converts.",
     description:
-      "I build content strategies around what your customers actually search for. Not vanity topics. Every piece is mapped to a stage of the buyer journey, optimised for search intent, and written to convert readers into leads. The result is a content engine that compounds in traffic and revenue month after month.",
+      "We build content strategies around what your customers actually search for. Not vanity topics. Every piece is mapped to a stage of the buyer journey, optimised for search intent, and written to convert readers into leads. The result is a content engine that compounds in traffic and revenue month after month.",
     deliverables: [
       "Topic cluster & pillar page strategy",
       "Search intent mapped keyword research",
@@ -103,7 +103,7 @@ export const services: Service[] = [
     icon: Layout,
     tagline: "Websites built to rank and convert from day one.",
     description:
-      "I design and redesign websites specifically built to rank on Google and convert visitors into paying clients. This is not just a pretty website. Every element is built with SEO structure, conversion psychology, and Google's ranking signals in mind.",
+      "We design and redesign websites specifically built to rank on Google and convert visitors into paying clients. This is not just a pretty website. Every element is built with SEO structure, conversion psychology, and Google's ranking signals in mind.",
     deliverables: [
       "Custom website design or redesign",
       "On Page SEO built in from day one",
@@ -120,7 +120,7 @@ export const services: Service[] = [
     icon: Sparkles,
     tagline: "Be the answer, not just a result.",
     description:
-      "When someone asks Google, ChatGPT, Siri, or Alexa a question in your industry, your business should be the answer that comes up. I structure your content and schema so AI search platforms and voice assistants recommend your business first. This is the next frontier of search and most businesses are completely invisible in it right now.",
+      "When someone asks Google, ChatGPT, Siri, or Alexa a question in your industry, your business should be the answer that comes up. We structure your content and schema so AI search platforms and voice assistants recommend your business first. This is the next frontier of search and most businesses are completely invisible in it right now.",
     deliverables: [
       "AEO content structuring for direct answer extraction",
       "GEO (Generative Engine Optimization) for ChatGPT, Perplexity, Gemini",
@@ -138,7 +138,7 @@ export const services: Service[] = [
     icon: Pin,
     tagline: "Turn Pinterest into a 24/7 traffic engine.",
     description:
-      "Pinterest drives consistent long term traffic that compounds over time, unlike social media posts that disappear in hours. I build and optimize your Pinterest presence with keyword rich pins, boards, and a content strategy designed to bring buyers to your site every single day without paid ads.",
+      "Pinterest drives consistent long term traffic that compounds over time, unlike social media posts that disappear in hours. We build and optimize your Pinterest presence with keyword rich pins, boards, and a content strategy designed to bring buyers to your site every single day without paid ads.",
     deliverables: [
       "Pinterest business profile setup and SEO optimization",
       "Keyword research mapped to buyer intent on Pinterest",
