@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
     title: "Link Building for Small Business: Backlinks That Actually Work in 2026",
     image: backlinks,
     image2x: backlinks2x,
-    imageAlt: "Link building for small business chain links connecting websites",
+    imageAlt: "Connected chain links between website cards on a desk, illustrating quality backlink building for small business in 2026",
     date: "March 8, 2026",
     readTime: "7 min read",
     author: AUTHOR,
