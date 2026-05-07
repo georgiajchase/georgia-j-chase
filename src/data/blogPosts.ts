@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
     title: "Free SEO Audit Checklist: Audit Your Own Website in 30 Minutes",
     image: audit,
     image2x: audit2x,
-    imageAlt: "Free SEO audit checklist clipboard with website checkmarks",
+    imageAlt: "Printed SEO audit checklist on a clipboard with green checkmarks next to website tasks, representing a free 30 minute SEO audit",
     date: "March 22, 2026",
     readTime: "6 min read",
     author: AUTHOR,
