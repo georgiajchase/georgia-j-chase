@@ -11,6 +11,7 @@ import WhatWeFix from "@/components/WhatWeFix";
 import Industries from "@/components/Industries";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
 import ReviewsPreview from "@/components/ReviewsPreview";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
@@ -120,6 +121,8 @@ const Index = () => (
       <ReviewsPreview />
       <SectionDivider />
       <FAQ />
+      <SectionDivider />
+      <FinalCTA />
     </main>
     <Footer />
   </div>
