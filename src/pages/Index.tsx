@@ -90,26 +90,28 @@ const Index = () => (
       jsonLd={jsonLd}
     />
     <Navbar />
-    <Hero />
-    <LeadMagnet />
-    <MarqueeTicker />
-    <TrustBar />
-    <SectionDivider />
-    <PainPoints />
-    <SectionDivider />
-    <HowItWorks />
-    <SectionDivider />
-    <Results />
-    <SectionDivider />
-    <Stats />
-    <SectionDivider />
-    <Services />
-    <SectionDivider />
-    <Pricing />
-    <SectionDivider />
-    <ReviewsPreview />
-    <SectionDivider />
-    <FAQ />
+    <main>
+      <Hero />
+      <LeadMagnet />
+      <MarqueeTicker />
+      <TrustBar />
+      <SectionDivider />
+      <PainPoints />
+      <SectionDivider />
+      <HowItWorks />
+      <SectionDivider />
+      <Results />
+      <SectionDivider />
+      <Stats />
+      <SectionDivider />
+      <Services />
+      <SectionDivider />
+      <Pricing />
+      <SectionDivider />
+      <ReviewsPreview />
+      <SectionDivider />
+      <FAQ />
+    </main>
     <Footer />
   </div>
 );
