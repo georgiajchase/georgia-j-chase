@@ -114,4 +114,40 @@ export const services: Service[] = [
     ],
     timeline: "2 to 4 weeks.",
   },
+  {
+    slug: "aeo-geo-optimization",
+    title: "AEO and GEO Optimization",
+    icon: Sparkles,
+    tagline: "Be the answer, not just a result.",
+    description:
+      "When someone asks Google, ChatGPT, Siri, or Alexa a question in your industry, your business should be the answer that comes up. I structure your content and schema so AI search platforms and voice assistants recommend your business first. This is the next frontier of search and most businesses are completely invisible in it right now.",
+    deliverables: [
+      "AEO content structuring for direct answer extraction",
+      "GEO (Generative Engine Optimization) for ChatGPT, Perplexity, Gemini",
+      "LLMO and entity optimization for AI search platforms",
+      "Schema markup for FAQ, HowTo, Product, and Organization",
+      "Voice search query mapping and conversational keyword strategy",
+      "Visibility tracking across AI assistants and voice search",
+    ],
+    timeline: "Initial AI visibility wins in 30 to 60 days.",
+    tags: ["AEO", "GEO", "LLMO", "Schema", "AI Search", "Voice Search"],
+  },
+  {
+    slug: "pinterest-marketing",
+    title: "Pinterest Marketing and Traffic",
+    icon: PinIcon,
+    tagline: "Turn Pinterest into a 24/7 traffic engine.",
+    description:
+      "Pinterest drives consistent long term traffic that compounds over time, unlike social media posts that disappear in hours. I build and optimize your Pinterest presence with keyword rich pins, boards, and a content strategy designed to bring buyers to your site every single day without paid ads.",
+    deliverables: [
+      "Pinterest business profile setup and SEO optimization",
+      "Keyword research mapped to buyer intent on Pinterest",
+      "Board architecture and content pillars",
+      "Pin design templates and content calendar",
+      "Rich pin and product pin configuration",
+      "Monthly analytics and traffic growth reporting",
+    ],
+    timeline: "Steady traffic growth from month 2. Compounding from month 4 onward.",
+    tags: ["Pinterest SEO", "Pin Strategy", "Traffic Growth", "Ecommerce"],
+  },
 ];
