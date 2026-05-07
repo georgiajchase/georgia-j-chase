@@ -36,7 +36,7 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="SEO Services | Local SEO, Technical Audit, Link Building | Georgia J. Chase"
-        description="Professional SEO services including Local SEO, Ecommerce SEO, Technical Audits, Link Building and Content Strategy. Results in 30-90 days."
+        description="Professional SEO services including Local SEO, Ecommerce SEO, Technical Audits, Link Building and Content Strategy. Results in 30 to 90 days."
         path="/services"
       />
       <Navbar />
