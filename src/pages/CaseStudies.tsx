@@ -104,7 +104,7 @@ const CaseStudies = () => (
       </div>
     </main>
 
-    <ContactSection />
+    <CaseStudyCTA />
     <Footer />
   </div>
 );
