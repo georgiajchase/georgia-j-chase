@@ -11,6 +11,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
+import CaseStudyCTA from "@/components/CaseStudyCTA";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { getCaseStudyBySlug } from "@/data/caseStudies";
@@ -42,9 +43,12 @@ const CaseStudyDetail = () => {
             >
               <ArrowLeft size={16} /> All case studies
             </Link>
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/20 border border-primary/40 px-3 py-1 text-xs font-semibold text-primary mb-4">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/20 border border-primary/40 px-3 py-1 text-xs font-semibold text-primary mb-3">
               {cs.industry}
             </div>
+            <p className="text-sm font-semibold text-primary mb-4">
+              Real client. Real timeline. Real results.
+            </p>
             <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight mb-4">
               {cs.headline}
             </h1>
@@ -200,23 +204,25 @@ const CaseStudyDetail = () => {
                   Want results like this for your business?
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Pick the contact option below. I reply within 24 hours.
+                  {cs.slug === "ecommerce-page-5-to-1-in-60-days"
+                    ? "Send us your site. We will tell you exactly what we would fix and why."
+                    : "Send us your site. We reply within 24 hours."}
                 </p>
               </div>
               <Button
                 asChild
                 className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full whitespace-nowrap"
               >
-                <a href="#contact">
-                  See Contact Options <ArrowRight size={14} className="ml-1" />
-                </a>
+                <Link to="/contact">
+                  Send Me Your Site <ArrowRight size={14} className="ml-1" />
+                </Link>
               </Button>
             </div>
           </AnimatedSection>
         </div>
       </main>
 
-      <ContactSection />
+      <CaseStudyCTA />
       <Footer />
     </div>
   );

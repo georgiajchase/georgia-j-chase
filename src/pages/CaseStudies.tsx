@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Quote, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import ContactSection from "@/components/ContactSection";
+import CaseStudyCTA from "@/components/CaseStudyCTA";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
 import { Button } from "@/components/ui/button";
@@ -26,10 +26,10 @@ const CaseStudies = () => (
           >
             <ArrowLeft size={16} /> Back to home
           </Link>
-          <p className="section-label mb-3">Case Studies</p>
+          <p className="section-label mb-3">Our Work</p>
           <h1 className="section-title mb-4">Real Results from Real Businesses</h1>
           <p className="fluid-lead text-muted-foreground max-w-2xl">
-            Three deep-dive stories of businesses I helped grow through honest, technical SEO work.
+            Three deep-dive stories of businesses we helped grow through honest, technical SEO work.
           </p>
         </AnimatedSection>
 
@@ -104,7 +104,7 @@ const CaseStudies = () => (
       </div>
     </main>
 
-    <ContactSection />
+    <CaseStudyCTA />
     <Footer />
   </div>
 );
