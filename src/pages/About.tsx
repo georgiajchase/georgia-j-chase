@@ -5,7 +5,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, Target, TrendingUp, Users, Wrench, FileText, User } from "lucide-react";
+import { ArrowRight, Award, Target, TrendingUp, Users } from "lucide-react";
 import aboutImg from "@/assets/georgia-about.webp";
 
 const skills = [
@@ -26,21 +26,24 @@ const stats = [
 
 const team = [
   {
-    icon: User,
+    image: aboutImg,
+    initials: "GC",
     name: "Georgia J. Chase",
     role: "Lead SEO Strategist and Founder",
     description:
       "Leads every client audit personally. Responsible for strategy, results and your overall growth plan.",
   },
   {
-    icon: Wrench,
+    image: null,
+    initials: "TT",
     name: "The Technical Team",
     role: "Technical SEO and Site Performance",
     description:
-      "Handles the deep technical fixes — speed, indexing, schema, crawlability and everything Google checks under the hood.",
+      "Handles the deep technical fixes. Speed, indexing, schema, crawlability and everything Google checks under the hood.",
   },
   {
-    icon: FileText,
+    image: null,
+    initials: "CT",
     name: "The Content Team",
     role: "Content Strategy and AEO",
     description:
@@ -81,10 +84,10 @@ const About = () => (
           <AnimatedSection delay={0.1}>
             <p className="section-label mb-3">About Our Team</p>
             <h1 className="section-title mb-5">
-              We Are a Small Team With One Big Focus — Growing Your Business Online.
+              We Are a Small Team With One Big Focus. Growing Your Business Online.
             </h1>
             <p className="fluid-lead text-muted-foreground">
-              Georgia J. Chase leads a dedicated team of SEO specialists, content strategists, and technical experts. We work as a unit inside your business so you get focused expertise at every level — not one person stretched thin.
+              Georgia J. Chase leads a dedicated team of SEO specialists, content strategists, and technical experts. We work as a unit inside your business so you get focused expertise at every level. Not one person stretched thin.
             </p>
           </AnimatedSection>
         </div>
@@ -124,8 +127,27 @@ const About = () => (
           {team.map((member, i) => (
             <AnimatedSection key={member.name} delay={i * 0.08}>
               <div className="rounded-2xl bg-white/[0.03] border border-primary/30 p-7 h-full backdrop-blur-xl text-center">
-                <div className="mx-auto mb-5 w-20 h-20 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center text-primary">
-                  <member.icon size={36} />
+                <div className="relative mx-auto mb-5 w-28 h-28">
+                  <div className="absolute -inset-2 rounded-full bg-primary/25 blur-xl" aria-hidden />
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      width="112"
+                      height="112"
+                      loading="lazy"
+                      className="relative w-28 h-28 rounded-full object-cover border-2 border-primary/50 shadow-xl"
+                    />
+                  ) : (
+                    <div className="relative w-28 h-28 rounded-full border-2 border-primary/50 shadow-xl flex items-center justify-center bg-gradient-to-br from-primary/30 via-primary/15 to-background">
+                      <span
+                        className="font-heading font-extrabold text-3xl text-foreground"
+                        style={{ textShadow: "0 0 18px hsl(var(--primary) / 0.55)" }}
+                      >
+                        {member.initials}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <h3 className="font-heading font-bold text-xl text-foreground mb-1">{member.name}</h3>
                 <p className="text-sm font-semibold text-primary mb-3">{member.role}</p>
