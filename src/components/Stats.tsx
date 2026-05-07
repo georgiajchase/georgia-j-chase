@@ -65,9 +65,15 @@ const Counter = ({ stat }: { stat: Stat }) => {
 
   return (
     <span ref={ref}>
-      {stat.prefix}
-      {displayValue}
-      {stat.suffix}
+      {stat.staticText ? (
+        stat.staticText
+      ) : (
+        <>
+          {stat.prefix}
+          {displayValue}
+          {stat.suffix}
+        </>
+      )}
     </span>
   );
 };
@@ -82,7 +88,7 @@ const Stats = () => (
         </h2>
       </AnimatedSection>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {stats.map((stat, i) => (
           <AnimatedSection key={stat.label} delay={i * 0.1}>
             <div className="bg-card border border-border rounded-xl p-8 text-center h-full hover:border-conversion transition-all duration-300 hover:shadow-[0_0_25px_hsl(var(--conversion)/0.4)]">
