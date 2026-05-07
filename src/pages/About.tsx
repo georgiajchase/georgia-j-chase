@@ -5,7 +5,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, Target, TrendingUp, Users } from "lucide-react";
+import { ArrowRight, Award, Target, TrendingUp, Users, Wrench, FileText, User } from "lucide-react";
 import aboutImg from "@/assets/georgia-about.webp";
 
 const skills = [
@@ -24,11 +24,35 @@ const stats = [
   { icon: Target, end: 95, suffix: "%", label: "Client Satisfaction" },
 ];
 
+const team = [
+  {
+    icon: User,
+    name: "Georgia J. Chase",
+    role: "Lead SEO Strategist and Founder",
+    description:
+      "Leads every client audit personally. Responsible for strategy, results and your overall growth plan.",
+  },
+  {
+    icon: Wrench,
+    name: "The Technical Team",
+    role: "Technical SEO and Site Performance",
+    description:
+      "Handles the deep technical fixes — speed, indexing, schema, crawlability and everything Google checks under the hood.",
+  },
+  {
+    icon: FileText,
+    name: "The Content Team",
+    role: "Content Strategy and AEO",
+    description:
+      "Builds the content and structure that makes your business show up on Google, Maps, and AI search platforms.",
+  },
+];
+
 const About = () => (
   <div className="min-h-screen bg-background">
     <SEO
       title="About Georgia J. Chase | SEO Specialist | 500+ Businesses Ranked"
-      description="Meet Georgia J. Chase, SEO Specialist with 8+ years experience helping business owners get found on Google. 500+ clients ranked."
+      description="Meet Georgia J. Chase and her team of SEO specialists, content strategists, and technical experts helping business owners get found on Google."
       path="/about"
     />
     <Navbar />
@@ -55,12 +79,12 @@ const About = () => (
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <p className="section-label mb-3">About Georgia J. Chase</p>
+            <p className="section-label mb-3">About Our Team</p>
             <h1 className="section-title mb-5">
-              Hi, I'm Georgia. I Help Businesses Get Found on Google.
+              We Are a Small Team With One Big Focus — Growing Your Business Online.
             </h1>
             <p className="fluid-lead text-muted-foreground">
-              I work as a growth partner inside your business, not as a vendor you manage. When you win, I win. That is the only way I measure success.
+              Georgia J. Chase leads a dedicated team of SEO specialists, content strategists, and technical experts. We work as a unit inside your business so you get focused expertise at every level — not one person stretched thin.
             </p>
           </AnimatedSection>
         </div>
@@ -89,11 +113,35 @@ const About = () => (
       </div>
     </section>
 
+    {/* Team */}
+    <section className="py-16 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <AnimatedSection className="text-center mb-10">
+          <p className="section-label mb-3">Meet the Team</p>
+          <h2 className="section-title">The People Behind Your Growth</h2>
+        </AnimatedSection>
+        <div className="grid md:grid-cols-3 gap-6">
+          {team.map((member, i) => (
+            <AnimatedSection key={member.name} delay={i * 0.08}>
+              <div className="rounded-2xl bg-white/[0.03] border border-primary/30 p-7 h-full backdrop-blur-xl text-center">
+                <div className="mx-auto mb-5 w-20 h-20 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center text-primary">
+                  <member.icon size={36} />
+                </div>
+                <h3 className="font-heading font-bold text-xl text-foreground mb-1">{member.name}</h3>
+                <p className="text-sm font-semibold text-primary mb-3">{member.role}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{member.description}</p>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* Story */}
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
         <AnimatedSection>
-          <p className="section-label mb-3">My Story</p>
+          <p className="section-label mb-3">Our Story</p>
           <h2 className="section-title mb-6">From Overlooked to Found</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed fluid-lead">
             <p>
@@ -102,35 +150,35 @@ const About = () => (
             <p>
               Most websites have hidden SEO issues that are quietly holding them back. Things like technical errors, indexing problems, weak page signals, or poor local visibility. These are the real reasons why good businesses end up staying invisible online.
             </p>
-            <p className="font-semibold text-foreground">That's where I come in. I find those hidden problems and fix them properly.</p>
+            <p className="font-semibold text-foreground">That's where we come in. We find those hidden problems and fix them properly.</p>
             <p>
-              I'm an SEO Specialist with hands on experience across WordPress, Shopify, Wix, Webflow, and plenty of other platforms. I've helped business owners in all kinds of industries get found on Google, build trust with their audience, and bring in more paying customers.
+              Our team has hands on experience across WordPress, Shopify, Wix, Webflow, and plenty of other platforms. We've helped business owners in all kinds of industries get found on Google, build trust with their audience, and bring in more paying customers.
             </p>
             <p>
-              I don't do shortcuts or quick fixes. I focus on building a strong SEO foundation that holds up over time and keeps delivering results long after the work is done.
+              We don't do shortcuts or quick fixes. We focus on building a strong SEO foundation that holds up over time and keeps delivering results long after the work is done.
             </p>
           </div>
         </AnimatedSection>
       </div>
     </section>
 
-    {/* My Mission */}
+    {/* Mission */}
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <div className="grid md:grid-cols-2 gap-8">
           <AnimatedSection>
             <div className="rounded-2xl bg-white/[0.03] border border-primary/30 p-7 h-full backdrop-blur-xl">
               <Target className="text-primary mb-4" size={32} />
-              <h3 className="font-heading font-bold text-2xl text-foreground mb-3">My Mission</h3>
+              <h3 className="font-heading font-bold text-2xl text-foreground mb-3">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To make sure every business owner I work with gets a fair shot at being found by the people already searching for what they offer. No jargon, no smoke, just honest SEO that works.
+                To make sure every business owner we work with gets a fair shot at being found by the people already searching for what they offer. No jargon, no smoke, just honest SEO that works.
               </p>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <div className="rounded-2xl bg-white/[0.03] border border-primary/30 p-7 h-full backdrop-blur-xl">
               <Award className="text-primary mb-4" size={32} />
-              <h3 className="font-heading font-bold text-2xl text-foreground mb-3">My Approach</h3>
+              <h3 className="font-heading font-bold text-2xl text-foreground mb-3">Our Approach</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Diagnose the real problem first. Fix the foundation. Then build long term visibility through technical SEO, content, and trust signals that compound over time.
               </p>
@@ -145,7 +193,7 @@ const About = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <AnimatedSection className="text-center mb-8">
           <p className="section-label mb-3">Tools & Expertise</p>
-          <h2 className="section-title">What I Bring to Your Business</h2>
+          <h2 className="section-title">What We Bring to Your Business</h2>
         </AnimatedSection>
         <AnimatedSection delay={0.1}>
           <div className="flex flex-wrap gap-2 justify-center">
