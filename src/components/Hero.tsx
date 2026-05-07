@@ -33,9 +33,6 @@ const Hero = () => {
     navigate("/contact");
   };
 
-  const scrollToHowItWorks = () => {
-    document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section
@@ -53,29 +50,20 @@ const Hero = () => {
           <AnimatedSection className="animate-float-soft">
             <div className="text-center md:text-left">
               <h1 className="fluid-h1 font-extrabold leading-tight text-foreground md:text-warm-white text-glow-orange">
-                Your Website Should Be{" "}
-                <span className="text-primary md:text-gold">Bringing You Customers.</span>
+                Your Competitors Are Showing Up on Google.
                 <br className="hidden sm:inline" />
-                {" "}Let Me Help You Figure Out Why It Isn't.
+                {" "}You're Not. Here's Why.
               </h1>
               <p className="mt-6 fluid-lead text-muted-foreground md:text-warm-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-                Most business owners don't realise their website has hidden problems that are quietly blocking their traffic, sales, and growth. I'll find those problems, explain them to you in plain language, and fix them properly.
+                I personally audit your website and show you the exact problems blocking your traffic — for free. No jargon. No pitch. Just answers.
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+              <div className="mt-8 flex justify-center md:justify-start">
                 <Button
                   onClick={goToContact}
                   size="lg"
                   className="w-full sm:w-auto bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-8 text-base animate-pulse-glow-green"
                 >
-                  Get Found on Google Today →
-                </Button>
-                <Button
-                  onClick={scrollToHowItWorks}
-                  size="lg"
-                  variant="outline"
-                  className="w-full sm:w-auto border-primary text-primary hover:bg-forest-light md:border-warm-white md:text-warm-white md:hover:bg-warm-white/10 rounded-full px-8 text-base"
-                >
-                  See How It Works ↓
+                  Get My Free Website Audit →
                 </Button>
               </div>
               <p className="mt-4 text-sm text-muted-foreground md:text-warm-white/70">
