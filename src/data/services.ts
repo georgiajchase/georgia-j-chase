@@ -8,6 +8,7 @@ export type Service = {
   description: string;
   deliverables: string[];
   timeline: string;
+  tags?: string[];
 };
 
 export const services: Service[] = [
