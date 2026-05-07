@@ -107,6 +107,8 @@ const Index = () => (
       <SectionDivider />
       <Services />
       <SectionDivider />
+      <WhatHappens />
+      <SectionDivider />
       <Pricing />
       <SectionDivider />
       <ReviewsPreview />
