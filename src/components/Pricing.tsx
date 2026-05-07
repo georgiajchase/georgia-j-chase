@@ -1,73 +1,83 @@
-import { Check, Sparkles } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Check, Sparkles, ArrowRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 import TiltCard from "./TiltCard";
 
 const tiers = [
   {
-    name: "Starter",
+    name: "Foundation",
+    tagline: "For businesses that need to get found first.",
     price: "997",
-    description: "Perfect for small businesses ready to fix the foundation and get found locally.",
+    goal: "Goal: Show up on Google and stop losing customers to competitors who do.",
     features: [
-      "Up to 10 Pages Optimized",
-      "Keyword Research & Strategy",
-      "Monthly SEO Health Report",
-      "Google Analytics Setup",
-      "Email Support (48hr response)",
-      "Monthly Ranking Update",
+      "Up to 10 pages fully optimized for search",
+      "Keyword strategy built around buyer intent",
+      "Google Analytics and Search Console configured",
+      "Monthly ranking report with plain English summary",
+      "Technical errors identified and fixed",
+      "Email support within 48 hours",
     ],
     highlighted: false,
-    cta: "Start with Starter",
+    cta: "Start With Foundation",
   },
   {
     name: "Growth",
+    tagline: "For businesses ready to outrank and convert.",
     price: "1,997",
-    description: "For growing businesses ready to outrank competitors and drive real revenue.",
+    goal: "Goal: More traffic, more leads, measurable revenue growth within 90 days.",
     features: [
-      "Everything in Starter",
-      "Up to 30 Pages Optimized",
-      "Link Building Campaign",
-      "Bi Weekly Ranking Reports",
-      "Competitor Analysis",
-      "Priority Email Support (24hr response)",
-      "Dedicated Slack Channel",
+      "Everything in Foundation",
+      "Up to 30 pages optimized",
+      "Link building from real relevant websites",
+      "Competitor gap analysis, find what they rank for that you do not",
+      "AEO and GEO setup for AI and voice search",
+      "Bi weekly ranking reports",
+      "Priority support within 24 hours",
+      "Dedicated Slack channel for direct access",
     ],
     highlighted: true,
     cta: "Choose Growth",
   },
   {
-    name: "Enterprise",
+    name: "Authority",
+    tagline: "For established brands scaling aggressively.",
     price: "3,997",
-    description: "Full-scale SEO partnership for established brands scaling aggressively.",
+    goal: "Goal: Full market dominance, Google, Maps, AI search and Pinterest working together.",
     features: [
       "Everything in Growth",
-      "Ecommerce SEO Specialization",
-      "Unlimited Page Optimization",
-      "Custom Analytics Dashboard",
-      "Dedicated SEO Strategist",
-      "Weekly Performance Reports",
-      "Monthly Competitor Deep Dive Report",
+      "Unlimited page optimization",
+      "Pinterest traffic strategy and execution",
+      "Ecommerce SEO specialization",
+      "Custom analytics dashboard showing real revenue impact",
+      "Dedicated strategist, one person, full accountability",
+      "Weekly performance reviews",
+      "Monthly competitor deep dive report",
     ],
     highlighted: false,
-    cta: "Go Enterprise",
+    cta: "Go Authority",
   },
 ];
 
 const Pricing = () => {
   const navigate = useNavigate();
-  const goToPlan = (plan: "Starter" | "Growth" | "Enterprise") => {
-    navigate(`/contact?plan=${plan}#plan-form`);
+  const goToPlan = (plan: string) => {
+    navigate(`/contact?plan=${encodeURIComponent(plan)}`);
   };
 
   return (
     <section id="pricing" className="py-14 sm:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-14">
+        <AnimatedSection className="text-center mb-12">
           <p className="section-label mb-3">Simple Pricing</p>
-          <h2 className="section-title max-w-2xl mx-auto">
-            Choose the Plan That Fits Where Your Business Is Right Now
+          <h2 className="section-title max-w-3xl mx-auto">
+            Invest in the Version of Your Business That Customers Can Actually Find
           </h2>
+          <p className="fluid-lead text-muted-foreground mt-5 max-w-2xl mx-auto">
+            Every plan includes a personal audit before we start. No guesswork. No wasted budget.
+          </p>
+          <p className="mt-6 text-sm font-semibold text-gold">
+            Currently accepting 3 new clients this month.
+          </p>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
@@ -88,16 +98,16 @@ const Pricing = () => {
                     </div>
                   )}
 
-                  <div className="mb-6">
+                  <div className="mb-5">
                     <h3 className="font-heading font-bold text-2xl text-foreground mb-2">
                       {tier.name}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      {tier.description}
+                      {tier.tagline}
                     </p>
                   </div>
 
-                  <div className="mb-6 pb-6 border-b border-border">
+                  <div className="mb-5 pb-5 border-b border-border">
                     <div className="flex items-baseline gap-1">
                       <span className="text-2xl font-bold text-foreground">$</span>
                       <span
@@ -111,6 +121,10 @@ const Pricing = () => {
                     </div>
                   </div>
 
+                  <p className="text-sm font-semibold text-conversion leading-relaxed mb-5">
+                    {tier.goal}
+                  </p>
+
                   <ul className="space-y-3 mb-8 flex-grow">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3 text-sm">
@@ -123,7 +137,7 @@ const Pricing = () => {
                   </ul>
 
                   <button
-                    onClick={() => goToPlan(tier.name as "Starter" | "Growth" | "Enterprise")}
+                    onClick={() => goToPlan(tier.name)}
                     className="w-full text-center text-primary font-semibold text-sm hover:underline underline-offset-4"
                   >
                     {tier.cta} →
@@ -134,10 +148,16 @@ const Pricing = () => {
           ))}
         </div>
 
-        <AnimatedSection className="text-center mt-10">
-          <p className="text-sm text-muted-foreground">
-            Not sure which plan fits? Send me your website URL and I will personally analyze it and recommend the best plan for your business.
+        <AnimatedSection className="text-center mt-12 max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Every plan starts with a personal audit. I review your site first and confirm which plan actually fits your situation before you spend anything. If I do not think any plan is right for you, I will tell you that too.
           </p>
+          <Link
+            to="/contact"
+            className="mt-4 inline-flex items-center gap-1.5 text-conversion font-semibold text-sm hover:underline underline-offset-4"
+          >
+            Send me your site for a free assessment <ArrowRight size={14} />
+          </Link>
         </AnimatedSection>
       </div>
     </section>
