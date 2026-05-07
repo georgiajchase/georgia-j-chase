@@ -13,7 +13,7 @@ export const reviews: Review[] = [
     business: "Local HVAC Company",
     date: "March 2025",
     rating: 5,
-    text: "Georgia ranked us #1 in Google Maps within 30 days. Lead calls went up 280% in the first two months. She actually explains what she's doing instead of hiding behind jargon — that alone was worth it.",
+    text: "Georgia ranked us #1 in Google Maps within 30 days. Lead calls went up 280% in the first two months. She actually explains what she's doing instead of hiding behind jargon. That alone was worth it.",
     verified: true,
   },
   {
@@ -29,7 +29,7 @@ export const reviews: Review[] = [
     business: "B2B SaaS Founder",
     date: "January 2025",
     rating: 5,
-    text: "Six months ago we had 200 organic visitors a month. Today we're at 15,000. Georgia built the strategy, the content briefs, and the technical foundation. No fluff, no monthly excuses — just results.",
+    text: "Six months ago we had 200 organic visitors a month. Today we're at 15,000. Georgia built the strategy, the content briefs, and the technical foundation. No fluff, no monthly excuses. Just results.",
     verified: true,
   },
   {

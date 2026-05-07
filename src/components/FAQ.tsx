@@ -21,7 +21,7 @@ export const faqs = [
   },
   {
     q: "What is the best way to rank on Google?",
-    a: "The fastest path to ranking on Google combines technical SEO fixes, targeted keyword optimization, quality content, and authoritative link building — exactly what I deliver for every client.",
+    a: "The fastest path to ranking on Google combines technical SEO fixes, targeted keyword optimization, quality content, and authoritative link building. Exactly what I deliver for every client.",
   },
   {
     q: "What makes this different from other SEO agencies?",
