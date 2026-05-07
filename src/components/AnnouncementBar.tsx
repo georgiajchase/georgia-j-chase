@@ -23,7 +23,7 @@ const AnnouncementBar = () => {
         <span>
           Limited spots open this month,{" "}
           <Link to="/contact" className="underline underline-offset-2 hover:opacity-90" style={{ color: "#C9A84C" }}>
-            claim your free website check
+            claim your free growth audit
           </Link>{" "}
           before they're gone.
         </span>
