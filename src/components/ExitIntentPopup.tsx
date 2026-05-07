@@ -59,7 +59,7 @@ const ExitIntentPopup = () => {
           Wait, grab this before you go
         </h3>
         <p className="text-sm mb-6" style={{ color: "rgba(250, 250, 248, 0.8)" }}>
-          The 27-Point SEO Checklist I use to audit every client website. Find out exactly what is
+          The 27 Point SEO Checklist I use to audit every client website. Find out exactly what is
           holding your site back.
         </p>
         <LeadMagnetForm />

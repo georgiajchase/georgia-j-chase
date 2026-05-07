@@ -200,7 +200,7 @@ const CaseStudyDetail = () => {
                   Want results like this for your business?
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Pick the contact option below — I reply within 24 hours.
+                  Pick the contact option below. I reply within 24 hours.
                 </p>
               </div>
               <Button

@@ -25,7 +25,7 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           email,
-          _subject: `New Checklist Download — ${email}`,
+          _subject: `New Checklist Download ${email}`,
           _replyto: email,
           message: "Requested the 27-Point SEO Checklist",
           source: "Lead Magnet — 27-Point SEO Checklist",
