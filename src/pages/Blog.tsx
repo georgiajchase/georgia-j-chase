@@ -134,6 +134,7 @@ const Blog = () => {
     <ContactSection />
     <Footer />
   </div>
-);
+  );
+};
 
 export default Blog;
