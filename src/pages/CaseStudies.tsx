@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Quote, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import ContactSection from "@/components/ContactSection";
+import CaseStudyCTA from "@/components/CaseStudyCTA";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
 import { Button } from "@/components/ui/button";
