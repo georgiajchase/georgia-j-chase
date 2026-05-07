@@ -30,13 +30,28 @@ const slugIcon: Record<string, typeof Search> = {
   "keyword-research-that-finds-buyers": SearchCheck,
 };
 
-const Blog = () => (
+const Blog = () => {
+  const preload = blogPosts.slice(0, 2);
+  return (
   <div className="min-h-screen bg-background">
     <SEO
       title="SEO Blog | Tips, Strategies and Insights | Georgia J. Chase"
       description="Free SEO tips, strategies, and insights for business owners who want to rank on Google and grow organic traffic."
       path="/blog"
     />
+    <Helmet>
+      {preload.map((p) => (
+        <link
+          key={p.slug}
+          rel="preload"
+          as="image"
+          href={p.image}
+          imageSrcSet={`${p.image} 800w, ${p.image2x} 1600w`}
+          imageSizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          fetchpriority="high"
+        />
+      ))}
+    </Helmet>
     <Navbar />
     <main className="pt-28 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
