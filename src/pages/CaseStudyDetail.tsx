@@ -21,7 +21,7 @@ const CaseStudyDetail = () => {
 
   useEffect(() => {
     if (!cs) return;
-    document.title = `${cs.client} — Case Study | Georgia J. Chase`;
+    document.title = `${cs.client} Case Study | Georgia J. Chase`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", cs.summary.slice(0, 155));
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
