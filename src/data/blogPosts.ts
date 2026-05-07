@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
     title: "Local SEO for Small Business in 2026: What Actually Moves the Needle",
     image: local,
     image2x: local2x,
-    imageAlt: "Local SEO for small business map pin and storefront illustration",
+    imageAlt: "Map with a red location pin over a small business storefront, representing local SEO for small business in 2026",
     date: "April 5, 2026",
     readTime: "8 min read",
     author: AUTHOR,
