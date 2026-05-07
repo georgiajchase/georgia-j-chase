@@ -122,15 +122,12 @@ const Pricing = () => {
                     ))}
                   </ul>
 
-                  <Button
+                  <button
                     onClick={() => goToPlan(tier.name as "Starter" | "Growth" | "Enterprise")}
-                    size="lg"
-                    className={`w-full rounded-full bg-conversion text-conversion-foreground hover:bg-conversion-dark ${
-                      tier.highlighted ? "animate-pulse-glow-green" : ""
-                    }`}
+                    className="w-full text-center text-primary font-semibold text-sm hover:underline underline-offset-4"
                   >
-                    {tier.cta}
-                  </Button>
+                    {tier.cta} →
+                  </button>
                 </div>
               </TiltCard>
             </AnimatedSection>
