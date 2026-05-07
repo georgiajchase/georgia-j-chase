@@ -84,10 +84,10 @@ const About = () => (
           <AnimatedSection delay={0.1}>
             <p className="section-label mb-3">About Our Team</p>
             <h1 className="section-title mb-5">
-              We Are a Small Team With One Big Focus — Growing Your Business Online.
+              We Are a Small Team With One Big Focus. Growing Your Business Online.
             </h1>
             <p className="fluid-lead text-muted-foreground">
-              Georgia J. Chase leads a dedicated team of SEO specialists, content strategists, and technical experts. We work as a unit inside your business so you get focused expertise at every level — not one person stretched thin.
+              Georgia J. Chase leads a dedicated team of SEO specialists, content strategists, and technical experts. We work as a unit inside your business so you get focused expertise at every level. Not one person stretched thin.
             </p>
           </AnimatedSection>
         </div>

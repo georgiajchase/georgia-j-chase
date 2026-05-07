@@ -69,7 +69,7 @@ export const services: Service[] = [
     icon: Link2,
     tagline: "Authority links from sites that actually matter.",
     description:
-      "Google still treats links as votes of trust — but only the right ones count. We build relevant, editorially-earned backlinks from real publications and niche-relevant sites. No PBNs, no spam, no link farms. Just authority signals that move rankings and stand up to algorithm updates.",
+      "Google still treats links as votes of trust. But only the right ones count. We build relevant, editorially earned backlinks from real publications and niche relevant sites. No PBNs, no spam, no link farms. Just authority signals that move rankings and stand up to algorithm updates.",
     deliverables: [
       "Backlink profile audit & toxic link cleanup",
       "Competitor link gap analysis",
