@@ -86,7 +86,7 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
   );
 };
 
-const LeadMagnet = ({ heading = "Free Download: The 27-Point SEO Checklist" }: Props) => {
+const LeadMagnet = ({ heading = "Free Download: The 27 Point SEO Checklist" }: Props) => {
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#050a18" }}>
       <div

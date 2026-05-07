@@ -139,7 +139,7 @@ const ContactSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) =
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          _subject: `New Lead: ${parsed.data.plan} Plan — ${parsed.data.name}`,
+          _subject: `New Lead: ${parsed.data.plan} Plan ${parsed.data.name}`,
           _replyto: parsed.data.email,
           source: "Pricing Plan Selector",
           ...parsed.data,
@@ -321,9 +321,9 @@ const ContactSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) =
                       <SelectValue placeholder="Select a plan…" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Starter">Starter — $997/mo</SelectItem>
-                      <SelectItem value="Growth">Growth — $1,997/mo</SelectItem>
-                      <SelectItem value="Enterprise">Enterprise — $3,997/mo</SelectItem>
+                      <SelectItem value="Starter">Starter $997/mo</SelectItem>
+                      <SelectItem value="Growth">Growth $1,997/mo</SelectItem>
+                      <SelectItem value="Enterprise">Enterprise $3,997/mo</SelectItem>
                     </SelectContent>
                   </Select>
                   <Input
