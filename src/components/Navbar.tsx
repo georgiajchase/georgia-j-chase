@@ -108,7 +108,7 @@ const Navbar = () => {
           onClick={scrollToForm}
           className="hidden md:inline-flex bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-6"
         >
-          Get Free Website Check
+          Get Your Free Growth Audit
         </Button>
 
         <button
@@ -127,7 +127,7 @@ const Navbar = () => {
             onClick={scrollToForm}
             className="w-full bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full"
           >
-            Get Free Website Check
+            Get Your Free Growth Audit
           </Button>
         </div>
       )}
