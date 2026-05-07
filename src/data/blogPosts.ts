@@ -15,6 +15,7 @@ export type BlogPost = {
   slug: string;
   title: string;
   image: string;
+  image2x: string;
   imageAlt: string;
   date: string;
   readTime: string;
