@@ -73,7 +73,7 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
         type="submit"
         disabled={status === "loading"}
         className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all hover:opacity-90 disabled:opacity-60"
-        style={{ backgroundColor: "#22c55e", color: "#FFFFFF" }}
+        style={{ backgroundColor: "#22c55e", color: "#0b1a12" }}
       >
         {status === "loading" ? "Sending..." : "Send Me the Checklist"}
       </button>
