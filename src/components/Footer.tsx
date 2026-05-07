@@ -98,7 +98,7 @@ const Footer = () => (
                 rel="noopener noreferrer"
                 className="text-sm text-gray-300 hover:text-white transition-colors"
               >
-                Message me on WhatsApp
+                Message us on WhatsApp
               </a>
             </li>
           </ul>

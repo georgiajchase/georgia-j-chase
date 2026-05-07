@@ -150,7 +150,7 @@ const Pricing = () => {
 
         <AnimatedSection className="text-center mt-12 max-w-2xl mx-auto">
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Every plan starts with a personal audit. I review your site first and confirm which plan actually fits your situation before you spend anything. If I do not think any plan is right for you, I will tell you that too.
+            Every plan starts with a personal audit. We review your site first and confirm which plan actually fits your situation before you spend anything. If we do not think any plan is right for you, we will tell you that too.
           </p>
           <Link
             to="/contact"
