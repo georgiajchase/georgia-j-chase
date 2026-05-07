@@ -27,8 +27,8 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
           email,
           _subject: `New Checklist Download ${email}`,
           _replyto: email,
-          message: "Requested the 27-Point SEO Checklist",
-          source: "Lead Magnet — 27-Point SEO Checklist",
+          message: "Requested the 27 Point SEO Checklist",
+          source: "Lead Magnet 27 Point SEO Checklist",
         }),
       });
       if (res.ok) setStatus("success");
