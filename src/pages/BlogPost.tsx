@@ -69,11 +69,14 @@ const BlogPost = () => {
           <AnimatedSection delay={0.05}>
             <div className="relative rounded-2xl overflow-hidden border border-white/10 mb-10 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
               <img
-                src={post.image}
+                src={post.image2x}
+                srcSet={`${post.image} 800w, ${post.image2x} 1600w`}
+                sizes="(min-width: 1024px) 1024px, 100vw"
                 alt={post.imageAlt}
-                width={1280}
-                height={720}
-                loading="lazy"
+                width={1600}
+                height={900}
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
                 className="w-full h-auto block"
               />
