@@ -16,7 +16,7 @@
     --popover-foreground: 0 0% 100%;
 
     --primary: 142 71% 45%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 150 40% 6%;
 
     --secondary: 222 40% 14%;
     --secondary-foreground: 0 0% 100%;
@@ -54,7 +54,7 @@
 
     /* Conversion green — used for CTA buttons, key stats, success markers */
     --conversion: 142 71% 45%;
-    --conversion-foreground: 0 0% 100%;
+    --conversion-foreground: 150 40% 6%;
     --conversion-dark: 142 71% 38%;
   }
 
