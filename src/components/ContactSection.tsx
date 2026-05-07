@@ -72,7 +72,7 @@ const ContactSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) =
   // A/B test: lead capture form headline + primary CTA copy
   const variant = useABTest("contact_form_headline_cta_v1");
   const headlineText =
-    variant === "A" ? "Send Me a Message" : "Get Your Free Website Check";
+    variant === "A" ? "Send Me a Message" : "Get Your Free Growth Audit";
   const headlineSub =
     variant === "A"
       ? "Tell me about your business and what you're trying to fix."

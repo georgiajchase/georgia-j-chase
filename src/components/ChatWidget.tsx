@@ -224,7 +224,7 @@ const ChatWidget = () => {
     setLeadSubmitting(true);
 
     // Build a pre-filled mailto so the visitor's request reaches Georgia
-    const subject = encodeURIComponent(`Free Website Check ${lead.name}`);
+    const subject = encodeURIComponent(`Free Growth Audit ${lead.name}`);
     const body = encodeURIComponent(
       `Name: ${lead.name}\nEmail: ${lead.email}\nWebsite: ${lead.website}\n\nRequesting a free SEO website check.`
     );

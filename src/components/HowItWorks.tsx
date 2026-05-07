@@ -57,7 +57,7 @@ const HowItWorks = () => {
             size="lg"
             className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8"
           >
-            Get My Free Website Check →
+            Get My Free Growth Audit →
           </Button>
         </AnimatedSection>
       </div>

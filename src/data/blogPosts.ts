@@ -32,7 +32,7 @@ const AUTHOR = "Georgia J. Chase";
 const SERVICES_LINK =
   '<a href="/services" class="text-primary font-semibold hover:underline">SEO services</a>';
 const CONTACT_LINK =
-  '<a href="/contact" class="text-primary font-semibold hover:underline">Get a free website check</a>';
+  '<a href="/contact" class="text-primary font-semibold hover:underline">Get your free growth audit</a>';
 
 export const blogPosts: BlogPost[] = [
   {

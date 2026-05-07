@@ -7,6 +7,8 @@ import Results from "@/components/Results";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import WhatHappens from "@/components/WhatHappens";
+import WhatWeFix from "@/components/WhatWeFix";
+import Industries from "@/components/Industries";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import ReviewsPreview from "@/components/ReviewsPreview";
@@ -93,6 +95,8 @@ const Index = () => (
     <Navbar />
     <main>
       <Hero />
+      <WhatWeFix />
+      <SectionDivider />
       <LeadMagnet />
       <MarqueeTicker />
       <TrustBar />
@@ -108,6 +112,8 @@ const Index = () => (
       <Services />
       <SectionDivider />
       <WhatHappens />
+      <SectionDivider />
+      <Industries />
       <SectionDivider />
       <Pricing />
       <SectionDivider />

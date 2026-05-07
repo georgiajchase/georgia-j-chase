@@ -60,7 +60,7 @@ const About = () => (
               Hi, I'm Georgia. I Help Businesses Get Found on Google.
             </h1>
             <p className="fluid-lead text-muted-foreground">
-              An SEO Specialist obsessed with finding the hidden problems holding good businesses back, then fixing them properly so the results actually last.
+              I work as a growth partner inside your business, not as a vendor you manage. When you win, I win. That is the only way I measure success.
             </p>
           </AnimatedSection>
         </div>
@@ -145,7 +145,7 @@ const About = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <AnimatedSection className="text-center mb-8">
           <p className="section-label mb-3">Tools & Expertise</p>
-          <h2 className="section-title">What I Work With Every Day</h2>
+          <h2 className="section-title">What I Bring to Your Business</h2>
         </AnimatedSection>
         <AnimatedSection delay={0.1}>
           <div className="flex flex-wrap gap-2 justify-center">

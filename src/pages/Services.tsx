@@ -99,6 +99,18 @@ const ServicesPage = () => {
                     <p className="text-muted-foreground leading-relaxed mb-6">
                       {service.description}
                     </p>
+                    {service.tags && service.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {service.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 border border-primary/30 text-primary"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                     <div className="flex items-center gap-3 mb-8 p-4 rounded-xl bg-card border border-white/10">
                       <Clock className="text-primary shrink-0" size={20} />
