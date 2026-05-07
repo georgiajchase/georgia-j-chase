@@ -49,7 +49,7 @@ const Blog = () => {
           href={p.image}
           imageSrcSet={`${p.image} 800w, ${p.image2x} 1600w`}
           imageSizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          fetchpriority="high"
+          fetchPriority="high"
         />
       ))}
     </Helmet>
