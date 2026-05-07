@@ -11,7 +11,6 @@ const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent("SEO Services Inqui
 const quickLinks = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
-  { label: "Portfolio", to: "/portfolio" },
   { label: "Our Work", to: "/case-studies" },
   { label: "Blog", to: "/blog" },
   { label: "Reviews", to: "/reviews" },
@@ -38,8 +37,11 @@ const Footer = () => (
         {/* Left: brand + socials */}
         <div>
           <p className="font-heading font-bold text-2xl mb-3 text-white">Georgia J. Chase</p>
-          <p className="text-sm leading-relaxed text-gray-300 mb-6 max-w-xs">
+          <p className="text-sm leading-relaxed text-gray-300 mb-2 max-w-xs">
             More Traffic. More Leads. More Revenue. That is the only result that matters.
+          </p>
+          <p className="text-xs text-gray-400 mb-6 max-w-xs">
+            Found. Trusted. Chosen.
           </p>
           <div className="flex items-center gap-3">
             {socials.map(({ label, icon: Icon, href }) => (
