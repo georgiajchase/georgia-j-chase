@@ -55,7 +55,7 @@ const Hero = () => {
                 {" "}You're Not. Here's Why.
               </h1>
               <p className="mt-6 fluid-lead text-muted-foreground md:text-warm-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-                I personally audit your website and show you the exact problems blocking your traffic. For free. No jargon. No pitch. Just answers.
+                Send me your site. I go through it myself within 24 hours and tell you exactly what is holding it back and what to do about it. No charge. No strings attached.
               </p>
               <div className="mt-8 flex justify-center md:justify-start">
                 <Button
@@ -63,11 +63,14 @@ const Hero = () => {
                   size="lg"
                   className="w-full sm:w-auto bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-8 text-base animate-pulse-glow-green"
                 >
-                  Get My Free Website Audit →
+                  Send Me Your Site →
                 </Button>
               </div>
+              <p className="mt-2 text-sm text-muted-foreground md:text-warm-white/70">
+                128 business owners have already done this.
+              </p>
               <p className="mt-4 text-sm text-muted-foreground md:text-warm-white/70">
-                I keep things simple and honest, and I'll never waste your time.
+                I keep things simple and honest. I will never waste your time.
               </p>
               <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs sm:text-sm text-warm-white/70">
                 <span className="inline-flex items-center gap-1.5"><span className="text-conversion">✓</span> 27 sites ranked on page 1</span>
