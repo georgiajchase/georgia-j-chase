@@ -1,14 +1,21 @@
-import rank from "@/assets/blog-rank-90-days.jpg";
-import local from "@/assets/blog-local-seo.jpg";
-import audit from "@/assets/blog-audit.jpg";
-import backlinks from "@/assets/blog-backlinks.jpg";
-import speed from "@/assets/blog-speed.jpg";
-import keywords from "@/assets/blog-keywords.jpg";
+import rank from "@/assets/blog-rank-90-days-800.webp";
+import rank2x from "@/assets/blog-rank-90-days-1600.webp";
+import local from "@/assets/blog-local-seo-800.webp";
+import local2x from "@/assets/blog-local-seo-1600.webp";
+import audit from "@/assets/blog-audit-800.webp";
+import audit2x from "@/assets/blog-audit-1600.webp";
+import backlinks from "@/assets/blog-backlinks-800.webp";
+import backlinks2x from "@/assets/blog-backlinks-1600.webp";
+import speed from "@/assets/blog-speed-800.webp";
+import speed2x from "@/assets/blog-speed-1600.webp";
+import keywords from "@/assets/blog-keywords-800.webp";
+import keywords2x from "@/assets/blog-keywords-1600.webp";
 
 export type BlogPost = {
   slug: string;
   title: string;
   image: string;
+  image2x: string;
   imageAlt: string;
   date: string;
   readTime: string;
@@ -32,6 +39,7 @@ export const blogPosts: BlogPost[] = [
     slug: "rank-number-1-on-google-in-90-days",
     title: "How to Rank on Google #1 in 90 Days: A Step by Step Plan",
     image: rank,
+    image2x: rank2x,
     imageAlt: "How to rank on Google in 90 days search results illustration",
     date: "April 12, 2026",
     readTime: "7 min read",
@@ -56,6 +64,7 @@ export const blogPosts: BlogPost[] = [
     slug: "local-seo-2026-what-actually-works",
     title: "Local SEO for Small Business in 2026: What Actually Moves the Needle",
     image: local,
+    image2x: local2x,
     imageAlt: "Local SEO for small business map pin and storefront illustration",
     date: "April 5, 2026",
     readTime: "8 min read",
@@ -80,6 +89,7 @@ export const blogPosts: BlogPost[] = [
     slug: "audit-your-website-in-30-minutes",
     title: "Free SEO Audit Checklist: Audit Your Own Website in 30 Minutes",
     image: audit,
+    image2x: audit2x,
     imageAlt: "Free SEO audit checklist clipboard with website checkmarks",
     date: "March 22, 2026",
     readTime: "6 min read",
@@ -103,6 +113,7 @@ export const blogPosts: BlogPost[] = [
     slug: "backlinks-that-actually-work",
     title: "Link Building for Small Business: Backlinks That Actually Work in 2026",
     image: backlinks,
+    image2x: backlinks2x,
     imageAlt: "Link building for small business chain links connecting websites",
     date: "March 8, 2026",
     readTime: "7 min read",
@@ -126,6 +137,7 @@ export const blogPosts: BlogPost[] = [
     slug: "core-web-vitals-page-speed-2026",
     title: "Improve Website Speed for SEO: Core Web Vitals Decide Your Rankings",
     image: speed,
+    image2x: speed2x,
     imageAlt: "Improve website speed for SEO speedometer showing fast page load",
     date: "February 19, 2026",
     readTime: "6 min read",
@@ -149,6 +161,7 @@ export const blogPosts: BlogPost[] = [
     slug: "keyword-research-that-finds-buyers",
     title: "Keyword Research for Business Owners: Find Buyers, Not Browsers",
     image: keywords,
+    image2x: keywords2x,
     imageAlt: "Keyword research for business owners magnifying glass over search terms",
     date: "February 1, 2026",
     readTime: "7 min read",

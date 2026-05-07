@@ -64,8 +64,13 @@ const Blog = () => (
                   <div className="relative aspect-[16/9] overflow-hidden bg-card">
                     <img
                       src={post.image}
+                      srcSet={`${post.image} 800w, ${post.image2x} 1600w`}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       alt={post.imageAlt}
-                      loading="lazy"
+                      loading={i < 3 ? "eager" : "lazy"}
+                      decoding="async"
+                      width={1600}
+                      height={900}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
