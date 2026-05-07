@@ -7,7 +7,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 const Contact = () => (
   <div className="min-h-screen bg-background">
     <SEO
-      title="Contact Georgia J. Chase | Free SEO Website Check"
+      title="Contact Georgia J. Chase | Free SEO Growth Audit"
       description="Get in touch with Georgia J. Chase for a free website SEO check. Reply within 24 hours."
       path="/contact"
     />
