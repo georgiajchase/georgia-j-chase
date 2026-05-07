@@ -52,13 +52,12 @@ const HowItWorks = () => {
         </div>
 
         <AnimatedSection className="text-center">
-          <Button
+          <button
             onClick={goToContact}
-            size="lg"
-            className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-forest-dark rounded-full px-8"
+            className="text-primary font-semibold text-base hover:underline underline-offset-4"
           >
-            Get My Free Growth Audit →
-          </Button>
+            See how it works in 24 hours →
+          </button>
         </AnimatedSection>
       </div>
     </section>

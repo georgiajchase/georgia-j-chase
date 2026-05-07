@@ -46,9 +46,9 @@ const Services = () => (
       <div className="mt-12 text-center">
         <Link
           to="/services"
-          className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-forest-dark transition-colors animate-pulse-glow"
+          className="inline-flex items-center gap-2 text-primary font-semibold text-base hover:underline underline-offset-4"
         >
-          See All Services <ArrowRight size={18} />
+          See all services <ArrowRight size={16} />
         </Link>
       </div>
     </div>

@@ -42,9 +42,9 @@ const ReviewsPreview = () => {
         <div className="text-center mt-10">
           <Link
             to="/reviews"
-            className="inline-flex items-center gap-2 rounded-full bg-conversion text-conversion-foreground hover:bg-conversion-dark px-6 py-3 font-semibold transition-all"
+            className="inline-flex items-center gap-2 text-primary font-semibold text-base hover:underline underline-offset-4"
           >
-            Read All Reviews <ArrowRight size={16} />
+            Read all reviews <ArrowRight size={16} />
           </Link>
         </div>
       </div>
