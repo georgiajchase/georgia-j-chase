@@ -55,7 +55,7 @@ const Hero = () => {
                 {" "}You're Not. Here's Why.
               </h1>
               <p className="mt-6 fluid-lead text-muted-foreground md:text-warm-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-                Send me your site. I go through it myself within 24 hours and tell you exactly what is holding it back and what to do about it. No charge. No strings attached.
+                Most businesses are invisible online and do not know why. I find exactly what is holding your website back and fix it so your business shows up on Google, Google Maps, and AI search where your customers are already looking.
               </p>
               <div className="mt-8 flex justify-center md:justify-start">
                 <Button
