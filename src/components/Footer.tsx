@@ -12,7 +12,7 @@ const quickLinks = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
   { label: "Portfolio", to: "/portfolio" },
-  { label: "Case Studies", to: "/case-studies" },
+  { label: "Our Work", to: "/case-studies" },
   { label: "Blog", to: "/blog" },
   { label: "Reviews", to: "/reviews" },
   { label: "About", to: "/about" },
@@ -114,7 +114,7 @@ const Footer = () => (
 
     <div className="border-t border-white/10 py-5">
       <p className="text-center text-xs text-gray-400">
-        © 2025 Georgia J. Chase · SEO Specialist · All rights reserved.
+        © 2026 Georgia J. Chase · SEO Specialist · All rights reserved.
       </p>
     </div>
   </footer>
