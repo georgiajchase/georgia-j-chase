@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Users, TrendingUp, DollarSign, Trophy } from "lucide-react";
+import { Users, Trophy, DollarSign, TrendingUp, Sparkles } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 interface Stat {
@@ -9,13 +9,15 @@ interface Stat {
   suffix?: string;
   label: string;
   decimals?: number;
+  staticText?: string;
 }
 
 const stats: Stat[] = [
-  { icon: Users, value: 500, suffix: "+", label: "Clients Helped" },
-  { icon: TrendingUp, value: 98, suffix: "%", label: "Success Rate" },
-  { icon: DollarSign, value: 2, prefix: "$", suffix: "M", label: "Revenue Generated" },
-  { icon: Trophy, value: 1, prefix: "#", label: "Google Rankings" },
+  { icon: Users, value: 128, suffix: "+", label: "Businesses Grown" },
+  { icon: Trophy, value: 100, suffix: "/100", label: "SEO Score Achieved" },
+  { icon: DollarSign, value: 127, prefix: "$", suffix: "K+", label: "Revenue Generated" },
+  { icon: TrendingUp, value: 340, suffix: "%", label: "Average Traffic Growth" },
+  { icon: Sparkles, value: 0, label: "Ranking on Google, Maps and AI Search", staticText: "★" },
 ];
 
 const Counter = ({ stat }: { stat: Stat }) => {

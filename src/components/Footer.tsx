@@ -39,7 +39,7 @@ const Footer = () => (
         <div>
           <p className="font-heading font-bold text-2xl mb-3 text-white">Georgia J. Chase</p>
           <p className="text-sm leading-relaxed text-gray-300 mb-6 max-w-xs">
-            Helping business owners get found, trusted, and chosen on Google.
+            More Traffic. More Leads. More Revenue. That is the only result that matters.
           </p>
           <div className="flex items-center gap-3">
             {socials.map(({ label, icon: Icon, href }) => (
@@ -106,7 +106,7 @@ const Footer = () => (
             to="/contact"
             className="inline-flex items-center gap-2 bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full px-5 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-conversion/30"
           >
-            Get Free Website Check <ArrowRight size={16} />
+            Get Your Free Growth Audit <ArrowRight size={16} />
           </Link>
         </div>
       </div>
