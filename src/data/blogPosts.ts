@@ -1,9 +1,15 @@
-import rank from "@/assets/blog-rank-90-days.jpg";
-import local from "@/assets/blog-local-seo.jpg";
-import audit from "@/assets/blog-audit.jpg";
-import backlinks from "@/assets/blog-backlinks.jpg";
-import speed from "@/assets/blog-speed.jpg";
-import keywords from "@/assets/blog-keywords.jpg";
+import rank from "@/assets/blog-rank-90-days-800.webp";
+import rank2x from "@/assets/blog-rank-90-days-1600.webp";
+import local from "@/assets/blog-local-seo-800.webp";
+import local2x from "@/assets/blog-local-seo-1600.webp";
+import audit from "@/assets/blog-audit-800.webp";
+import audit2x from "@/assets/blog-audit-1600.webp";
+import backlinks from "@/assets/blog-backlinks-800.webp";
+import backlinks2x from "@/assets/blog-backlinks-1600.webp";
+import speed from "@/assets/blog-speed-800.webp";
+import speed2x from "@/assets/blog-speed-1600.webp";
+import keywords from "@/assets/blog-keywords-800.webp";
+import keywords2x from "@/assets/blog-keywords-1600.webp";
 
 export type BlogPost = {
   slug: string;
