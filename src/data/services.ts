@@ -1,4 +1,4 @@
-import { MapPin, ShoppingCart, Settings, Link2, FileText, Layout, type LucideIcon } from "lucide-react";
+import { MapPin, ShoppingCart, Settings, Link2, FileText, Layout, Sparkles, PinIcon, type LucideIcon } from "lucide-react";
 
 export type Service = {
   slug: string;
