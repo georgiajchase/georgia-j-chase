@@ -22,11 +22,11 @@ export const services: Service[] = [
       "Google Business Profile audit & full optimisation",
       "Local keyword research mapped to service areas",
       "NAP consistency cleanup across 50+ citation sites",
-      "On-page local SEO for every service & location page",
+      "On Page local SEO for every service & location page",
       "Review generation strategy & response templates",
       "Monthly local rank tracking & performance report",
     ],
-    timeline: "Initial wins in 30 days. Strong local pack rankings in 60–90 days.",
+    timeline: "Initial wins in 30 days. Strong local pack rankings in 60 to 90 days.",
   },
   {
     slug: "ecommerce-seo",
@@ -34,7 +34,7 @@ export const services: Service[] = [
     icon: ShoppingCart,
     tagline: "More shoppers. More revenue. Less ad spend.",
     description:
-      "I help online stores rank higher for the products people actually buy. From category page architecture to product schema and conversion optimisation, every fix is designed to bring qualified shoppers to your store and turn more of them into paying customers — without burning more on ads.",
+      "I help online stores rank higher for the products people actually buy. From category page architecture to product schema and conversion optimisation, every fix is designed to bring qualified shoppers to your store and turn more of them into paying customers. Without burning more on ads.",
     deliverables: [
       "Full ecommerce technical audit (Shopify, WooCommerce, Magento)",
       "Product & category page keyword strategy",
@@ -43,7 +43,7 @@ export const services: Service[] = [
       "Collection page optimisation & filter SEO",
       "Conversion rate review on top revenue pages",
     ],
-    timeline: "First ranking improvements in 4–6 weeks. Measurable revenue lift in 90 days.",
+    timeline: "First ranking improvements in 4 to 6 weeks. Measurable revenue lift in 90 days.",
   },
   {
     slug: "technical-seo-audit",
@@ -51,7 +51,7 @@ export const services: Service[] = [
     icon: Settings,
     tagline: "Find the hidden errors holding your site back.",
     description:
-      "Most websites are leaking traffic from problems the owner has no idea exist — broken crawl paths, slow pages, indexing issues, and Core Web Vitals failures. I'll dig into every layer of your site and hand you a plain-English report of exactly what's broken, why it matters, and how to fix it.",
+      "Most websites are leaking traffic from problems the owner has no idea exist. Broken crawl paths, slow pages, indexing issues, and Core Web Vitals failures. I'll dig into every layer of your site and hand you a plain-English report of exactly what's broken, why it matters, and how to fix it.",
     deliverables: [
       "Full crawl & indexation analysis",
       "Core Web Vitals & page speed deep dive",
@@ -60,7 +60,7 @@ export const services: Service[] = [
       "Internal linking & site architecture review",
       "Prioritised fix list with effort vs impact scoring",
     ],
-    timeline: "Audit delivered in 7–10 business days.",
+    timeline: "Audit delivered in 7 to 10 business days.",
   },
   {
     slug: "link-building",
@@ -85,11 +85,11 @@ export const services: Service[] = [
     icon: FileText,
     tagline: "Content that ranks, reads well, and converts.",
     description:
-      "I build content strategies around what your customers actually search for — not vanity topics. Every piece is mapped to a stage of the buyer journey, optimised for search intent, and written to convert readers into leads. The result is a content engine that compounds in traffic and revenue month after month.",
+      "I build content strategies around what your customers actually search for. Not vanity topics. Every piece is mapped to a stage of the buyer journey, optimised for search intent, and written to convert readers into leads. The result is a content engine that compounds in traffic and revenue month after month.",
     deliverables: [
       "Topic cluster & pillar page strategy",
-      "Search intent–mapped keyword research",
-      "12-month editorial calendar",
+      "Search intent mapped keyword research",
+      "12 month editorial calendar",
       "SEO content briefs for every article",
       "Content refresh plan for existing pages",
       "Internal linking strategy across new content",
@@ -105,11 +105,11 @@ export const services: Service[] = [
       "I design and redesign websites specifically built to rank on Google and convert visitors into paying clients. This is not just a pretty website. Every element is built with SEO structure, conversion psychology, and Google's ranking signals in mind.",
     deliverables: [
       "Custom website design or redesign",
-      "On-page SEO built in from day one",
-      "Conversion-optimized layout and copywriting",
-      "Mobile-first responsive build",
+      "On Page SEO built in from day one",
+      "Conversion optimized layout and copywriting",
+      "Mobile first responsive build",
       "Google Analytics and Search Console setup",
-      "PageSpeed score above 90",
+      "Page Speed score above 90",
     ],
     timeline: "2 to 4 weeks.",
   },

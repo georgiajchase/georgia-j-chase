@@ -29,13 +29,13 @@ const INITIAL_QUICK_REPLIES = [
 const INITIAL_GREETING: Msg = {
   role: "assistant",
   content:
-    "Hey, quick question — what does your website actually do? Tell me and I will point out exactly what SEO issues are likely holding it back.",
+    "Hey, quick question. What does your website actually do? Tell me and I will point out exactly what SEO issues are likely holding it back.",
   quickReplies: INITIAL_QUICK_REPLIES,
 };
 
 const detectBusinessIssue = (t: string): string => {
   if (/\b(local|restaurant|plumber|dentist|clinic|salon|contractor|service area|hvac|electrician|lawyer)\b/.test(t)) {
-    return "Local businesses like yours almost always lose Maps rankings to a half-finished Google Business Profile and zero review velocity.";
+    return "Local businesses like yours almost always lose Maps rankings to a half finished Google Business Profile and zero review velocity.";
   }
   if (/\b(ecommerce|shop|store|shopify|woocommerce|product|amazon)\b/.test(t)) {
     return "Ecommerce stores typically bleed traffic from thin product copy and broken category architecture that Google cannot crawl properly.";
@@ -52,7 +52,7 @@ const detectBusinessIssue = (t: string): string => {
   if (/\b(real estate|realtor|property|agent)\b/.test(t)) {
     return "Real estate sites usually fail because city and neighborhood pages are thin and duplicated — Google folds them together and ranks none of them.";
   }
-  return "Sites like yours usually lose rankings to weak technical SEO, thin landing pages, and missing schema — invisible problems doing real damage.";
+  return "Sites like yours usually lose rankings to weak technical SEO, thin landing pages, and missing schema. Invisible problems doing real damage.";
 };
 
 const planFromPages = (t: string): { plan: string; price: string; reason: string } => {
@@ -63,7 +63,7 @@ const planFromPages = (t: string): { plan: string; price: string; reason: string
       plan: "Enterprise",
       price: "$3,997",
       reason:
-        "At that size you need crawl budget management, schema at scale, and ongoing technical work — Starter and Growth do not cover it.",
+        "At that size you need crawl budget management, schema at scale, and ongoing technical work. Starter and Growth do not cover it.",
     };
   }
   if (num >= 10 || /\b(10 to 30|10-30|medium|twenty|fifteen)\b/.test(t)) {
@@ -71,14 +71,14 @@ const planFromPages = (t: string): { plan: string; price: string; reason: string
       plan: "Growth",
       price: "$1,997",
       reason:
-        "That is the sweet spot for real site architecture, internal linking, and content depth — exactly what Growth is built for.",
+        "That is the sweet spot for real site architecture, internal linking, and content depth. Exactly what Growth is built for.",
     };
   }
   return {
     plan: "Starter",
     price: "$997",
     reason:
-      "Under 10 pages means we can lock down on-page SEO and local rankings fast — Starter is the right fit.",
+      "Under 10 pages means we can lock down on-page SEO and local rankings fast. Starter is the right fit.",
   };
 };
 
@@ -128,7 +128,7 @@ const getReply = (text: string, stage: Stage): { reply: Msg; nextStage: Stage } 
         reply: {
           role: "assistant",
           content:
-            "This is exactly what Georgia fixes. Drop your name, email and website URL and she will personally audit your site within 24 hours and send you a specific action plan — completely free.",
+            "This is exactly what Georgia fixes. Drop your name, email and website URL and she will personally audit your site within 24 hours and send you a specific action plan. Completely free.",
           showLeadForm: true,
         },
         nextStage: "ready",
@@ -224,7 +224,7 @@ const ChatWidget = () => {
     setLeadSubmitting(true);
 
     // Build a pre-filled mailto so the visitor's request reaches Georgia
-    const subject = encodeURIComponent(`Free Website Check — ${lead.name}`);
+    const subject = encodeURIComponent(`Free Website Check ${lead.name}`);
     const body = encodeURIComponent(
       `Name: ${lead.name}\nEmail: ${lead.email}\nWebsite: ${lead.website}\n\nRequesting a free SEO website check.`
     );
@@ -236,7 +236,7 @@ const ChatWidget = () => {
         ...prev,
         {
           role: "user",
-          content: `📩 Sent my details — ${lead.name} (${lead.email})`,
+          content: `📩 Sent my details ${lead.name} (${lead.email})`,
         },
         {
           role: "assistant",
@@ -376,7 +376,7 @@ const ChatWidget = () => {
                 onSubmit={submitLead}
                 className="mt-2 space-y-2 rounded-xl border border-[#22c55e]/40 bg-[#0a0f1e] p-3"
               >
-                <p className="text-xs text-white/70">Free website check — Georgia replies in 24h</p>
+                <p className="text-xs text-white/70">Free website check. Georgia replies in 24h</p>
                 <input
                   type="text"
                   required

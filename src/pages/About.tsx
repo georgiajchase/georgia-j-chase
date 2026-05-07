@@ -28,7 +28,7 @@ const About = () => (
   <div className="min-h-screen bg-background">
     <SEO
       title="About Georgia J. Chase | SEO Specialist | 500+ Businesses Ranked"
-      description="Meet Georgia J. Chase — SEO Specialist with 8+ years experience helping business owners get found on Google. 500+ clients ranked."
+      description="Meet Georgia J. Chase, SEO Specialist with 8+ years experience helping business owners get found on Google. 500+ clients ranked."
       path="/about"
     />
     <Navbar />

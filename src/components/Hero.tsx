@@ -55,7 +55,7 @@ const Hero = () => {
                 {" "}You're Not. Here's Why.
               </h1>
               <p className="mt-6 fluid-lead text-muted-foreground md:text-warm-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-                I personally audit your website and show you the exact problems blocking your traffic — for free. No jargon. No pitch. Just answers.
+                I personally audit your website and show you the exact problems blocking your traffic. For free. No jargon. No pitch. Just answers.
               </p>
               <div className="mt-8 flex justify-center md:justify-start">
                 <Button

@@ -36,7 +36,7 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="SEO Services | Local SEO, Technical Audit, Link Building | Georgia J. Chase"
-        description="Professional SEO services including Local SEO, Ecommerce SEO, Technical Audits, Link Building and Content Strategy. Results in 30-90 days."
+        description="Professional SEO services including Local SEO, Ecommerce SEO, Technical Audits, Link Building and Content Strategy. Results in 30 to 90 days."
         path="/services"
       />
       <Navbar />
@@ -51,7 +51,7 @@ const ServicesPage = () => {
           <AnimatedSection>
             <p className="section-label mb-3">Services</p>
             <h1 className="fluid-h1 font-extrabold text-foreground mb-6">
-              Done-For-You SEO That <span className="text-primary">Actually Moves the Needle</span>
+              Done For You SEO That <span className="text-primary">Actually Moves the Needle</span>
             </h1>
             <p className="fluid-lead text-muted-foreground max-w-2xl mx-auto">
               Six focused services. Every one designed to fix a specific problem holding your business back from showing up, getting clicks, and turning traffic into revenue.

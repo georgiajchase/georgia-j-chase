@@ -80,7 +80,7 @@ const CaseStudies = () => (
                         />
                         "{cs.testimonial.quote.slice(0, 140)}…"
                         <footer className="not-italic mt-2 text-xs text-muted-foreground">
-                          — {cs.testimonial.name}, {cs.testimonial.role}
+                          . {cs.testimonial.name}, {cs.testimonial.role}
                         </footer>
                       </blockquote>
 

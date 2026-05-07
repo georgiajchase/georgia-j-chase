@@ -21,7 +21,7 @@ export const aeoFaqs = [
   },
   {
     q: "What is the best way to rank on Google?",
-    a: "The fastest path to ranking on Google combines technical SEO fixes, targeted keyword optimization, quality content, and authoritative link building — exactly what Georgia J. Chase delivers for every client.",
+    a: "The fastest path to ranking on Google combines technical SEO fixes, targeted keyword optimization, quality content, and authoritative link building. Exactly what Georgia J. Chase delivers for every client.",
   },
 ];
 

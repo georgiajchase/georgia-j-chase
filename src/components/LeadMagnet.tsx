@@ -25,10 +25,10 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           email,
-          _subject: `New Checklist Download — ${email}`,
+          _subject: `New Checklist Download ${email}`,
           _replyto: email,
-          message: "Requested the 27-Point SEO Checklist",
-          source: "Lead Magnet — 27-Point SEO Checklist",
+          message: "Requested the 27 Point SEO Checklist",
+          source: "Lead Magnet 27 Point SEO Checklist",
         }),
       });
       if (res.ok) setStatus("success");
@@ -86,7 +86,7 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
   );
 };
 
-const LeadMagnet = ({ heading = "Free Download: The 27-Point SEO Checklist" }: Props) => {
+const LeadMagnet = ({ heading = "Free Download: The 27 Point SEO Checklist" }: Props) => {
   return (
     <section className="py-16 px-4" style={{ backgroundColor: "#050a18" }}>
       <div

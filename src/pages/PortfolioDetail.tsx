@@ -28,11 +28,11 @@ const details: Record<string, Detail> = {
       "Local visibility for New Jersey and Pennsylvania searches was nonexistent.",
     ],
     solution: [
-      "Full on-page SEO and AEO optimization across every single page.",
+      "Full On Page SEO and AEO optimization across every single page.",
       "35 plus images tagged with descriptive AEO alt text.",
       "Locally targeted keyphrases written for NJ and PA insurance buyers.",
       "Meta descriptions handcrafted for each page with local intent.",
-      "PageSpeed audit completed with performance fixes applied.",
+      "Page Speed audit completed with performance fixes applied.",
     ],
     included: [
       "30 plus pages optimized with unique keyphrases",
