@@ -162,7 +162,7 @@ export const blogPosts: BlogPost[] = [
     title: "Keyword Research for Business Owners: Find Buyers, Not Browsers",
     image: keywords,
     image2x: keywords2x,
-    imageAlt: "Keyword research for business owners magnifying glass over search terms",
+    imageAlt: "Magnifying glass over a notebook of buyer intent search terms, representing keyword research for business owners that finds real customers",
     date: "February 1, 2026",
     readTime: "7 min read",
     author: AUTHOR,
