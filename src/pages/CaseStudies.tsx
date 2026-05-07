@@ -26,10 +26,10 @@ const CaseStudies = () => (
           >
             <ArrowLeft size={16} /> Back to home
           </Link>
-          <p className="section-label mb-3">Case Studies</p>
+          <p className="section-label mb-3">Our Work</p>
           <h1 className="section-title mb-4">Real Results from Real Businesses</h1>
           <p className="fluid-lead text-muted-foreground max-w-2xl">
-            Three deep-dive stories of businesses I helped grow through honest, technical SEO work.
+            Three deep-dive stories of businesses we helped grow through honest, technical SEO work.
           </p>
         </AnimatedSection>
 
