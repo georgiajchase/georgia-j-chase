@@ -85,7 +85,7 @@ export const services: Service[] = [
     icon: FileText,
     tagline: "Content that ranks, reads well, and converts.",
     description:
-      "I build content strategies around what your customers actually search for — not vanity topics. Every piece is mapped to a stage of the buyer journey, optimised for search intent, and written to convert readers into leads. The result is a content engine that compounds in traffic and revenue month after month.",
+      "I build content strategies around what your customers actually search for. Not vanity topics. Every piece is mapped to a stage of the buyer journey, optimised for search intent, and written to convert readers into leads. The result is a content engine that compounds in traffic and revenue month after month.",
     deliverables: [
       "Topic cluster & pillar page strategy",
       "Search intent mapped keyword research",
