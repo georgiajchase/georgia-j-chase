@@ -6,6 +6,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Results from "@/components/Results";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
+import WhatHappens from "@/components/WhatHappens";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import ReviewsPreview from "@/components/ReviewsPreview";
@@ -105,6 +106,8 @@ const Index = () => (
       <Stats />
       <SectionDivider />
       <Services />
+      <SectionDivider />
+      <WhatHappens />
       <SectionDivider />
       <Pricing />
       <SectionDivider />
