@@ -188,7 +188,7 @@ const CaseStudyDetail = () => {
                 <span className="font-semibold text-foreground">
                   {cs.testimonial.name}
                 </span>{" "}
-                — {cs.testimonial.role}
+                . {cs.testimonial.role}
               </figcaption>
             </figure>
           </AnimatedSection>
