@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
     title: "How to Rank on Google #1 in 90 Days: A Step by Step Plan",
     image: rank,
     image2x: rank2x,
-    imageAlt: "How to rank on Google in 90 days search results illustration",
+    imageAlt: "Laptop showing a Google search results page with a small business website ranked number one, illustrating how to rank on Google in 90 days",
     date: "April 12, 2026",
     readTime: "7 min read",
     author: AUTHOR,
