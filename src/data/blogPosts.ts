@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
     title: "Improve Website Speed for SEO: Core Web Vitals Decide Your Rankings",
     image: speed,
     image2x: speed2x,
-    imageAlt: "Improve website speed for SEO speedometer showing fast page load",
+    imageAlt: "Speedometer needle in the green zone next to a fast loading website on a phone, representing improving website speed for SEO and Core Web Vitals",
     date: "February 19, 2026",
     readTime: "6 min read",
     author: AUTHOR,
