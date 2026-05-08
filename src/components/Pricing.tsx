@@ -21,7 +21,7 @@ const tiers = [
       "Delivered within 5 business days",
       "PDF report with screenshots and proof of every issue found",
     ],
-    cta: "Get My Audit Report — $197 →",
+    cta: "Get My Audit Report $197 →",
     footnote:
       "This is where most clients start. Many upgrade after seeing the results.",
     highlighted: false,
