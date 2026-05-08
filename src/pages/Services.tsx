@@ -55,7 +55,7 @@ const ServicesPage = () => {
               Everything Your Business Needs to <span className="text-primary">Get Found, Get Clicks, and Get Customers</span>
             </h1>
             <p className="fluid-lead text-muted-foreground max-w-2xl mx-auto">
-              One team. Every service. One goal — growing your business online.
+              One team. Every service. One goal. Growing your business online.
             </p>
           </AnimatedSection>
 
