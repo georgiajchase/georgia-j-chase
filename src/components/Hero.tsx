@@ -57,6 +57,9 @@ const Hero = () => {
               <p className="mt-6 fluid-lead text-muted-foreground md:text-warm-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed">
                 Most businesses are invisible online and do not know why. I find exactly what is holding your website back and fix it so your business shows up on Google, Google Maps, and AI search where your customers are already looking.
               </p>
+              <p className="mt-4 fluid-lead text-muted-foreground md:text-warm-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed text-base">
+                We are a team of SEO specialists, content strategists and technical experts, working as one unit inside your business.
+              </p>
               <div className="mt-8 flex justify-center md:justify-start">
                 <Button
                   onClick={goToContact}
