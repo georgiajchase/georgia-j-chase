@@ -19,9 +19,9 @@ const tiers = [
       "Core Web Vitals assessment",
       "Prioritized fix list in plain English",
       "Delivered within 5 business days",
-      "Video walkthrough of findings included",
+      "PDF report with screenshots and proof of every issue found",
     ],
-    cta: "Order My Audit $197 →",
+    cta: "Get My Audit Report — $197 →",
     footnote:
       "This is where most clients start. Many upgrade after seeing the results.",
     highlighted: false,
@@ -207,7 +207,7 @@ const Pricing = () => {
             Not Sure Where to Start?
           </h3>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Send us your site and we will tell you personally which option makes the most sense for your situation. No pressure. No sales call.
+            Send us your site and we will tell you personally which option makes the most sense for your situation. No pressure. No obligation.
           </p>
           <Link
             to="/contact"
