@@ -118,9 +118,9 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote:
-        "We used to wonder why we were so quiet compared to clinics with worse reviews. Georgia explained exactly why in plain English and fixed it in a month. The phone has not stopped ringing since.",
+        "We used to wonder why we were so quiet compared to clinics with worse reviews. Georgia explained exactly why in plain English and fixed it in less than 30 days.",
       name: "Dr. Marcus L.",
-      role: "Owner, Cedar & Stone Dental",
+      role: "Owner, Cedar and Stone Dental",
     },
   },
   {
