@@ -30,11 +30,29 @@ export default function AiChat() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showBadge, setShowBadge] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupDismissed, setPopupDismissed] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open, loading]);
+
+  useEffect(() => {
+    if (popupDismissed) return;
+    const timer = setTimeout(() => {
+      if (!open) setShowPopup(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [popupDismissed, open]);
+
+  const handleOpen = () => {
+    setOpen(!open);
+    setShowBadge(false);
+    setShowPopup(false);
+    setPopupDismissed(true);
+  };
 
   const send = async (text: string) => {
     if (!text.trim() || loading) return;
@@ -115,12 +133,82 @@ export default function AiChat() {
 
   return (
     <>
+      <style>{`
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
+      {showPopup && !open && (
+        <div
+          onClick={() => {
+            setShowPopup(false);
+            setPopupDismissed(true);
+            setOpen(true);
+            setShowBadge(false);
+          }}
+          className="fixed z-50 cursor-pointer"
+          style={{
+            bottom: "100px",
+            right: "20px",
+            background: "#0a1628",
+            border: "1px solid #22c55e",
+            borderRadius: "12px",
+            padding: "12px 14px",
+            maxWidth: "240px",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+            animation: "slideUp 0.3s ease",
+          }}
+        >
+          <div className="flex items-start gap-2 mb-2">
+            <div className="relative flex-shrink-0">
+              <div className="h-8 w-8 rounded-full bg-[#22c55e] flex items-center justify-center text-white font-semibold text-xs">
+                GJ
+              </div>
+              <span className="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-green-500 ring-2 ring-[#0a1628]" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-white text-[13px] font-semibold leading-tight">Georgia J. Chase Team</p>
+              <p className="text-green-400 text-[11px] flex items-center gap-1">
+                <span className="h-1 w-1 rounded-full bg-green-500 inline-block" />
+                Online now
+              </p>
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowPopup(false);
+                setPopupDismissed(true);
+              }}
+              className="text-slate-500 hover:text-slate-300 flex-shrink-0 leading-none"
+              style={{ fontSize: "14px", lineHeight: 1 }}
+            >
+              <X className="h-3 w-3" />
+            </button>
+          </div>
+          <p className="text-white/90 text-[13px] leading-relaxed mb-2">
+            Hey! Is your website getting the traffic it should? Ask me anything and I will tell you exactly what might be holding it back.
+          </p>
+          <p className="text-[#22c55e] text-[12px] font-medium">Tap to chat →</p>
+        </div>
+      )}
+
       {!open && (
         <button
-          onClick={() => setOpen(true)}
+          onClick={handleOpen}
           aria-label="Open chat"
           className="fixed z-50 right-5 bottom-24 h-14 w-14 rounded-full bg-[#22c55e] text-white shadow-[0_8px_30px_rgba(34,197,94,0.55)] flex items-center justify-center hover:scale-105 transition-transform animate-pulse"
+          style={{ position: "fixed" }}
         >
+          {showBadge && (
+            <span
+              className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white text-[10px] font-bold ring-2 ring-[#050a18]"
+              style={{ transform: "translate(2px, -2px)" }}
+            >
+              1
+            </span>
+          )}
           <MessageCircle className="h-6 w-6" strokeWidth={2.25} />
         </button>
       )}
