@@ -15,7 +15,7 @@ import Portfolio from "./pages/Portfolio.tsx";
 import PortfolioDetail from "./pages/PortfolioDetail.tsx";
 import Reviews from "./pages/Reviews.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import ChatWidget from "./components/ChatWidget.tsx";
+import AiChat from "./components/AiChat.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import AnnouncementBar from "./components/AnnouncementBar.tsx";
 import FloatingBar from "./components/FloatingBar.tsx";
@@ -47,7 +47,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <ChatWidget />
+        <AiChat />
         <FloatingBar />
         <ExitIntentPopup />
         <LeadMagnetSlideIn />
