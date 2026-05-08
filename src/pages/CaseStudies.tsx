@@ -90,7 +90,7 @@ const CaseStudies = () => (
                           size={14}
                           className="absolute -left-2 -top-1 text-primary bg-card"
                         />
-                        "{cs.testimonial.quote.slice(0, 140)}…"
+                        "{cs.testimonial.quote}"
                         <footer className="not-italic mt-2 text-xs text-muted-foreground">
                           . {cs.testimonial.name}, {cs.testimonial.role}
                         </footer>
