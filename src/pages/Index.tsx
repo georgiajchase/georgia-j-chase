@@ -94,12 +94,12 @@ const Index = () => (
       jsonLd={jsonLd}
     />
     <Navbar />
+    <MarqueeTicker />
     <main>
       <Hero />
       <WhatWeFix />
       <SectionDivider />
       <LeadMagnet />
-      <MarqueeTicker />
       <TrustBar />
       <SectionDivider />
       <PainPoints />
