@@ -12,7 +12,7 @@ import Industries from "@/components/Industries";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
-import ReviewsPreview from "@/components/ReviewsPreview";
+import SocialProof from "@/components/SocialProof";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 import MarqueeTicker from "@/components/MarqueeTicker";
