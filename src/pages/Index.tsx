@@ -175,9 +175,9 @@ const Index = () => (
       <SectionDivider />
       <Industries />
       <SectionDivider />
-      <Pricing />
+      <SocialProof />
       <SectionDivider />
-      <ReviewsPreview />
+      <Pricing />
       <SectionDivider />
       <FAQ />
       <SectionDivider />
