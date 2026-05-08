@@ -109,6 +109,7 @@ const jsonLd = [
       ],
     },
   },
+  {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Georgia J. Chase",
