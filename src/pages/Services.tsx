@@ -8,6 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
 import SectionDivider from "@/components/SectionDivider";
+import ServiceCategories from "@/components/ServiceCategories";
 import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 
