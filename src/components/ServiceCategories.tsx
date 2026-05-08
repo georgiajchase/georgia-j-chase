@@ -73,7 +73,7 @@ const ServiceCategories = () => (
           Everything Your Business Needs to Grow Online
         </h2>
         <p className="text-muted-foreground text-base sm:text-lg">
-          We are a full-service digital growth team. Whatever your website needs — we have the specialist for it.
+          We are a full service digital growth team. Whatever your website needs, we have the specialist for it.
         </p>
       </AnimatedSection>
 
