@@ -8,6 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
 import SectionDivider from "@/components/SectionDivider";
+import ServiceCategories from "@/components/ServiceCategories";
 import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 
@@ -51,10 +52,10 @@ const ServicesPage = () => {
           <AnimatedSection>
             <p className="section-label mb-3">Services</p>
             <h1 className="fluid-h1 font-extrabold text-foreground mb-6">
-              Done For You SEO That <span className="text-primary">Actually Moves the Needle</span>
+              Everything Your Business Needs to <span className="text-primary">Get Found, Get Clicks, and Get Customers</span>
             </h1>
             <p className="fluid-lead text-muted-foreground max-w-2xl mx-auto">
-              Six focused services. Every one designed to fix a specific problem holding your business back from showing up, getting clicks, and turning traffic into revenue.
+              One team. Every service. One goal — growing your business online.
             </p>
           </AnimatedSection>
 
@@ -72,6 +73,9 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
+      <ServiceCategories />
 
       {/* Service sections */}
       {services.map((service, idx) => {
