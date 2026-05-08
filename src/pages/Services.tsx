@@ -74,6 +74,9 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      <SectionDivider />
+      <ServiceCategories />
+
       {/* Service sections */}
       {services.map((service, idx) => {
         const Icon = service.icon;
