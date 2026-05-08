@@ -52,6 +52,64 @@ const jsonLd = [
   },
   {
     "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "Organization"],
+    name: "Georgia J. Chase SEO Specialist",
+    url: SITE,
+    logo: `${SITE}/favicon.svg`,
+    description:
+      "SEO Specialist helping business owners get found on Google, Maps and AI search",
+    email: "chasegeorgiaj@gmail.com",
+    areaServed: {
+      "@type": "Country",
+      name: "United States",
+    },
+    sameAs: [
+      "https://www.linkedin.com",
+      "https://twitter.com",
+      "https://www.instagram.com",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Service",
+      email: "chasegeorgiaj@gmail.com",
+      areaServed: "US",
+      availableLanguage: "English",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "SEO Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Local SEO" },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Technical SEO Audit" },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Ecommerce SEO" },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Link Building" },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Content Strategy" },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Website SEO Design and Redesign",
+          },
+        },
+      ],
+    },
+  },
+    "@context": "https://schema.org",
     "@type": "Person",
     name: "Georgia J. Chase",
     jobTitle: "SEO Specialist",
