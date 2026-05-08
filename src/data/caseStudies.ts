@@ -169,7 +169,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote:
-        "Georgia turned SEO from a side project into our biggest growth lever. We are now generating more qualified trials from organic than from any paid channel — and it keeps compounding every month.",
+        "Georgia turned SEO from a side project into our biggest growth lever. We are now generating more qualified trials from organic than from any paid channel we have ever run.",
       name: "Daniel K.",
       role: "Head of Growth, Loopwave Analytics",
     },
