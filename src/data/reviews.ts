@@ -45,7 +45,7 @@ export const reviews: Review[] = [
     business: "PR & Marketing Agency",
     date: "March 2025",
     rating: 5,
-    text: "GTmetrix Grade A. Mobile score finally green. The audit alone gave us a 12-month roadmap that was clearer than anything we'd ever paid for. Genuine, smart, and detail-obsessed.",
+    text: "GTmetrix Grade A. Mobile score finally green. The audit alone gave us a 12 month roadmap that was clearer than anything we'd ever paid for. Genuine, smart, and detail obsessed.",
     verified: true,
   },
 ];
