@@ -118,9 +118,9 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote:
-        "We used to wonder why we were so quiet compared to clinics with worse reviews. Georgia explained exactly why in plain English and fixed it in a month. The phone has not stopped ringing since.",
+        "We used to wonder why we were so quiet compared to clinics with worse reviews. Georgia explained exactly why in plain English and fixed it in less than 30 days.",
       name: "Dr. Marcus L.",
-      role: "Owner, Cedar & Stone Dental",
+      role: "Owner, Cedar and Stone Dental",
     },
   },
   {
@@ -169,7 +169,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote:
-        "Georgia turned SEO from a side project into our biggest growth lever. We are now generating more qualified trials from organic than from any paid channel — and it keeps compounding every month.",
+        "Georgia turned SEO from a side project into our biggest growth lever. We are now generating more qualified trials from organic than from any paid channel we have ever run.",
       name: "Daniel K.",
       role: "Head of Growth, Loopwave Analytics",
     },

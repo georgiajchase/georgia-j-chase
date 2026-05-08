@@ -29,8 +29,20 @@ const CaseStudies = () => (
           <p className="section-label mb-3">Our Work</p>
           <h1 className="section-title mb-4">Real Results from Real Businesses</h1>
           <p className="fluid-lead text-muted-foreground max-w-2xl">
-            Three deep-dive stories of businesses we helped grow through honest, technical SEO work.
+            Real businesses. Real timelines. Real numbers. No inflated results. No fabricated stories.
           </p>
+        </AnimatedSection>
+
+        <AnimatedSection className="mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-primary font-semibold">
+            <span>★ 3 Case Studies</span>
+            <span className="text-primary/40">|</span>
+            <span>★ $127K+ Revenue Generated</span>
+            <span className="text-primary/40">|</span>
+            <span>★ 340% Average Traffic Growth</span>
+            <span className="text-primary/40">|</span>
+            <span>★ #1 Rankings Achieved</span>
+          </div>
         </AnimatedSection>
 
         <div className="space-y-10">
@@ -78,7 +90,7 @@ const CaseStudies = () => (
                           size={14}
                           className="absolute -left-2 -top-1 text-primary bg-card"
                         />
-                        "{cs.testimonial.quote.slice(0, 140)}…"
+                        "{cs.testimonial.quote}"
                         <footer className="not-italic mt-2 text-xs text-muted-foreground">
                           . {cs.testimonial.name}, {cs.testimonial.role}
                         </footer>

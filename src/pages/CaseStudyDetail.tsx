@@ -197,28 +197,6 @@ const CaseStudyDetail = () => {
             </figure>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.2}>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <p className="font-heading font-bold text-lg text-foreground mb-1">
-                  Want results like this for your business?
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  {cs.slug === "ecommerce-page-5-to-1-in-60-days"
-                    ? "Send us your site. We will tell you exactly what we would fix and why."
-                    : "Send us your site. We reply within 24 hours."}
-                </p>
-              </div>
-              <Button
-                asChild
-                className="bg-primary text-primary-foreground hover:bg-forest-dark rounded-full whitespace-nowrap"
-              >
-                <Link to="/contact">
-                  Send Me Your Site <ArrowRight size={14} className="ml-1" />
-                </Link>
-              </Button>
-            </div>
-          </AnimatedSection>
         </div>
       </main>
 
