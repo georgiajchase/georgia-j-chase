@@ -1,38 +1,56 @@
 import { useState } from "react";
-import { Download, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Star, Clock } from "lucide-react";
 
-const FORMSPREE = "https://formspree.io/f/mreyovlw";
+declare global {
+  interface Window {
+    emailjs?: {
+      send: (
+        serviceId: string,
+        templateId: string,
+        params: Record<string, string>,
+      ) => Promise<{ status: number; text: string }>;
+    };
+  }
+}
 
-interface Props {
-  heading?: string;
+const CHALLENGES = [
+  "Not enough traffic from Google",
+  "Not ranking for my main keywords",
+  "Not showing up on Google Maps",
+  "Site is slow or not working properly",
+  "Not getting leads or inquiries",
+  "Tried SEO before and saw no results",
+  "Just launched and need to get found",
+  "Not sure where to start",
+];
+
+interface FormProps {
   compact?: boolean;
 }
 
-const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
+const MiniAuditForm = ({ compact = false }: FormProps) => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
+  const [challenge, setChallenge] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!name || !email || !website || !challenge) {
       setStatus("error");
       return;
     }
     setStatus("loading");
     try {
-      const res = await fetch(FORMSPREE, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          email,
-          _subject: `New Checklist Download ${email}`,
-          _replyto: email,
-          message: "Requested the 27 Point SEO Checklist",
-          source: "Lead Magnet 27 Point SEO Checklist",
-        }),
+      if (!window.emailjs) throw new Error("EmailJS not loaded");
+      await window.emailjs.send("service_3eyouwf", "template_8b0ilw8", {
+        from_name: name,
+        from_email: email,
+        website,
+        challenge,
       });
-      if (res.ok) setStatus("success");
-      else setStatus("error");
+      setStatus("success");
     } catch {
       setStatus("error");
     }
@@ -40,80 +58,148 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
 
   if (status === "success") {
     return (
-      <div
-        className="flex items-center gap-3 rounded-xl px-4 py-4"
-        style={{ backgroundColor: "rgba(34, 197, 94, 0.15)", border: "1px solid rgba(34, 197, 94, 0.5)", color: "#FAFAF8" }}
-      >
-        <CheckCircle2 style={{ color: "#22c55e" }} />
-        <p className="text-sm font-medium">Check your inbox! Your checklist is on its way.</p>
+      <div className="text-center py-8 px-4 rounded-2xl" style={{ backgroundColor: "rgba(34, 197, 94, 0.1)", border: "1px solid rgba(34, 197, 94, 0.4)" }}>
+        <div className="flex justify-center mb-4">
+          <CheckCircle2 size={56} style={{ color: "#22c55e" }} />
+        </div>
+        <h3 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: "#FAFAF8" }}>
+          We Have Got Your Site.
+        </h3>
+        <p className="text-base max-w-xl mx-auto" style={{ color: "rgba(250, 250, 248, 0.85)" }}>
+          Georgia will personally review your website and email you back within 24 hours with 3 specific things she found. Check your inbox tomorrow.
+        </p>
       </div>
     );
   }
 
+  const inputStyle = {
+    backgroundColor: "#0d1f35",
+    borderColor: "rgba(34, 197, 94, 0.3)",
+    color: "#FAFAF8",
+  } as const;
+
   return (
-    <form onSubmit={submit} className={`flex ${compact ? "flex-col" : "flex-col sm:flex-row"} gap-3 w-full`}>
-      <input
-        type="email"
-        required
-        maxLength={255}
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-          if (status === "error") setStatus("idle");
-        }}
-        className="flex-1 rounded-full px-5 py-3 text-sm outline-none border"
-        style={{
-          backgroundColor: "rgba(250, 250, 248, 0.08)",
-          borderColor: "rgba(34, 197, 94, 0.5)",
-          color: "#FAFAF8",
-        }}
-      />
+    <form onSubmit={submit} className="space-y-4">
+      <div>
+        <label htmlFor="audit-name" className="block text-sm font-medium mb-1.5" style={{ color: "#FAFAF8" }}>
+          Your name
+        </label>
+        <input
+          id="audit-name"
+          type="text"
+          required
+          placeholder="Jane Smith"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full rounded-lg px-4 py-3 text-sm border outline-none focus:border-[#22c55e]"
+          style={inputStyle}
+        />
+      </div>
+      <div>
+        <label htmlFor="audit-email" className="block text-sm font-medium mb-1.5" style={{ color: "#FAFAF8" }}>
+          Your email
+        </label>
+        <input
+          id="audit-email"
+          type="email"
+          required
+          placeholder="jane@yourbusiness.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full rounded-lg px-4 py-3 text-sm border outline-none focus:border-[#22c55e]"
+          style={inputStyle}
+        />
+      </div>
+      <div>
+        <label htmlFor="audit-website" className="block text-sm font-medium mb-1.5" style={{ color: "#FAFAF8" }}>
+          Your website URL
+        </label>
+        <input
+          id="audit-website"
+          type="url"
+          required
+          placeholder="https://yourbusiness.com"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+          className="w-full rounded-lg px-4 py-3 text-sm border outline-none focus:border-[#22c55e]"
+          style={inputStyle}
+        />
+      </div>
+      <div>
+        <label htmlFor="audit-challenge" className="block text-sm font-medium mb-1.5" style={{ color: "#FAFAF8" }}>
+          What is your biggest challenge right now?
+        </label>
+        <select
+          id="audit-challenge"
+          required
+          value={challenge}
+          onChange={(e) => setChallenge(e.target.value)}
+          className="w-full rounded-lg px-4 py-3 text-sm border outline-none focus:border-[#22c55e]"
+          style={inputStyle}
+        >
+          <option value="" disabled>
+            Select an option
+          </option>
+          {CHALLENGES.map((c) => (
+            <option key={c} value={c} style={{ backgroundColor: "#0d1f35", color: "#FAFAF8" }}>
+              {c}
+            </option>
+          ))}
+        </select>
+      </div>
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all hover:opacity-90 disabled:opacity-60"
-        style={{ backgroundColor: "#22c55e", color: "#0b1a12" }}
+        className="w-full rounded-lg px-6 py-4 text-base font-bold transition-all hover:opacity-90 disabled:opacity-60"
+        style={{ backgroundColor: "#22c55e", color: "#FFFFFF" }}
       >
-        {status === "loading" ? "Sending..." : "Send Me the Checklist"}
+        {status === "loading" ? "Sending..." : "Send Me Your Free Mini Audit →"}
       </button>
       {status === "error" && (
-        <p className="text-xs sm:hidden" style={{ color: "#fca5a5" }}>
-          Please enter a valid email.
+        <p className="text-sm text-center" style={{ color: "#fca5a5" }}>
+          Something went wrong. Please email us directly at chasegeorgiaj@gmail.com
         </p>
+      )}
+      {!compact && (
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-2 text-xs" style={{ color: "rgba(250, 250, 248, 0.75)" }}>
+          <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={14} style={{ color: "#22c55e" }} /> Reviewed personally by Georgia</span>
+          <span className="inline-flex items-center gap-1.5"><Star size={14} style={{ color: "#C9A84C" }} fill="#C9A84C" /> 5.0 average client rating</span>
+          <span className="inline-flex items-center gap-1.5"><Clock size={14} style={{ color: "#22c55e" }} /> Response within 24 hours</span>
+          <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={14} style={{ color: "#22c55e" }} /> No tools or automation</span>
+          <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={14} style={{ color: "#22c55e" }} /> Completely free</span>
+        </div>
       )}
     </form>
   );
 };
 
-const LeadMagnet = ({ heading = "Free Download: The 27 Point SEO Checklist" }: Props) => {
+// Backwards-compat export used by ExitIntentPopup and LeadMagnetSlideIn
+const LeadMagnetForm = ({ compact }: { compact?: boolean }) => <MiniAuditForm compact={compact} />;
+
+const LeadMagnet = () => {
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: "#0d1f35" }}>
-      <div
-        className="max-w-4xl mx-auto rounded-2xl p-8 sm:p-12 border-2"
-        style={{
-          backgroundColor: "#1a2f4a",
-          borderColor: "#22c55e",
-          boxShadow: "0 0 60px rgba(34, 197, 94, 0.15)",
-        }}
-      >
-        <div className="flex flex-col sm:flex-row items-start gap-6">
-          <div
-            className="shrink-0 inline-flex items-center justify-center w-14 h-14 rounded-2xl"
-            style={{ backgroundColor: "rgba(34, 197, 94, 0.18)", color: "#22c55e" }}
-          >
-            <Download size={28} />
-          </div>
-          <div className="flex-1 w-full">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: "#FAFAF8" }}>
-              {heading}
-            </h2>
-            <p className="text-sm sm:text-base mb-6" style={{ color: "rgba(250, 250, 248, 0.8)" }}>
-              The exact checklist I use to audit every client website. Download it free and find out
-              exactly what is holding your site back.
-            </p>
-            <LeadMagnetForm />
-          </div>
+    <section className="py-16 sm:py-20 px-4" style={{ backgroundColor: "#1a2f4a" }}>
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-8">
+          <span className="inline-block text-xs font-bold tracking-[0.2em] mb-4" style={{ color: "#22c55e" }}>
+            FREE MINI AUDIT
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight" style={{ color: "#FAFAF8" }}>
+            Find Out Exactly What Is Holding Your Site Back — For Free
+          </h2>
+          <p className="text-base sm:text-lg" style={{ color: "rgba(250, 250, 248, 0.8)" }}>
+            Submit your site below. Georgia looks at it personally within 24 hours and sends you back 3 specific things she found that are hurting your traffic. No tools. No automation. Just a real human review.
+          </p>
+        </div>
+        <div
+          className="rounded-2xl p-6 sm:p-8 border"
+          style={{
+            backgroundColor: "#0d1f35",
+            borderColor: "rgba(34, 197, 94, 0.3)",
+            boxShadow: "0 0 60px rgba(34, 197, 94, 0.1)",
+          }}
+        >
+          <MiniAuditForm />
         </div>
       </div>
     </section>
