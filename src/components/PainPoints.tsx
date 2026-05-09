@@ -50,12 +50,18 @@ const PainPoints = () => (
         {cards.map((c, i) => (
           <AnimatedSection key={c.title} delay={i * 0.08}>
             <TiltCard>
-              <div className="bg-forest-dark border border-border border-l-4 border-l-primary rounded-xl p-6 h-full shadow-sm hover:bg-forest hover:shadow-xl transition-all duration-300">
-                <div className="w-11 h-11 rounded-lg bg-primary/15 flex items-center justify-center mb-4">
-                  <c.icon className="text-primary" size={22} />
+              <div
+                className="rounded-xl p-6 h-full shadow-sm transition-all duration-300 hover:shadow-xl"
+                style={{
+                  backgroundColor: "#1a2f4a",
+                  borderLeft: "3px solid #22c55e",
+                }}
+              >
+                <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: "rgba(34, 197, 94, 0.15)" }}>
+                  <c.icon style={{ color: "#22c55e" }} size={22} />
                 </div>
-                <h3 className="font-heading font-bold text-lg mb-2 text-warm-white">{c.title}</h3>
-                <p className="text-warm-white/70 text-sm leading-relaxed">{c.text}</p>
+                <h3 className="font-heading font-bold text-lg mb-2" style={{ color: "#ffffff" }}>{c.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#94a3b8" }}>{c.text}</p>
               </div>
             </TiltCard>
           </AnimatedSection>

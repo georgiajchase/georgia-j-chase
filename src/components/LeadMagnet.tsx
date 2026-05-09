@@ -65,7 +65,7 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
         className="flex-1 rounded-full px-5 py-3 text-sm outline-none border"
         style={{
           backgroundColor: "rgba(250, 250, 248, 0.08)",
-          borderColor: "rgba(249, 115, 22, 0.4)",
+          borderColor: "rgba(34, 197, 94, 0.5)",
           color: "#FAFAF8",
         }}
       />
@@ -88,19 +88,19 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
 
 const LeadMagnet = ({ heading = "Free Download: The 27 Point SEO Checklist" }: Props) => {
   return (
-    <section className="py-16 px-4" style={{ backgroundColor: "#050a18" }}>
+    <section className="py-16 px-4" style={{ backgroundColor: "#0d1f35" }}>
       <div
         className="max-w-4xl mx-auto rounded-2xl p-8 sm:p-12 border-2"
         style={{
-          backgroundColor: "rgba(27, 67, 50, 0.4)",
-          borderColor: "#f97316",
-          boxShadow: "0 0 60px rgba(249, 115, 22, 0.15)",
+          backgroundColor: "#1a2f4a",
+          borderColor: "#22c55e",
+          boxShadow: "0 0 60px rgba(34, 197, 94, 0.15)",
         }}
       >
         <div className="flex flex-col sm:flex-row items-start gap-6">
           <div
             className="shrink-0 inline-flex items-center justify-center w-14 h-14 rounded-2xl"
-            style={{ backgroundColor: "rgba(249, 115, 22, 0.18)", color: "#f97316" }}
+            style={{ backgroundColor: "rgba(34, 197, 94, 0.18)", color: "#22c55e" }}
           >
             <Download size={28} />
           </div>

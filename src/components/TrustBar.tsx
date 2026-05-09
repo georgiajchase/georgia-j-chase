@@ -19,17 +19,22 @@ const platforms: { name: string; color: string }[] = [
 ];
 
 const TrustBar = () => (
-  <section className="py-12 sm:py-16 bg-forest-dark">
+  <section className="py-12 sm:py-16" style={{ backgroundColor: "#0d1f35" }}>
     <div className="container mx-auto px-4">
       <AnimatedSection>
-        <p className="text-center text-sm sm:text-base font-heading font-semibold text-warm-white mb-6 tracking-wide">
+        <p className="text-center text-sm sm:text-base font-heading font-semibold mb-6 tracking-wide" style={{ color: "#ffffff" }}>
           We Work With Every Major Platform
         </p>
         <div className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto">
           {platforms.map((p) => (
             <span
               key={p.name}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-warm-white bg-forest border border-primary/40 hover:border-primary hover:bg-forest/80 transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors"
+              style={{
+                backgroundColor: "#1a2f4a",
+                border: "1px solid #22c55e",
+                color: "#ffffff",
+              }}
             >
               <span
                 className="w-2 h-2 rounded-full shrink-0"
@@ -40,7 +45,7 @@ const TrustBar = () => (
             </span>
           ))}
         </div>
-        <p className="text-center text-xs sm:text-sm text-warm-white/60 mt-5 italic">
+        <p className="text-center text-xs sm:text-sm mt-5 italic" style={{ color: "rgba(255,255,255,0.6)" }}>
           If your site is built on it, we can grow it.
         </p>
       </AnimatedSection>
