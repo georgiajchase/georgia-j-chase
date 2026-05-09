@@ -18,7 +18,7 @@ export const services: Service[] = [
     icon: MapPin,
     tagline: "Be the business locals find first.",
     description:
-      "We help local businesses dominate Google Maps and the local pack so the right customers in your area find you before they find your competitors. From Google Business Profile optimisation to local citations and review strategy, every move is built to bring more calls, foot traffic, and bookings from people in your service area.",
+      "We help local businesses dominate Google Maps and the local pack so the right customers in your area find you before they find your competitors. From Google Business Profile optimisation to local citations and review strategy, every move is built to bring more enquiries, foot traffic, and bookings from people in your service area.",
     deliverables: [
       "Google Business Profile audit & full optimisation",
       "Local keyword research mapped to service areas",
