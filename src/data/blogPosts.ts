@@ -79,7 +79,7 @@ export const blogPosts: BlogPost[] = [
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Your Google Business Profile Is the New Homepage</h2>",
       "<p>Your Google Business Profile is the single most important asset in local SEO for small business. The primary category must match your main service exactly, secondary categories should cover your real offerings, and your description should read naturally while including the key terms customers use. Add photos every month and answer questions within 24 hours.</p>",
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Reviews Are the New Backlinks</h2>",
-      "<p>Google heavily weights both volume and velocity of reviews. a steady stream every week beats a one off burst of fifty. When customers mention the service they bought and the city they are in, Google reads those keywords as relevance signals. Need help building a review system? Browse my " + SERVICES_LINK + ".</p>",
+      "<p>Google heavily weights both volume and velocity of reviews. a steady stream every week beats a single burst of fifty. When customers mention the service they bought and the city they are in, Google reads those keywords as relevance signals. Need help building a review system? Browse my " + SERVICES_LINK + ".</p>",
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Service Area Pages Win the Long Tail</h2>",
       "<p>Instead of one generic services page, build a dedicated page for each city or suburb you serve. Each page should have unique content, real local references, embedded maps, and customer stories specific to that area. Done well, these pages rank for dozens of long tail searches your competitors miss completely.</p>",
       "<p>Consistency across the web still matters. Your business name, address, and phone number should be identical on every directory and citation site. <strong>Local SEO for small business</strong> is not glamorous, but the businesses that do these basics consistently are the ones that own their map pack year after year. " + CONTACT_LINK + " and I'll show you exactly what's holding your listing back.</p>",
@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
     author: AUTHOR,
     focusKeyword: "link building for small business",
     metaDescription:
-      "Link building for small business in 2026: the safe, high-impact backlink tactics that actually move rankings and the ones that get you penalised.",
+      "Link building for small business in 2026: the safe, high impact backlink tactics that actually move rankings and the ones that get you penalised.",
     excerpt:
       "Link building for small business still matters in 2026, but the rules have completely changed. Google has spent years training its algorithm to ignore the kind of cheap directory links and guest posts that used to move the needle.",
     content: [
