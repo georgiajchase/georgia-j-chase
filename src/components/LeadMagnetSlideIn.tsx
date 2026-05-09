@@ -36,12 +36,12 @@ const LeadMagnetSlideIn = () => {
       <div className="flex items-center gap-2 mb-2">
         <Download size={18} style={{ color: "#f97316" }} />
         <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "#f97316" }}>
-          Free Download
+          Free Mini Audit
         </span>
       </div>
-      <h3 className="text-lg font-bold mb-2">The 27-Point SEO Checklist</h3>
+      <h3 className="text-lg font-bold mb-2">Get a Free Mini Audit</h3>
       <p className="text-xs mb-4" style={{ color: "rgba(250, 250, 248, 0.75)" }}>
-        The exact checklist I use to audit every client website.
+        Georgia personally reviews your site within 24 hours.
       </p>
       <LeadMagnetForm compact />
     </div>
