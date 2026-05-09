@@ -153,7 +153,7 @@ const Index = () => (
       jsonLd={jsonLd}
     />
     <Navbar />
-    <MarqueeTicker />
+    
     <main>
       <Hero />
       <WhatWeFix />
