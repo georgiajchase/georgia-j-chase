@@ -196,14 +196,18 @@ const Contact = () => {
                   key={plan.id}
                   type="button"
                   onClick={() => handleSelect(plan.id)}
-                  className="text-left transition-all duration-200 relative"
+                  aria-pressed={isSelected}
+                  className="text-left transition-all duration-200 relative cursor-pointer hover:-translate-y-0.5"
                   style={{
                     backgroundColor: isSelected ? "#1e3a5f" : "#1a2f4a",
                     border: isSelected
-                      ? "2px solid #22c55e"
-                      : "1px solid #22c55e",
+                      ? "3px solid #22c55e"
+                      : "1px solid rgba(34,197,94,0.4)",
                     borderRadius: "12px",
                     padding: "20px",
+                    boxShadow: isSelected
+                      ? "0 0 0 4px rgba(34,197,94,0.15), 0 8px 24px rgba(34,197,94,0.25)"
+                      : "none",
                   }}
                 >
                   {plan.badge && (
@@ -228,6 +232,11 @@ const Contact = () => {
                   <p className="text-slate-400 text-sm leading-relaxed">
                     {plan.subtext}
                   </p>
+                  {isSelected && (
+                    <p className="mt-3 text-xs font-semibold" style={{ color: "#22c55e" }}>
+                      ✓ Selected — see form below
+                    </p>
+                  )}
                 </button>
               );
             })}
