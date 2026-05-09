@@ -65,7 +65,7 @@ const LeadMagnetForm = ({ compact = false }: { compact?: boolean }) => {
         className="flex-1 rounded-full px-5 py-3 text-sm outline-none border"
         style={{
           backgroundColor: "rgba(250, 250, 248, 0.08)",
-          borderColor: "rgba(249, 115, 22, 0.4)",
+          borderColor: "rgba(34, 197, 94, 0.5)",
           color: "#FAFAF8",
         }}
       />
