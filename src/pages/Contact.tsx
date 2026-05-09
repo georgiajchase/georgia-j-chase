@@ -42,7 +42,7 @@ const PLANS: Plan[] = [
   {
     id: "seo-audit",
     icon: FileText,
-    name: "SEO Audit — $197",
+    name: "SEO Audit $197",
     subtext:
       "Full PDF report with screenshots and proof of every issue on your site.",
     formTitle: "Let Us Start Your Audit",
@@ -51,7 +51,7 @@ const PLANS: Plan[] = [
   {
     id: "foundation",
     icon: TrendingUp,
-    name: "Foundation — $597/mo",
+    name: "Foundation $597/mo",
     subtext:
       "Up to 10 pages optimized. Google Maps. Rankings. Monthly reports.",
     formTitle: "Let Us Grow Your Business",
@@ -60,7 +60,7 @@ const PLANS: Plan[] = [
   {
     id: "growth",
     icon: Zap,
-    name: "Growth — $1,497/mo",
+    name: "Growth $1,497/mo",
     subtext:
       "30 pages, link building, AEO, GEO and competitor analysis.",
     badge: "RECOMMENDED",
@@ -70,7 +70,7 @@ const PLANS: Plan[] = [
   {
     id: "authority",
     icon: Award,
-    name: "Authority — $2,997/mo",
+    name: "Authority $2,997/mo",
     subtext:
       "Full market dominance. Dedicated strategist. Unlimited pages.",
     formTitle: "Let Us Grow Your Business",
@@ -234,7 +234,7 @@ const Contact = () => {
                   </p>
                   {isSelected && (
                     <p className="mt-3 text-xs font-semibold" style={{ color: "#22c55e" }}>
-                      ✓ Selected — see form below
+                      ✓ Selected see form below
                     </p>
                   )}
                 </button>

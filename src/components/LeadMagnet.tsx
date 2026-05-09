@@ -185,7 +185,7 @@ const LeadMagnet = () => {
             FREE MINI AUDIT
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight" style={{ color: "#FAFAF8" }}>
-            Find Out Exactly What Is Holding Your Site Back — For Free
+            Find Out Exactly What Is Holding Your Site Back For Free
           </h2>
           <p className="text-base sm:text-lg" style={{ color: "rgba(250, 250, 248, 0.8)" }}>
             Submit your site below. Georgia looks at it personally within 24 hours and sends you back 3 specific things she found that are hurting your traffic. No tools. No automation. Just a real human review.

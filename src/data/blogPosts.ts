@@ -79,7 +79,7 @@ export const blogPosts: BlogPost[] = [
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Your Google Business Profile Is the New Homepage</h2>",
       "<p>Your Google Business Profile is the single most important asset in local SEO for small business. The primary category must match your main service exactly, secondary categories should cover your real offerings, and your description should read naturally while including the key terms customers use. Add photos every month and answer questions within 24 hours.</p>",
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Reviews Are the New Backlinks</h2>",
-      "<p>Google heavily weights both volume and velocity of reviews — a steady stream every week beats a one off burst of fifty. When customers mention the service they bought and the city they are in, Google reads those keywords as relevance signals. Need help building a review system? Browse my " + SERVICES_LINK + ".</p>",
+      "<p>Google heavily weights both volume and velocity of reviews. a steady stream every week beats a single burst of fifty. When customers mention the service they bought and the city they are in, Google reads those keywords as relevance signals. Need help building a review system? Browse my " + SERVICES_LINK + ".</p>",
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Service Area Pages Win the Long Tail</h2>",
       "<p>Instead of one generic services page, build a dedicated page for each city or suburb you serve. Each page should have unique content, real local references, embedded maps, and customer stories specific to that area. Done well, these pages rank for dozens of long tail searches your competitors miss completely.</p>",
       "<p>Consistency across the web still matters. Your business name, address, and phone number should be identical on every directory and citation site. <strong>Local SEO for small business</strong> is not glamorous, but the businesses that do these basics consistently are the ones that own their map pack year after year. " + CONTACT_LINK + " and I'll show you exactly what's holding your listing back.</p>",
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       "<p>Auditing your own website sounds intimidating, but with a proper <strong>free SEO audit checklist</strong> the biggest issues on most sites are easy to spot once you know where to look. In thirty focused minutes, you can identify the problems that are quietly costing you traffic and leads.</p>",
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Step 1: Check Indexing in Google Search Console</h2>",
-      "<p>Start with Google Search Console. It is free, takes ten minutes, and shows you exactly which pages Google has indexed, which queries bring traffic, and which pages have errors. Look at the coverage report — any page that should rank but is excluded needs attention immediately.</p>",
+      "<p>Start with Google Search Console. It is free, takes ten minutes, and shows you exactly which pages Google has indexed, which queries bring traffic, and which pages have errors. Look at the coverage report. any page that should rank but is excluded needs attention immediately.</p>",
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Step 2: Run Page Speed and On Page Checks</h2>",
       "<p>Run your homepage and three most important pages through PageSpeed Insights. Anything below seventy on mobile is hurting your rankings. Then click through your site like a customer. Can you find what you sell within five seconds? Is the call to action obvious? Most websites fail this test.</p>",
       "<p>Finally, check meta titles and descriptions. Every page should have a unique title under sixty characters and a description under one hundred sixty characters. If you'd rather have me run this <strong>free SEO audit checklist</strong> on your site personally, " + CONTACT_LINK + " or learn more about my " + SERVICES_LINK + ".</p>",
@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
     author: AUTHOR,
     focusKeyword: "link building for small business",
     metaDescription:
-      "Link building for small business in 2026: the safe, high-impact backlink tactics that actually move rankings and the ones that get you penalised.",
+      "Link building for small business in 2026: the safe, high impact backlink tactics that actually move rankings and the ones that get you penalised.",
     excerpt:
       "Link building for small business still matters in 2026, but the rules have completely changed. Google has spent years training its algorithm to ignore the kind of cheap directory links and guest posts that used to move the needle.",
     content: [
@@ -153,7 +153,7 @@ export const blogPosts: BlogPost[] = [
       "<p>Largest contentful paint should happen in under 2.5 seconds on mobile. The biggest culprit is almost always an oversized hero image. Compressing images to under 200KB and serving them in WebP or AVIF often shaves a full second off load time without any noticeable quality loss.</p>",
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Interaction to Next Paint: Audit Third Party Scripts</h2>",
       "<p>Anything above 200ms counts as poor. The most common cause is too many third party scripts: chat widgets, analytics, ad pixels, and heatmap tools. Audit every script on your site and ask whether it is genuinely earning its place. Most businesses can remove half of them with no negative impact.</p>",
-      "<p>Cumulative layout shift is the easiest to fix — reserve explicit width and height on every image and avoid interstitials. Combined with caching, lazy loading, and limiting fonts, your scores will move from red to green within a week.</p>",
+      "<p>Cumulative layout shift is the easiest to fix. reserve explicit width and height on every image and avoid interstitials. Combined with caching, lazy loading, and limiting fonts, your scores will move from red to green within a week.</p>",
       "<p>If you'd rather have someone do this for you, my " + SERVICES_LINK + " include full Core Web Vitals optimisation. Or " + CONTACT_LINK + " and I'll tell you exactly which fixes will <strong>improve website speed for SEO</strong> on your site fastest.</p>",
     ],
   },
