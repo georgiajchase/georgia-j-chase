@@ -13,7 +13,7 @@ const CaseStudies = () => (
   <div className="min-h-screen bg-background">
     <SEO
       title="SEO Case Studies | Proven Results | Georgia J. Chase"
-      description="Deep-dive case studies showing exactly how Georgia J. Chase helped businesses rank on page 1 and grow organic revenue."
+      description="Deep dive case studies showing exactly how Georgia J. Chase helped businesses rank on page 1 and grow organic revenue."
       path="/case-studies"
     />
     <Navbar />
