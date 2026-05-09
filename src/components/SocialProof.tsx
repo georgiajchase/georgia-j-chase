@@ -131,7 +131,7 @@ const SocialProof = () => {
           <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/30 px-4 py-2 mb-5">
             <ShieldCheck className="text-primary" size={18} />
             <span className="text-primary font-semibold text-sm">
-              Free audit. No commitment. No sales call.
+              Free audit. No commitment. No obligation.
             </span>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

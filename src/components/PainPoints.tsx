@@ -12,7 +12,7 @@ const cards = [
   {
     icon: Users,
     title: "People Visit But Nobody Reaches Out",
-    text: "Traffic comes in, looks around, and leaves. No calls. No emails. No sales. The site looks fine but something is quietly killing conversions.",
+    text: "Traffic comes in, looks around, and leaves. No leads. No emails. No sales. The site looks fine but something is quietly killing conversions.",
   },
   {
     icon: AlertTriangle,

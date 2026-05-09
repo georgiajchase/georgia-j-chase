@@ -13,7 +13,7 @@ export const reviews: Review[] = [
     business: "Local HVAC Company",
     date: "March 2025",
     rating: 5,
-    text: "Georgia ranked us #1 in Google Maps within 30 days. Lead calls went up 280% in the first two months. She actually explains what she's doing instead of hiding behind jargon. That alone was worth it.",
+    text: "Georgia ranked us #1 in Google Maps within 30 days. Leads went up 280% in the first two months. She actually explains what she's doing instead of hiding behind jargon. That alone was worth it.",
     verified: true,
   },
   {
