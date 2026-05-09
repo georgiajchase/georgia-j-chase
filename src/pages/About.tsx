@@ -230,21 +230,28 @@ const About = () => (
     </section>
 
     {/* CTA */}
-    <section className="py-20 bg-background">
+    <section className="py-20" style={{ backgroundColor: "#0d1f35" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
-          <div className="relative rounded-3xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/40 p-10 sm:p-14 text-center max-w-3xl mx-auto overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
+          <div
+            className="relative rounded-3xl p-10 sm:p-14 text-center max-w-3xl mx-auto overflow-hidden"
+            style={{ backgroundColor: "#1a2f4a", border: "1px solid #22c55e" }}
+          >
+            <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl" style={{ backgroundColor: "rgba(34,197,94,0.2)" }} />
             <div className="relative">
-              <h2 className="section-title mb-4">Ready to Get Found on Google?</h2>
-              <p className="fluid-lead text-muted-foreground mb-7 max-w-xl mx-auto">
-                Let's talk about what's holding your website back and how to fix it.
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white mb-4">
+                Ready to See What Your Site Is Missing?
+              </h2>
+              <p className="fluid-lead text-slate-300 mb-7 max-w-xl mx-auto">
+                One submission. One personal review. One straight answer within 24 hours.
               </p>
-              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12">
-                <Link to="/contact" className="inline-flex items-center gap-2">
-                  Get In Touch <ArrowRight size={18} />
-                </Link>
-              </Button>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 h-12 px-7 rounded-full font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: "#22c55e" }}
+              >
+                Get Your Free Growth Audit <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </AnimatedSection>
