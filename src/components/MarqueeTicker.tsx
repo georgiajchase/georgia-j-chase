@@ -9,16 +9,16 @@ const items = [
 const MarqueeTicker = () => (
   <section
     className="relative overflow-hidden py-2.5 border-y"
-    style={{ backgroundColor: "#1B4332", borderColor: "rgba(201, 168, 76, 0.35)" }}
+    style={{ backgroundColor: "#0a1628", borderColor: "rgba(34, 197, 94, 0.35)" }}
   >
     <div className="flex whitespace-nowrap animate-marquee">
       {[...items, ...items, ...items].map((t, i) => (
         <span
           key={i}
           className="mx-8 text-xs sm:text-sm font-medium"
-          style={{ color: "#FAFAF8" }}
+          style={{ color: "#ffffff" }}
         >
-          <span style={{ color: "#C9A84C" }}>★</span>
+          <span style={{ color: "#22c55e" }}>★</span>
           {t.slice(1)}
         </span>
       ))}
