@@ -15,7 +15,7 @@ import FinalCTA from "@/components/FinalCTA";
 import SocialProof from "@/components/SocialProof";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
-import MarqueeTicker from "@/components/MarqueeTicker";
+
 import LeadMagnet from "@/components/LeadMagnet";
 import SEO from "@/components/SEO";
 import { faqs } from "@/components/FAQ";
@@ -153,7 +153,7 @@ const Index = () => (
       jsonLd={jsonLd}
     />
     <Navbar />
-    <MarqueeTicker />
+    
     <main>
       <Hero />
       <WhatWeFix />
