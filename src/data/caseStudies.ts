@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: [
       "Ranked #1 on Google for the brand's three highest-converting commercial keywords by day 58.",
-      "Organic traffic grew from 4,200 to 18,480 visits per month — a 340% increase.",
+      "Organic traffic grew from 4,200 to 18,480 visits per month. a 340% increase.",
       "Organic revenue tracked $127,000 in net new sales over the 90 day window after launch.",
       "Conversion rate on organic traffic improved from 0.9% to 2.4% thanks to cleaner page structure.",
     ],
@@ -90,7 +90,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Reviews", before: "23", after: "118" },
     ],
     challenge: [
-      "Cedar & Stone Dental had been operating for six years with great in-clinic reviews but almost no online visibility. Searches for their main services in their own city returned three competitors — and Cedar & Stone was nowhere to be seen.",
+      "Cedar & Stone Dental had been operating for six years with great in-clinic reviews but almost no online visibility. Searches for their main services in their own city returned three competitors. and Cedar & Stone was nowhere to be seen.",
       "Their Google Business Profile was set up years ago and never optimised. Categories were wrong, photos were stale, and the business name and address were inconsistent across more than 60 directories.",
     ],
     approach: [
@@ -112,7 +112,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: [
       "Hit #1 in the Google Maps pack for the three primary services on day 27.",
-      "Monthly lead volume grew from 12 to 46 — a 280% increase.",
+      "Monthly lead volume grew from 12 to 46. a 280% increase.",
       "Direction requests grew 7x, with most new patients citing 'found you on Google' at intake.",
       "Reviews grew from 23 to 118 in the first 30 days, locking in long-term local prominence.",
     ],
@@ -141,7 +141,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "CAC vs Paid", before: "None", after: "82% lower" },
     ],
     challenge: [
-      "Loopwave Analytics had a strong product but was burning runway on paid acquisition. Their blog was a graveyard of generic posts that attracted no qualified traffic. With investor pressure to lower CAC, organic search had to start working — fast.",
+      "Loopwave Analytics had a strong product but was burning runway on paid acquisition. Their blog was a graveyard of generic posts that attracted no qualified traffic. With investor pressure to lower CAC, organic search had to start working. fast.",
       "The competitive landscape was crowded with established players. Going head-to-head on broad keywords would take years. We needed an approach that compounded quickly while sidestepping the giants.",
     ],
     approach: [
@@ -153,7 +153,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Months 2 to 3. Programmatic Comparison Engine",
         detail:
-          "Launched 180 high-quality comparison and alternative pages targeting competitor brand searches — a fast lane to qualified traffic the giants ignored.",
+          "Launched 180 high-quality comparison and alternative pages targeting competitor brand searches. a fast lane to qualified traffic the giants ignored.",
       },
       {
         title: "Months 4 to 6. Content Cluster & Authority",
@@ -162,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: [
-      "Organic traffic grew from 200 to 15,000 monthly visitors — a 75x increase.",
+      "Organic traffic grew from 200 to 15,000 monthly visitors. a 75x increase.",
       "Ranking keywords expanded from 37 to 2,840 across commercial and informational intent.",
       "Trial signups from organic grew from 3 to 210 per month at 82% lower CAC than paid.",
       "Organic became the company's primary acquisition channel within 6 months.",
