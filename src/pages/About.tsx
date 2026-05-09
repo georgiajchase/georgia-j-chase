@@ -18,9 +18,9 @@ const skills = [
 ];
 
 const stats = [
-  { icon: Users, end: 500, suffix: "+", label: "Clients Helped" },
-  { icon: TrendingUp, end: 287, suffix: "%", label: "Avg Traffic Growth" },
-  { icon: Award, end: 8, suffix: "+", label: "Years Experience" },
+  { icon: Users, end: 128, suffix: "+", label: "Clients Helped" },
+  { icon: TrendingUp, end: 95, suffix: "%", label: "Avg Traffic Growth" },
+  { icon: Award, end: 4, suffix: "+", label: "Years Experience" },
   { icon: Target, end: 95, suffix: "%", label: "Client Satisfaction" },
 ];
 
@@ -106,7 +106,7 @@ const About = () => (
                   className="font-heading font-extrabold text-4xl md:text-5xl"
                   style={{ color: "#22c55e", textShadow: "0 0 20px rgba(34, 197, 94, 0.5)" }}
                 >
-                  <AnimatedCounter end={s.end} suffix={s.suffix} duration={2000} />
+                  {s.end}{s.suffix}
                 </p>
                 <p className="text-sm font-medium mt-2 text-white">{s.label}</p>
               </div>
