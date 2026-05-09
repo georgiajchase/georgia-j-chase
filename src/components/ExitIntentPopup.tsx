@@ -53,16 +53,15 @@ const ExitIntentPopup = () => {
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4"
           style={{ backgroundColor: "rgba(249, 115, 22, 0.18)", color: "#f97316" }}
         >
-          <Download size={14} /> Free Download
+          <Download size={14} /> Free Mini Audit
         </div>
         <h3 className="text-2xl font-bold mb-3" style={{ color: "#FAFAF8" }}>
-          Wait, grab this before you go
+          Wait, get your Free Mini Audit before you go
         </h3>
         <p className="text-sm mb-6" style={{ color: "rgba(250, 250, 248, 0.8)" }}>
-          The 27 Point SEO Checklist I use to audit every client website. Find out exactly what is
-          holding your site back.
+          Georgia personally reviews your site within 24 hours and sends back 3 specific things hurting your traffic.
         </p>
-        <LeadMagnetForm />
+        <LeadMagnetForm compact />
       </div>
     </div>
   );
