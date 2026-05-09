@@ -18,9 +18,9 @@ const skills = [
 ];
 
 const stats = [
-  { icon: Users, end: 500, suffix: "+", label: "Clients Helped" },
-  { icon: TrendingUp, end: 287, suffix: "%", label: "Avg Traffic Growth" },
-  { icon: Award, end: 8, suffix: "+", label: "Years Experience" },
+  { icon: Users, end: 128, suffix: "+", label: "Clients Helped" },
+  { icon: TrendingUp, end: 95, suffix: "%", label: "Avg Traffic Growth" },
+  { icon: Award, end: 4, suffix: "+", label: "Years Experience" },
   { icon: Target, end: 95, suffix: "%", label: "Client Satisfaction" },
 ];
 
