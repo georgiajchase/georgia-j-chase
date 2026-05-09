@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
       "<p>Weeks three and four focus on your money pages. The service and product pages that actually make you money. Rewrite each around the specific phrases your customers use. Each page gets one clear target keyword, a benefit driven headline, real proof, and a strong call to action. If you want this done for you, see my " + SERVICES_LINK + ".</p>",
       "<h2 class='font-heading font-bold text-2xl text-foreground mt-8 mb-3'>Month 2: Build Authority With Content and Links</h2>",
       "<p>The second month is about authority. Publish two or three deeply useful articles that answer the questions your prospects ask before they buy. Alongside content, work on local citations, Google Business Profile optimisation, and outreach to relevant industry sites for genuine backlinks.</p>",
-      "<p>By month three the work compounds. Rankings that were stuck on page three start jumping to page one. Branded searches increase. Calls and form submissions go up. Done properly, ninety days is more than enough time to see real movement when you understand <strong>how to rank on Google</strong> the right way. Want me to look at your site first? " + CONTACT_LINK + " and I'll reply within 24 hours.</p>",
+      "<p>By month three the work compounds. Rankings that were stuck on page three start jumping to page one. Branded searches increase. Enquiries and form submissions go up. Done properly, ninety days is more than enough time to see real movement when you understand <strong>how to rank on Google</strong> the right way. Want me to look at your site first? " + CONTACT_LINK + " and I'll reply within 24 hours.</p>",
     ],
   },
   {
