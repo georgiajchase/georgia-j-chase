@@ -76,7 +76,7 @@ const PLANS: Plan[] = [
     formTitle: "Let Us Grow Your Business",
     button: "Send My Details →",
   },
-] as const;
+];
 
 const CHALLENGES = [
   "Not enough traffic from Google",
