@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
+import { Search, FileText, TrendingUp, Zap, Award, MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -18,13 +18,65 @@ import {
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mreyovlw";
 
+const PLANS = [
+  {
+    id: "free-audit",
+    icon: Search,
+    name: "Free Growth Audit",
+    subtext:
+      "Not sure where to start. Let Georgia personally review your site at no cost.",
+    badge: "Most popular",
+    formTitle: "Tell Us About Your Site",
+    button: "Send My Site for Review →",
+  },
+  {
+    id: "seo-audit",
+    icon: FileText,
+    name: "SEO Audit — $197",
+    subtext:
+      "Full PDF report with screenshots and proof of every issue on your site.",
+    formTitle: "Let Us Start Your Audit",
+    button: "Request My Audit Report →",
+  },
+  {
+    id: "foundation",
+    icon: TrendingUp,
+    name: "Foundation — $597/mo",
+    subtext:
+      "Up to 10 pages optimized. Google Maps. Rankings. Monthly reports.",
+    formTitle: "Let Us Grow Your Business",
+    button: "Send My Details →",
+  },
+  {
+    id: "growth",
+    icon: Zap,
+    name: "Growth — $1,497/mo",
+    subtext:
+      "30 pages, link building, AEO, GEO and competitor analysis.",
+    badge: "RECOMMENDED",
+    formTitle: "Let Us Grow Your Business",
+    button: "Send My Details →",
+  },
+  {
+    id: "authority",
+    icon: Award,
+    name: "Authority — $2,997/mo",
+    subtext:
+      "Full market dominance. Dedicated strategist. Unlimited pages.",
+    formTitle: "Let Us Grow Your Business",
+    button: "Send My Details →",
+  },
+] as const;
+
 const CHALLENGES = [
-  "Not enough traffic",
-  "Not ranking on Google",
-  "Site not showing on Maps",
-  "Not getting inquiries",
-  "Site is slow or broken",
-  "Other",
+  "Not enough traffic from Google",
+  "Not ranking for my main keywords",
+  "Not showing up on Google Maps",
+  "Site is slow or not working properly",
+  "Not getting leads or inquiries",
+  "Tried SEO before and saw no results",
+  "Just launched and need to get found",
+  "Not sure where to start",
 ] as const;
 
 const schema = z.object({
@@ -42,22 +94,33 @@ const schema = z.object({
   challenge: z.enum(CHALLENGES, {
     errorMap: () => ({ message: "Please pick your biggest challenge" }),
   }),
-  notes: z.string().trim().max(1000).optional().or(z.literal("")),
 });
 
 const Contact = () => {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
     website: "",
     challenge: "" as "" | (typeof CHALLENGES)[number],
-    notes: "",
   });
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const selectedPlan = PLANS.find((p) => p.id === selectedId);
+
+  const handleSelect = (id: string) => {
+    setSelectedId(id);
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedPlan) return;
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       toast.error(parsed.error.issues[0]?.message ?? "Please check your details.");
@@ -69,15 +132,16 @@ const Contact = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          _subject: `New Site Review Request from ${parsed.data.name}`,
+          _subject: `New ${selectedPlan.name} Request from ${parsed.data.name}`,
           _replyto: parsed.data.email,
           source: "Contact Page",
+          plan: selectedPlan.name,
           ...parsed.data,
         }),
       });
       if (res.ok) {
         setSent(true);
-        setForm({ name: "", email: "", website: "", challenge: "", notes: "" });
+        setForm({ name: "", email: "", website: "", challenge: "" });
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -89,140 +153,241 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ backgroundColor: "#0d1f35" }}>
       <SEO
-        title="Contact Georgia J. Chase | Free SEO Growth Audit"
-        description="Tell Georgia about your business. Every submission is reviewed personally with a reply within 24 hours."
+        title="Contact Georgia J. Chase | Pick Your SEO Plan"
+        description="Pick the option that fits you. Fill in 4 quick fields and Georgia personally replies within 24 hours."
         path="/contact"
       />
       <Navbar />
 
-      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-24 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
-          <AnimatedSection className="text-center mb-10">
-            <p className="section-label mb-3">Contact</p>
-            <h1 className="section-title mb-5">Tell Me About Your Business</h1>
-            <p className="fluid-lead text-muted-foreground">
-              I look at every submission personally and reply within 24 hours. No automated response. No sales team.
+      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <AnimatedSection className="text-center mb-12">
+            <h1 className="section-title mb-5 text-white">
+              Where Would You Like to Start?
+            </h1>
+            <p className="fluid-lead text-slate-300">
+              Pick the option that fits you right now. Fill in 4 quick fields
+              and we will get back to you personally within 24 hours.
             </p>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.1}>
-            <div className="rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-primary/30 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
-              {sent ? (
-                <div className="text-center py-10">
-                  <p className="font-heading font-bold text-2xl text-foreground mb-2">
-                    Thank you.
-                  </p>
-                  <p className="text-muted-foreground">
-                    I'll personally review your site and reply within 24 hours.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={submit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
-                      Your name
-                    </label>
-                    <Input
-                      id="name"
-                      required
-                      maxLength={100}
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="h-11 rounded-lg bg-background/60 border-white/10"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
-                      Your email
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      required
-                      maxLength={255}
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="h-11 rounded-lg bg-background/60 border-white/10"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="website" className="block text-sm font-medium text-foreground mb-1.5">
-                      Your website URL
-                    </label>
-                    <Input
-                      id="website"
-                      type="url"
-                      required
-                      placeholder="https://yourbusiness.com"
-                      maxLength={255}
-                      value={form.website}
-                      onChange={(e) => setForm({ ...form, website: e.target.value })}
-                      className="h-11 rounded-lg bg-background/60 border-white/10"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Your biggest challenge right now
-                    </label>
-                    <Select
-                      value={form.challenge || undefined}
-                      onValueChange={(v) =>
-                        setForm({ ...form, challenge: v as (typeof CHALLENGES)[number] })
-                      }
+          {/* Plan cards */}
+          <div
+            ref={cardsRef}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10"
+          >
+            {PLANS.map((plan) => {
+              const Icon = plan.icon;
+              const isSelected = selectedId === plan.id;
+              return (
+                <button
+                  key={plan.id}
+                  type="button"
+                  onClick={() => handleSelect(plan.id)}
+                  className="text-left transition-all duration-200 relative"
+                  style={{
+                    backgroundColor: isSelected ? "#1e3a5f" : "#1a2f4a",
+                    border: isSelected
+                      ? "2px solid #22c55e"
+                      : "1px solid #22c55e",
+                    borderRadius: "12px",
+                    padding: "20px",
+                  }}
+                >
+                  {plan.badge && (
+                    <span
+                      className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded"
+                      style={{
+                        backgroundColor: "#22c55e",
+                        color: "#0d1f35",
+                      }}
                     >
-                      <SelectTrigger className="h-11 rounded-lg bg-background/60 border-white/10">
-                        <SelectValue placeholder="Select your biggest challenge" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {CHALLENGES.map((c) => (
-                          <SelectItem key={c} value={c}>
-                            {c}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="notes" className="block text-sm font-medium text-foreground mb-1.5">
-                      Anything else I should know?{" "}
-                      <span className="text-muted-foreground font-normal">(optional)</span>
-                    </label>
-                    <Textarea
-                      id="notes"
-                      rows={4}
-                      maxLength={1000}
-                      value={form.notes}
-                      onChange={(e) => setForm({ ...form, notes: e.target.value })}
-                      className="rounded-lg bg-background/60 border-white/10 resize-none"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full h-12 bg-conversion text-conversion-foreground hover:bg-conversion-dark rounded-full font-semibold text-base shadow-lg shadow-conversion/30 animate-pulse-glow-green"
-                  >
-                    {submitting ? "Sending..." : "Send My Details, I Will Review Your Site"}
-                  </Button>
-
-                  <p className="text-xs text-muted-foreground text-center leading-relaxed pt-1">
-                    Georgia personally reviews every submission. No automated replies. No sales team. Just a straight answer within 24 hours.
+                      {plan.badge}
+                    </span>
+                  )}
+                  <Icon
+                    className="mb-3"
+                    style={{ color: "#22c55e" }}
+                    size={28}
+                  />
+                  <h3 className="text-white font-bold text-lg mb-1.5">
+                    {plan.name}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {plan.subtext}
                   </p>
-                </form>
-              )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Form */}
+          {selectedPlan && (
+            <div
+              ref={formRef}
+              className="animate-fade-in"
+              style={{ animationDuration: "0.4s" }}
+            >
+              <div className="flex items-center gap-3 mb-4 flex-wrap">
+                <p className="text-sm" style={{ color: "#22c55e" }}>
+                  You selected: <span className="font-semibold">{selectedPlan.name}</span>
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    cardsRef.current?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="text-xs underline text-slate-400 hover:text-white"
+                >
+                  change
+                </button>
+              </div>
+
+              <div
+                className="rounded-2xl p-6 sm:p-8"
+                style={{
+                  backgroundColor: "#1a2f4a",
+                  border: "1px solid #22c55e",
+                }}
+              >
+                <h2 className="font-heading font-bold text-2xl text-white mb-6">
+                  {selectedPlan.formTitle}
+                </h2>
+
+                {sent ? (
+                  <div className="text-center py-10">
+                    <p className="font-heading font-bold text-2xl text-white mb-2">
+                      Thank you.
+                    </p>
+                    <p className="text-slate-300">
+                      Georgia will personally review your details and reply within 24 hours.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={submit} className="space-y-4">
+                    <input type="hidden" name="plan" value={selectedPlan.name} />
+
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-white mb-1.5">
+                        Your name
+                      </label>
+                      <Input
+                        id="name"
+                        required
+                        maxLength={100}
+                        placeholder="Jane Smith"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className="h-11 rounded-lg text-white border-white/10 focus-visible:ring-[#22c55e] focus-visible:border-[#22c55e]"
+                        style={{ backgroundColor: "#0d1f35" }}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-white mb-1.5">
+                        Your email
+                      </label>
+                      <Input
+                        id="email"
+                        type="email"
+                        required
+                        maxLength={255}
+                        placeholder="jane@yourbusiness.com"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="h-11 rounded-lg text-white border-white/10 focus-visible:ring-[#22c55e] focus-visible:border-[#22c55e]"
+                        style={{ backgroundColor: "#0d1f35" }}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="website" className="block text-sm font-medium text-white mb-1.5">
+                        Your website URL
+                      </label>
+                      <Input
+                        id="website"
+                        type="url"
+                        required
+                        placeholder="https://yourbusiness.com"
+                        maxLength={255}
+                        value={form.website}
+                        onChange={(e) => setForm({ ...form, website: e.target.value })}
+                        className="h-11 rounded-lg text-white border-white/10 focus-visible:ring-[#22c55e] focus-visible:border-[#22c55e]"
+                        style={{ backgroundColor: "#0d1f35" }}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-white mb-1.5">
+                        What is your biggest challenge right now?
+                      </label>
+                      <Select
+                        value={form.challenge || undefined}
+                        onValueChange={(v) =>
+                          setForm({ ...form, challenge: v as (typeof CHALLENGES)[number] })
+                        }
+                      >
+                        <SelectTrigger
+                          className="h-11 rounded-lg text-white border-white/10"
+                          style={{ backgroundColor: "#0d1f35" }}
+                        >
+                          <SelectValue placeholder="Select your biggest challenge" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {CHALLENGES.map((c) => (
+                            <SelectItem key={c} value={c}>
+                              {c}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <Button
+                      type="submit"
+                      disabled={submitting}
+                      className="w-full h-12 rounded-full font-semibold text-base text-white"
+                      style={{ backgroundColor: "#22c55e" }}
+                    >
+                      {submitting ? "Sending..." : selectedPlan.button}
+                    </Button>
+
+                    <p className="text-xs text-slate-400 text-center leading-relaxed pt-1">
+                      Georgia reviews every submission personally. You will hear back within 24 hours. No payment is taken until we have spoken and confirmed everything is right for you.
+                    </p>
+                  </form>
+                )}
+              </div>
             </div>
-          </AnimatedSection>
+          )}
+
+          {/* WhatsApp CTA */}
+          <div
+            className="mt-12 rounded-2xl p-6 sm:p-8 text-center"
+            style={{
+              backgroundColor: "#1a2f4a",
+              border: "1px solid #22c55e",
+            }}
+          >
+            <h2 className="font-heading font-bold text-2xl text-white mb-2">
+              Prefer to Talk First?
+            </h2>
+            <p className="text-slate-300 mb-5">
+              Message us directly on WhatsApp and we will reply within a few hours.
+            </p>
+            <a
+              href="https://wa.me/16397632098?text=Hi%20Georgia%2C%20I%20am%20interested%20in%20your%20SEO%20services"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 h-12 px-6 rounded-full font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "#22c55e" }}
+            >
+              <MessageCircle size={18} />
+              Open WhatsApp →
+            </a>
+          </div>
         </div>
       </section>
 
