@@ -2,22 +2,34 @@ import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const STORAGE_KEY = "announceClosed";
+
 const AnnouncementBar = () => {
-  const [open, setOpen] = useState(true);
+  // Start closed to avoid flash; flip to open after checking storage
+  const [open, setOpen] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem("announceClosed") === "1") setOpen(false);
+    const closed =
+      localStorage.getItem(STORAGE_KEY) === "1" ||
+      sessionStorage.getItem(STORAGE_KEY) === "1";
+    setOpen(!closed);
+    setHydrated(true);
   }, []);
 
-  if (!open) return null;
-
   const close = () => {
-    sessionStorage.setItem("announceClosed", "1");
+    localStorage.setItem(STORAGE_KEY, "1");
     setOpen(false);
   };
 
+  // Fully removed from DOM when closed: no height, no gap, no min-height
+  if (!hydrated || !open) return null;
+
   return (
-    <div className="relative z-[60] text-xs sm:text-sm font-semibold" style={{ background: "#1B4332", color: "#FAFAF8" }}>
+    <div
+      className="relative z-[60] text-xs sm:text-sm font-semibold"
+      style={{ background: "#1B4332", color: "#FAFAF8" }}
+    >
       <div className="container mx-auto px-4 py-2 flex items-center justify-center gap-2 text-center">
         <span className="hidden sm:inline" style={{ color: "#C9A84C" }}>★</span>
         <span>
