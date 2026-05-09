@@ -18,7 +18,17 @@ import {
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mreyovlw";
 
-const PLANS = [
+type Plan = {
+  id: string;
+  icon: typeof Search;
+  name: string;
+  subtext: string;
+  badge?: string;
+  formTitle: string;
+  button: string;
+};
+
+const PLANS: Plan[] = [
   {
     id: "free-audit",
     icon: Search,
