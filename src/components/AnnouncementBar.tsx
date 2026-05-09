@@ -42,9 +42,9 @@ const AnnouncementBar = () => {
         <button
           onClick={close}
           aria-label="Close announcement"
-          className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-white/10"
+          className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 rounded-full hover:bg-white/10"
         >
-          <X size={14} />
+          <X size={18} />
         </button>
       </div>
     </div>
