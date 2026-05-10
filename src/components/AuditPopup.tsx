@@ -199,7 +199,7 @@ const AuditPopup = () => {
                 <input
                   type="text"
                   required
-                  placeholder="Your website"
+                  placeholder="yourbusiness.com"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   className="w-full rounded-lg px-3 py-2.5 text-sm border outline-none focus:border-[#22c55e]"
