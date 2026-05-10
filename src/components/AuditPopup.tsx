@@ -222,14 +222,14 @@ const AuditPopup = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-lg px-4 py-3 text-sm font-bold transition-all hover:opacity-90 disabled:opacity-60"
-                  style={{ backgroundColor: "#22c55e", color: "#FFFFFF" }}
+                  className="w-full rounded-lg px-4 py-3 text-sm font-bold transition-all hover:opacity-90"
+                  style={{ backgroundColor: "#22c55e", color: "#FFFFFF", opacity: loading ? 0.8 : 1 }}
                 >
                   {loading ? "Sending..." : "Send Me Your Free Mini Audit →"}
                 </button>
                 {status === "error" && (
-                  <p className="text-xs text-center" style={{ color: "#fca5a5" }}>
-                    Something went wrong. Email us directly at chasegeorgiaj@gmail.com
+                  <p className="text-center" style={{ color: "#ef4444", fontSize: "12px" }}>
+                    Something went wrong. Please email us directly at chasegeorgiaj@gmail.com
                   </p>
                 )}
               </form>
