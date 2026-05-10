@@ -39,13 +39,27 @@ export default function AiChat() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open, loading]);
 
+  const [auditOpen, setAuditOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail as { open: boolean } | undefined;
+      setAuditOpen(!!detail?.open);
+    };
+    window.addEventListener("audit-popup-state", handler);
+    return () => window.removeEventListener("audit-popup-state", handler);
+  }, []);
+
   useEffect(() => {
     if (popupDismissed) return;
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    // On mobile, if audit popup is open, delay chat popup by 30s after it closes
+    const delay = isMobile && auditOpen ? 30000 : 3000;
     const timer = setTimeout(() => {
-      if (!open) setShowPopup(true);
-    }, 3000);
+      if (!open && !auditOpen) setShowPopup(true);
+    }, delay);
     return () => clearTimeout(timer);
-  }, [popupDismissed, open]);
+  }, [popupDismissed, open, auditOpen]);
 
   const handleOpen = () => {
     setOpen(!open);
