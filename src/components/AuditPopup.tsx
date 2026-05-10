@@ -14,19 +14,6 @@ const CHALLENGES = [
   "Not sure where to start",
 ];
 
-declare global {
-  interface Window {
-    emailjs?: {
-      init: (publicKey: string) => void;
-      send: (
-        serviceId: string,
-        templateId: string,
-        params: Record<string, string>,
-        publicKey?: string,
-      ) => Promise<{ status: number; text: string }>;
-    };
-  }
-}
 
 export const openAuditPopup = () => {
   window.dispatchEvent(new CustomEvent("open-audit-popup"));
