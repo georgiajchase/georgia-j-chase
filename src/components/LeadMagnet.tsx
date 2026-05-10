@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CheckCircle2, Star, Clock } from "lucide-react";
+import { openAuditPopup } from "./AuditPopup";
 
 const EMAILJS_SERVICE_ID = "service_3eyouwf";
 const EMAILJS_TEMPLATE_ID = "template_8b0ilw8";
@@ -43,7 +44,8 @@ interface FormProps {
   compact?: boolean;
 }
 
-const MiniAuditForm = ({ compact = false }: FormProps) => {
+// Kept for backwards compatibility (used by ExitIntentPopup, LeadMagnetSlideIn)
+export const LeadMagnetForm = ({ compact = false }: FormProps) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
@@ -63,12 +65,7 @@ const MiniAuditForm = ({ compact = false }: FormProps) => {
       await window.emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        {
-          from_name: name,
-          from_email: email,
-          website: formatURL(website),
-          challenge,
-        },
+        { from_name: name, from_email: email, website: formatURL(website), challenge },
         EMAILJS_PUBLIC_KEY,
       );
       setStatus("success");
@@ -80,153 +77,83 @@ const MiniAuditForm = ({ compact = false }: FormProps) => {
 
   if (status === "success") {
     return (
-      <div className="text-center py-8 px-4 rounded-2xl" style={{ backgroundColor: "rgba(34, 197, 94, 0.1)", border: "1px solid rgba(34, 197, 94, 0.4)" }}>
-        <div className="flex justify-center mb-4">
-          <CheckCircle2 size={56} style={{ color: "#22c55e" }} />
+      <div className="text-center py-6 px-4 rounded-2xl" style={{ backgroundColor: "rgba(34, 197, 94, 0.1)", border: "1px solid rgba(34, 197, 94, 0.4)" }}>
+        <div className="flex justify-center mb-3">
+          <CheckCircle2 size={48} style={{ color: "#22c55e" }} />
         </div>
-        <h3 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: "#FAFAF8" }}>
-          We Have Got Your Site.
-        </h3>
-        <p className="text-base max-w-xl mx-auto" style={{ color: "rgba(250, 250, 248, 0.85)" }}>
-          Georgia will personally review your website and email you back within 24 hours with 3 specific things she found. Check your inbox tomorrow.
+        <h3 className="text-xl font-bold mb-2" style={{ color: "#FAFAF8" }}>We Have Got Your Site!</h3>
+        <p className="text-sm" style={{ color: "rgba(250, 250, 248, 0.85)" }}>
+          Georgia will personally review your website within 24 hours.
         </p>
       </div>
     );
   }
 
-  const inputStyle = {
-    backgroundColor: "#0d1f35",
-    borderColor: "rgba(34, 197, 94, 0.3)",
-    color: "#FAFAF8",
-  } as const;
+  const inputStyle = { backgroundColor: "#0d1f35", borderColor: "rgba(34, 197, 94, 0.3)", color: "#FAFAF8" } as const;
 
   return (
-    <form onSubmit={submit} className="space-y-4">
-      <div>
-        <label htmlFor="audit-name" className="block text-sm font-medium mb-1.5" style={{ color: "#FAFAF8" }}>
-          Your name
-        </label>
-        <input
-          id="audit-name"
-          type="text"
-          required
-          placeholder="Jane Smith"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-lg px-4 py-3 text-sm border outline-none focus:border-[#22c55e]"
-          style={inputStyle}
-        />
-      </div>
-      <div>
-        <label htmlFor="audit-email" className="block text-sm font-medium mb-1.5" style={{ color: "#FAFAF8" }}>
-          Your email
-        </label>
-        <input
-          id="audit-email"
-          type="email"
-          required
-          placeholder="jane@yourbusiness.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-lg px-4 py-3 text-sm border outline-none focus:border-[#22c55e]"
-          style={inputStyle}
-        />
-      </div>
-      <div>
-        <label htmlFor="audit-website" className="block text-sm font-medium mb-1.5" style={{ color: "#FAFAF8" }}>
-          Your website URL
-        </label>
-        <input
-          id="audit-website"
-          type="text"
-          required
-          placeholder="https://yourbusiness.com"
-          value={website}
-          onChange={(e) => setWebsite(e.target.value)}
-          className="w-full rounded-lg px-4 py-3 text-sm border outline-none focus:border-[#22c55e]"
-          style={inputStyle}
-        />
-      </div>
-      <div>
-        <label htmlFor="audit-challenge" className="block text-sm font-medium mb-1.5" style={{ color: "#FAFAF8" }}>
-          What is your biggest challenge right now?
-        </label>
-        <select
-          id="audit-challenge"
-          required
-          value={challenge}
-          onChange={(e) => setChallenge(e.target.value)}
-          className="w-full rounded-lg px-4 py-3 text-sm border outline-none focus:border-[#22c55e]"
-          style={inputStyle}
-        >
-          <option value="" disabled>
-            Select an option
-          </option>
-          {CHALLENGES.map((c) => (
-            <option key={c} value={c} style={{ backgroundColor: "#0d1f35", color: "#FAFAF8" }}>
-              {c}
-            </option>
-          ))}
-        </select>
-      </div>
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="w-full rounded-lg px-6 py-4 text-base font-bold transition-all hover:opacity-90 disabled:opacity-60"
-        style={{ backgroundColor: "#22c55e", color: "#FFFFFF" }}
-      >
+    <form onSubmit={submit} className="space-y-3">
+      <input type="text" required placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded-lg px-3 py-2.5 text-sm border outline-none focus:border-[#22c55e]" style={inputStyle} />
+      <input type="email" required placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded-lg px-3 py-2.5 text-sm border outline-none focus:border-[#22c55e]" style={inputStyle} />
+      <input type="text" required placeholder="Your website URL" value={website} onChange={(e) => setWebsite(e.target.value)} className="w-full rounded-lg px-3 py-2.5 text-sm border outline-none focus:border-[#22c55e]" style={inputStyle} />
+      <select required value={challenge} onChange={(e) => setChallenge(e.target.value)} className="w-full rounded-lg px-3 py-2.5 text-sm border outline-none focus:border-[#22c55e]" style={inputStyle}>
+        <option value="" disabled>Biggest challenge</option>
+        {CHALLENGES.map((c) => (
+          <option key={c} value={c} style={{ backgroundColor: "#0d1f35", color: "#FAFAF8" }}>{c}</option>
+        ))}
+      </select>
+      <button type="submit" disabled={status === "loading"} className="w-full rounded-lg px-4 py-3 text-sm font-bold transition-all hover:opacity-90 disabled:opacity-60" style={{ backgroundColor: "#22c55e", color: "#FFFFFF" }}>
         {status === "loading" ? "Sending..." : "Send Me Your Free Mini Audit →"}
       </button>
       {status === "error" && (
-        <p className="text-sm text-center" style={{ color: "#fca5a5" }}>
-          Something went wrong. Please email us directly at chasegeorgiaj@gmail.com
+        <p className="text-xs text-center" style={{ color: "#fca5a5" }}>
+          Something went wrong. Email us directly at chasegeorgiaj@gmail.com
         </p>
-      )}
-      {!compact && (
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-2 text-xs" style={{ color: "rgba(250, 250, 248, 0.75)" }}>
-          <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={14} style={{ color: "#22c55e" }} /> Reviewed personally by Georgia</span>
-          <span className="inline-flex items-center gap-1.5"><Star size={14} style={{ color: "#C9A84C" }} fill="#C9A84C" /> 5.0 average client rating</span>
-          <span className="inline-flex items-center gap-1.5"><Clock size={14} style={{ color: "#22c55e" }} /> Response within 24 hours</span>
-          <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={14} style={{ color: "#22c55e" }} /> No tools or automation</span>
-          <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={14} style={{ color: "#22c55e" }} /> Completely free</span>
-        </div>
       )}
     </form>
   );
 };
 
-// Backwards-compat export used by ExitIntentPopup and LeadMagnetSlideIn
-const LeadMagnetForm = ({ compact }: { compact?: boolean }) => <MiniAuditForm compact={compact} />;
-
+// Teaser card that opens the popup form
 const LeadMagnet = () => {
   return (
-    <section className="py-16 sm:py-20 px-4" style={{ backgroundColor: "#1a2f4a" }}>
+    <section className="py-16 sm:py-20 px-4" style={{ backgroundColor: "#0d1f35" }}>
       <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-8">
+        <div
+          className="text-center"
+          style={{
+            backgroundColor: "#1a2f4a",
+            border: "1px solid #22c55e",
+            borderRadius: "12px",
+            padding: "32px",
+          }}
+        >
           <span className="inline-block text-xs font-bold tracking-[0.2em] mb-4" style={{ color: "#22c55e" }}>
             FREE MINI AUDIT
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-tight" style={{ color: "#FAFAF8" }}>
-            Find Out Exactly What Is Holding Your Site Back For Free
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 leading-tight" style={{ color: "#FAFAF8" }}>
+            Find Out Exactly What Is Holding Your Site Back
           </h2>
-          <p className="text-base sm:text-lg" style={{ color: "rgba(250, 250, 248, 0.8)" }}>
-            Submit your site below. Georgia looks at it personally within 24 hours and sends you back 3 specific things she found that are hurting your traffic. No tools. No automation. Just a real human review.
+          <p className="text-sm sm:text-base mb-6" style={{ color: "rgba(250, 250, 248, 0.75)" }}>
+            Georgia personally reviews your site within 24 hours and sends you back 3 specific things hurting your traffic. Free. No obligation.
           </p>
-        </div>
-        <div
-          className="rounded-2xl p-6 sm:p-8 border"
-          style={{
-            backgroundColor: "#0d1f35",
-            borderColor: "rgba(34, 197, 94, 0.3)",
-            boxShadow: "0 0 60px rgba(34, 197, 94, 0.1)",
-          }}
-        >
-          <MiniAuditForm />
+          <button
+            type="button"
+            onClick={openAuditPopup}
+            className="w-full rounded-lg px-6 py-4 text-base font-bold transition-all hover:opacity-90"
+            style={{ backgroundColor: "#22c55e", color: "#FFFFFF" }}
+          >
+            Get My Free Mini Audit →
+          </button>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-5 text-xs" style={{ color: "rgba(250, 250, 248, 0.75)" }}>
+            <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={14} style={{ color: "#22c55e" }} /> Reviewed personally by Georgia</span>
+            <span className="inline-flex items-center gap-1.5"><Star size={14} style={{ color: "#C9A84C" }} fill="#C9A84C" /> 5.0 average rating</span>
+            <span className="inline-flex items-center gap-1.5"><Clock size={14} style={{ color: "#22c55e" }} /> Response within 24 hours</span>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export { LeadMagnetForm };
 export default LeadMagnet;
