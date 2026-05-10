@@ -142,7 +142,7 @@ const About = () => (
                   className="font-heading font-extrabold text-4xl md:text-5xl"
                   style={{ color: "#22c55e", textShadow: "0 0 20px rgba(34, 197, 94, 0.5)" }}
                 >
-                  {s.end}{s.suffix}
+                  {s.end === 0 ? `${s.suffix}` : <StatCounter target={s.end} suffix={s.suffix} />}
                 </p>
                 <p className="text-sm font-medium mt-2 text-white">{s.label}</p>
               </div>
