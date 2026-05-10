@@ -138,7 +138,7 @@ const MiniAuditForm = ({ compact = false }: FormProps) => {
         </label>
         <input
           id="audit-website"
-          type="url"
+          type="text"
           required
           placeholder="https://yourbusiness.com"
           value={website}
