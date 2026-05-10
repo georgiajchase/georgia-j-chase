@@ -1,13 +1,28 @@
 import { useState } from "react";
 import { CheckCircle2, Star, Clock } from "lucide-react";
 
+const EMAILJS_SERVICE_ID = "service_3eyouwf";
+const EMAILJS_TEMPLATE_ID = "template_8b0ilw8";
+const EMAILJS_PUBLIC_KEY = "twvOQk5nIwNWJNXvj";
+
+export const formatURL = (value: string) => {
+  if (!value) return value;
+  const v = value.trim();
+  if (!v.startsWith("http://") && !v.startsWith("https://")) {
+    return "https://" + v;
+  }
+  return v;
+};
+
 declare global {
   interface Window {
     emailjs?: {
+      init: (publicKey: string) => void;
       send: (
         serviceId: string,
         templateId: string,
         params: Record<string, string>,
+        publicKey?: string,
       ) => Promise<{ status: number; text: string }>;
     };
   }
@@ -44,14 +59,21 @@ const MiniAuditForm = ({ compact = false }: FormProps) => {
     setStatus("loading");
     try {
       if (!window.emailjs) throw new Error("EmailJS not loaded");
-      await window.emailjs.send("service_3eyouwf", "template_8b0ilw8", {
-        from_name: name,
-        from_email: email,
-        website,
-        challenge,
-      });
+      try { window.emailjs.init(EMAILJS_PUBLIC_KEY); } catch {}
+      await window.emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: name,
+          from_email: email,
+          website: formatURL(website),
+          challenge,
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
       setStatus("success");
-    } catch {
+    } catch (err) {
+      console.error("EmailJS error:", err);
       setStatus("error");
     }
   };
@@ -116,7 +138,7 @@ const MiniAuditForm = ({ compact = false }: FormProps) => {
         </label>
         <input
           id="audit-website"
-          type="url"
+          type="text"
           required
           placeholder="https://yourbusiness.com"
           value={website}

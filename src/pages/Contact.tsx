@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { formatURL } from "@/components/LeadMagnet";
 import {
   Select,
   SelectContent,
@@ -147,6 +148,7 @@ const Contact = () => {
           source: "Contact Page",
           plan: selectedPlan.name,
           ...parsed.data,
+          website: formatURL(parsed.data.website),
         }),
       });
       if (res.ok) {
@@ -327,7 +329,7 @@ const Contact = () => {
                       </label>
                       <Input
                         id="website"
-                        type="url"
+                        type="text"
                         required
                         placeholder="https://yourbusiness.com"
                         maxLength={255}
