@@ -155,15 +155,15 @@ const AuditPopup = () => {
           </div>
 
           {status === "success" ? (
-            <div className="text-center py-6">
+            <div className="text-center" style={{ padding: "24px" }}>
               <div className="flex justify-center mb-3">
-                <CheckCircle2 size={56} style={{ color: "#22c55e" }} />
+                <CheckCircle2 size={64} style={{ color: "#22c55e" }} />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-white">We Have Got Your Site!</h3>
-              <p className="text-sm text-white/80 mb-3">
-                Georgia will email you within 24 hours with 3 specific things she found. Check your inbox tomorrow.
+              <h3 className="font-bold mb-2 text-white" style={{ fontSize: "20px" }}>We Have Got Your Site!</h3>
+              <p style={{ fontSize: "14px", color: "#9ca3af" }} className="mb-3">
+                Georgia will personally review your website and send you back 3 specific things she found within 24 hours. Check your inbox tomorrow.
               </p>
-              <p className="text-xs text-white/50">Sent to chasegeorgiaj@gmail.com</p>
+              <p style={{ fontSize: "12px", color: "#22c55e" }}>Confirmation sent to your email.</p>
             </div>
           ) : (
             <>
