@@ -148,6 +148,7 @@ const Contact = () => {
           source: "Contact Page",
           plan: selectedPlan.name,
           ...parsed.data,
+          website: formatURL(parsed.data.website),
         }),
       });
       if (res.ok) {
