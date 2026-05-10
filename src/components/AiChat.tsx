@@ -40,11 +40,14 @@ export default function AiChat() {
   }, [messages, open, loading]);
 
   const [auditOpen, setAuditOpen] = useState(false);
+  const [auditWasOpen, setAuditWasOpen] = useState(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
       const detail = (e as CustomEvent).detail as { open: boolean } | undefined;
-      setAuditOpen(!!detail?.open);
+      const isOpen = !!detail?.open;
+      setAuditOpen(isOpen);
+      if (isOpen) setAuditWasOpen(true);
     };
     window.addEventListener("audit-popup-state", handler);
     return () => window.removeEventListener("audit-popup-state", handler);
@@ -52,14 +55,16 @@ export default function AiChat() {
 
   useEffect(() => {
     if (popupDismissed) return;
+    // Never while audit popup is open
+    if (auditOpen) return;
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-    // On mobile, if audit popup is open, delay chat popup by 30s after it closes
-    const delay = isMobile && auditOpen ? 30000 : 3000;
+    // On mobile, after the audit popup was shown and closed, wait 30s before chat popup
+    const delay = isMobile && auditWasOpen ? 30000 : 3000;
     const timer = setTimeout(() => {
       if (!open && !auditOpen) setShowPopup(true);
     }, delay);
     return () => clearTimeout(timer);
-  }, [popupDismissed, open, auditOpen]);
+  }, [popupDismissed, open, auditOpen, auditWasOpen]);
 
   const handleOpen = () => {
     setOpen(!open);
