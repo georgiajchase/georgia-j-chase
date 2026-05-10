@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, CheckCircle2, Star, Clock } from "lucide-react";
 
-const EMAILJS_SERVICE_ID = "service_3eyouwf";
-const EMAILJS_TEMPLATE_ID = "template_8b0ilw8";
-const EMAILJS_PUBLIC_KEY = "twvOQk5nIwNWJNXvj";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mpqbolyq";
 
 const CHALLENGES = [
   "Not enough traffic from Google",
