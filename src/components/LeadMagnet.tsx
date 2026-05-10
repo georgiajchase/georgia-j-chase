@@ -1,13 +1,28 @@
 import { useState } from "react";
 import { CheckCircle2, Star, Clock } from "lucide-react";
 
+const EMAILJS_SERVICE_ID = "service_3eyouwf";
+const EMAILJS_TEMPLATE_ID = "template_8b0ilw8";
+const EMAILJS_PUBLIC_KEY = "twvOQk5nIwNWJNXvj";
+
+export const formatURL = (value: string) => {
+  if (!value) return value;
+  const v = value.trim();
+  if (!v.startsWith("http://") && !v.startsWith("https://")) {
+    return "https://" + v;
+  }
+  return v;
+};
+
 declare global {
   interface Window {
     emailjs?: {
+      init: (publicKey: string) => void;
       send: (
         serviceId: string,
         templateId: string,
         params: Record<string, string>,
+        publicKey?: string,
       ) => Promise<{ status: number; text: string }>;
     };
   }
