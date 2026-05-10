@@ -68,29 +68,35 @@ const AuditPopup = () => {
     setLoading(true);
     setStatus("idle");
 
-    const timeout = window.setTimeout(() => {
+    const websiteValue = website.startsWith("http") ? website : "https://" + website;
+
+    const timeoutId = window.setTimeout(() => {
       setLoading(false);
       setStatus("error");
-    }, 10000);
+    }, 8000);
 
     try {
-      if (!window.emailjs) throw new Error("EmailJS not loaded");
-      try { window.emailjs.init(EMAILJS_PUBLIC_KEY); } catch {}
-      const websiteValue = website.startsWith("http") ? website : "https://" + website;
-      await window.emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        { from_name: name, from_email: email, website: websiteValue, challenge },
-        EMAILJS_PUBLIC_KEY,
-      );
-      window.clearTimeout(timeout);
-      setLoading(false);
-      setStatus("success");
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          website: websiteValue,
+          challenge,
+          form_source: "Mini Audit Popup",
+        }),
+      });
+      window.clearTimeout(timeoutId);
+      setStatus(response.ok ? "success" : "error");
     } catch (err) {
-      console.error("EmailJS error:", err);
-      window.clearTimeout(timeout);
-      setLoading(false);
+      window.clearTimeout(timeoutId);
       setStatus("error");
+    } finally {
+      setLoading(false);
     }
   };
 
