@@ -59,14 +59,21 @@ const MiniAuditForm = ({ compact = false }: FormProps) => {
     setStatus("loading");
     try {
       if (!window.emailjs) throw new Error("EmailJS not loaded");
-      await window.emailjs.send("service_3eyouwf", "template_8b0ilw8", {
-        from_name: name,
-        from_email: email,
-        website,
-        challenge,
-      });
+      try { window.emailjs.init(EMAILJS_PUBLIC_KEY); } catch {}
+      await window.emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: name,
+          from_email: email,
+          website: formatURL(website),
+          challenge,
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
       setStatus("success");
-    } catch {
+    } catch (err) {
+      console.error("EmailJS error:", err);
       setStatus("error");
     }
   };
