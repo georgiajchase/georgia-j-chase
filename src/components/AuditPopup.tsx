@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, CheckCircle2, Star, Clock } from "lucide-react";
 
-const EMAILJS_SERVICE_ID = "service_3eyouwf";
-const EMAILJS_TEMPLATE_ID = "template_8b0ilw8";
-const EMAILJS_PUBLIC_KEY = "twvOQk5nIwNWJNXvj";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mpqbolyq";
 
 const CHALLENGES = [
   "Not enough traffic from Google",
@@ -16,19 +14,6 @@ const CHALLENGES = [
   "Not sure where to start",
 ];
 
-declare global {
-  interface Window {
-    emailjs?: {
-      init: (publicKey: string) => void;
-      send: (
-        serviceId: string,
-        templateId: string,
-        params: Record<string, string>,
-        publicKey?: string,
-      ) => Promise<{ status: number; text: string }>;
-    };
-  }
-}
 
 export const openAuditPopup = () => {
   window.dispatchEvent(new CustomEvent("open-audit-popup"));
@@ -83,29 +68,35 @@ const AuditPopup = () => {
     setLoading(true);
     setStatus("idle");
 
-    const timeout = window.setTimeout(() => {
+    const websiteValue = website.startsWith("http") ? website : "https://" + website;
+
+    const timeoutId = window.setTimeout(() => {
       setLoading(false);
       setStatus("error");
-    }, 10000);
+    }, 8000);
 
     try {
-      if (!window.emailjs) throw new Error("EmailJS not loaded");
-      try { window.emailjs.init(EMAILJS_PUBLIC_KEY); } catch {}
-      const websiteValue = website.startsWith("http") ? website : "https://" + website;
-      await window.emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        { from_name: name, from_email: email, website: websiteValue, challenge },
-        EMAILJS_PUBLIC_KEY,
-      );
-      window.clearTimeout(timeout);
-      setLoading(false);
-      setStatus("success");
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          website: websiteValue,
+          challenge,
+          form_source: "Mini Audit Popup",
+        }),
+      });
+      window.clearTimeout(timeoutId);
+      setStatus(response.ok ? "success" : "error");
     } catch (err) {
-      console.error("EmailJS error:", err);
-      window.clearTimeout(timeout);
-      setLoading(false);
+      window.clearTimeout(timeoutId);
       setStatus("error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -164,15 +155,15 @@ const AuditPopup = () => {
           </div>
 
           {status === "success" ? (
-            <div className="text-center py-6">
+            <div className="text-center" style={{ padding: "24px" }}>
               <div className="flex justify-center mb-3">
-                <CheckCircle2 size={56} style={{ color: "#22c55e" }} />
+                <CheckCircle2 size={64} style={{ color: "#22c55e" }} />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-white">We Have Got Your Site!</h3>
-              <p className="text-sm text-white/80 mb-3">
-                Georgia will email you within 24 hours with 3 specific things she found. Check your inbox tomorrow.
+              <h3 className="font-bold mb-2 text-white" style={{ fontSize: "20px" }}>We Have Got Your Site!</h3>
+              <p style={{ fontSize: "14px", color: "#9ca3af" }} className="mb-3">
+                Georgia will personally review your website and send you back 3 specific things she found within 24 hours. Check your inbox tomorrow.
               </p>
-              <p className="text-xs text-white/50">Sent to chasegeorgiaj@gmail.com</p>
+              <p style={{ fontSize: "12px", color: "#22c55e" }}>Confirmation sent to your email.</p>
             </div>
           ) : (
             <>
@@ -208,7 +199,7 @@ const AuditPopup = () => {
                 <input
                   type="text"
                   required
-                  placeholder="Your website"
+                  placeholder="yourbusiness.com"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   className="w-full rounded-lg px-3 py-2.5 text-sm border outline-none focus:border-[#22c55e]"
@@ -231,14 +222,14 @@ const AuditPopup = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-lg px-4 py-3 text-sm font-bold transition-all hover:opacity-90 disabled:opacity-60"
-                  style={{ backgroundColor: "#22c55e", color: "#FFFFFF" }}
+                  className="w-full rounded-lg px-4 py-3 text-sm font-bold transition-all hover:opacity-90"
+                  style={{ backgroundColor: "#22c55e", color: "#FFFFFF", opacity: loading ? 0.8 : 1 }}
                 >
                   {loading ? "Sending..." : "Send Me Your Free Mini Audit →"}
                 </button>
                 {status === "error" && (
-                  <p className="text-xs text-center" style={{ color: "#fca5a5" }}>
-                    Something went wrong. Email us directly at chasegeorgiaj@gmail.com
+                  <p className="text-center" style={{ color: "#ef4444", fontSize: "12px" }}>
+                    Something went wrong. Please email us directly at chasegeorgiaj@gmail.com
                   </p>
                 )}
               </form>
