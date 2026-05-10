@@ -1,12 +1,48 @@
+import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
-import AnimatedCounter from "@/components/AnimatedCounter";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Award, Target, TrendingUp, Users } from "lucide-react";
 import aboutImg from "@/assets/georgia-about.webp";
+
+const StatCounter = ({ target, suffix }: { target: number; suffix: string }) => {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started.current) {
+            started.current = true;
+            let current = 0;
+            const increment = target / 60;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                current = target;
+                clearInterval(timer);
+              }
+              setValue(Math.floor(current));
+            }, 30);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return <span ref={ref}>{value}{suffix}</span>;
+};
 
 const skills = [
   "Technical SEO", "Local SEO", "On Page SEO", "Ecommerce SEO",
