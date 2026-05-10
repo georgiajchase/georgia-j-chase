@@ -327,7 +327,7 @@ const Contact = () => {
                       </label>
                       <Input
                         id="website"
-                        type="url"
+                        type="text"
                         required
                         placeholder="https://yourbusiness.com"
                         maxLength={255}
