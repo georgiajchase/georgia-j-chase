@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { formatURL } from "@/components/LeadMagnet";
 import {
   Select,
   SelectContent,
