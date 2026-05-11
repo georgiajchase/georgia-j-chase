@@ -16,23 +16,36 @@ const ReviewsPreview = () => {
         <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {top.map((r, i) => (
             <AnimatedSection key={r.name + i} delay={i * 0.08}>
-              <article className="h-full rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-primary/30 p-6">
+              <article
+                className="h-full"
+                style={{
+                  backgroundColor: "#1a2f4a",
+                  border: "1px solid rgba(34,197,94,0.2)",
+                  borderRadius: "12px",
+                  padding: "24px",
+                }}
+              >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4, 5].map((n) => (
-                      <Star key={n} size={14} className={n <= r.rating ? "text-primary fill-primary" : "text-white/20"} />
+                      <Star
+                        key={n}
+                        size={14}
+                        style={n <= r.rating ? { color: "#f97316", fill: "#f97316" } : undefined}
+                        className={n <= r.rating ? "" : "text-white/20"}
+                      />
                     ))}
                   </div>
                   {r.verified && (
-                    <span className="inline-flex items-center gap-1 text-xs text-conversion font-semibold">
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold" style={{ color: "#22c55e" }}>
                       <BadgeCheck size={12} /> Verified
                     </span>
                   )}
                 </div>
-                <p className="text-white/85 leading-relaxed text-sm mb-4">"{r.text}"</p>
+                <p className="text-white leading-relaxed text-sm mb-4">"{r.text}"</p>
                 <div className="pt-3 border-t border-white/10">
-                  <p className="text-white font-semibold text-sm">{r.name}</p>
-                  <p className="text-white/50 text-xs">{r.business}</p>
+                  <p className="text-white font-bold text-sm">{r.name}</p>
+                  <p className="text-white/50 text-xs">{r.business} · {r.date}</p>
                 </div>
               </article>
             </AnimatedSection>
