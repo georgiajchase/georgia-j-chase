@@ -1,48 +1,10 @@
-import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Award, Target, TrendingUp, Users } from "lucide-react";
 import aboutImg from "@/assets/georgia-about.webp";
-
-const StatCounter = ({ target, suffix }: { target: number; suffix: string }) => {
-  const [value, setValue] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !started.current) {
-            started.current = true;
-            let current = 0;
-            const increment = target / 60;
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                current = target;
-                clearInterval(timer);
-              }
-              setValue(Math.floor(current));
-            }, 30);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [target]);
-
-  return <span ref={ref}>{value}{suffix}</span>;
-};
 
 const skills = [
   "Technical SEO", "Local SEO", "On Page SEO", "Ecommerce SEO",
@@ -54,10 +16,10 @@ const skills = [
 ];
 
 const stats = [
-  { icon: Users, end: 128, suffix: "+", label: "Clients Helped" },
-  { icon: TrendingUp, end: 95, suffix: "%", label: "Avg Traffic Growth" },
-  { icon: Award, end: 4, suffix: "+", label: "Years Experience" },
-  { icon: Target, end: 95, suffix: "%", label: "Client Satisfaction" },
+  { icon: Users, value: "128+", label: "Clients Helped" },
+  { icon: TrendingUp, value: "95%", label: "Avg Traffic Growth" },
+  { icon: Award, value: "4+", label: "Years Experience" },
+  { icon: Target, value: "95%", label: "Client Satisfaction" },
 ];
 
 const team = [
@@ -142,7 +104,7 @@ const About = () => (
                   className="font-heading font-extrabold text-4xl md:text-5xl"
                   style={{ color: "#22c55e", textShadow: "0 0 20px rgba(34, 197, 94, 0.5)" }}
                 >
-                  {s.end === 0 ? `${s.suffix}` : <StatCounter target={s.end} suffix={s.suffix} />}
+                  {s.value}
                 </p>
                 <p className="text-sm font-medium mt-2 text-white">{s.label}</p>
               </div>

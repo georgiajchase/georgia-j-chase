@@ -19,8 +19,6 @@ import AiChat from "./components/AiChat.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import AnnouncementBar from "./components/AnnouncementBar.tsx";
 import FloatingBar from "./components/FloatingBar.tsx";
-import ExitIntentPopup from "./components/ExitIntentPopup.tsx";
-import LeadMagnetSlideIn from "./components/LeadMagnetSlideIn.tsx";
 import AuditPopup from "./components/AuditPopup.tsx";
 
 const queryClient = new QueryClient();
@@ -50,8 +48,6 @@ const App = () => (
         </Routes>
         <AiChat />
         <FloatingBar />
-        <ExitIntentPopup />
-        <LeadMagnetSlideIn />
         <AuditPopup />
       </BrowserRouter>
     </TooltipProvider>
