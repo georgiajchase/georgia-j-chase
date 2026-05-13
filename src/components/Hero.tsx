@@ -85,11 +85,23 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <AnimatedSection className="animate-float-soft">
             <div className="text-center md:text-left">
-              <h1 className="fluid-h1 font-extrabold leading-tight text-foreground md:text-warm-white text-glow-orange">
-                Your Competitors Are Showing Up on Google.
-                <br className="hidden sm:inline" />
-                {" "}You're Not. Here's Why.
-              </h1>
+              <div ref={headlineRef} className="overflow-hidden">
+                <h1 className="fluid-h1 font-extrabold leading-tight text-foreground md:text-warm-white text-glow-orange">
+                  {headlineLines.map((line, lineIdx) => (
+                    <span key={lineIdx} className="block">
+                      {line.map((word, wordIdx) => (
+                        <span
+                          key={wordIdx}
+                          className="hero-word inline-block mr-[0.3em]"
+                          style={{ willChange: "transform, opacity" }}
+                        >
+                          {word}
+                        </span>
+                      ))}
+                    </span>
+                  ))}
+                </h1>
+              </div>
               <p className="mt-6 fluid-lead text-muted-foreground md:text-warm-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed">
                 Most businesses are invisible online and do not know why. I find exactly what is holding your website back and fix it so your business shows up on Google, Google Maps, and AI search where your customers are already looking.
               </p>
