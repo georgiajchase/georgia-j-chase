@@ -1,12 +1,20 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { gsap } from "gsap";
 import AnimatedSection from "./AnimatedSection";
 import HeroBackground from "./HeroBackground";
 
+const headlineLines = [
+  ["Your", "Competitors", "Are", "Showing", "Up", "on", "Google."],
+  ["You're", "Not.", "Here's", "Why."],
+];
+
 const Hero = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const headlineRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     const el = parallaxRef.current;
     if (!el) return;
@@ -26,6 +34,34 @@ const Hero = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
       if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  useEffect(() => {
+    const container = headlineRef.current;
+    if (!container) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const words = container.querySelectorAll<HTMLSpanElement>(".hero-word");
+
+    if (prefersReducedMotion) {
+      gsap.set(words, { opacity: 1, y: 0 });
+      return;
+    }
+
+    gsap.set(words, { opacity: 0, y: 40 });
+
+    const tween = gsap.to(words, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power3.out",
+      stagger: 0.1,
+      delay: 0.2,
+    });
+
+    return () => {
+      tween.kill();
     };
   }, []);
 
