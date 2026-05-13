@@ -1,12 +1,20 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { gsap } from "gsap";
 import AnimatedSection from "./AnimatedSection";
 import HeroBackground from "./HeroBackground";
 
+const headlineLines = [
+  ["Your", "Competitors", "Are", "Showing", "Up", "on", "Google."],
+  ["You're", "Not.", "Here's", "Why."],
+];
+
 const Hero = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const headlineRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     const el = parallaxRef.current;
     if (!el) return;
@@ -26,6 +34,34 @@ const Hero = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
       if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  useEffect(() => {
+    const container = headlineRef.current;
+    if (!container) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const words = container.querySelectorAll<HTMLSpanElement>(".hero-word");
+
+    if (prefersReducedMotion) {
+      gsap.set(words, { opacity: 1, y: 0 });
+      return;
+    }
+
+    gsap.set(words, { opacity: 0, y: 40 });
+
+    const tween = gsap.to(words, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power3.out",
+      stagger: 0.1,
+      delay: 0.2,
+    });
+
+    return () => {
+      tween.kill();
     };
   }, []);
 
@@ -49,11 +85,23 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <AnimatedSection className="animate-float-soft">
             <div className="text-center md:text-left">
-              <h1 className="fluid-h1 font-extrabold leading-tight text-foreground md:text-warm-white text-glow-orange">
-                Your Competitors Are Showing Up on Google.
-                <br className="hidden sm:inline" />
-                {" "}You're Not. Here's Why.
-              </h1>
+              <div ref={headlineRef} className="overflow-hidden">
+                <h1 className="fluid-h1 font-extrabold leading-tight text-foreground md:text-warm-white text-glow-orange">
+                  {headlineLines.map((line, lineIdx) => (
+                    <span key={lineIdx} className="block">
+                      {line.map((word, wordIdx) => (
+                        <span
+                          key={wordIdx}
+                          className="hero-word inline-block mr-[0.3em]"
+                          style={{ willChange: "transform, opacity" }}
+                        >
+                          {word}
+                        </span>
+                      ))}
+                    </span>
+                  ))}
+                </h1>
+              </div>
               <p className="mt-6 fluid-lead text-muted-foreground md:text-warm-white/80 max-w-2xl mx-auto md:mx-0 leading-relaxed">
                 Most businesses are invisible online and do not know why. I find exactly what is holding your website back and fix it so your business shows up on Google, Google Maps, and AI search where your customers are already looking.
               </p>
