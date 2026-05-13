@@ -17,6 +17,7 @@ import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 
 import LeadMagnet from "@/components/LeadMagnet";
+import CalculatorTeaser from "@/components/CalculatorTeaser";
 import SEO from "@/components/SEO";
 import { faqs } from "@/components/FAQ";
 import { reviews } from "@/data/reviews";
@@ -168,6 +169,8 @@ const Index = () => (
       <Results />
       <SectionDivider />
       <Stats />
+      <SectionDivider />
+      <CalculatorTeaser />
       <SectionDivider />
       <Services />
       <SectionDivider />

@@ -149,6 +149,13 @@ const LeadMagnet = () => {
           >
             Get My Free Mini Audit →
           </button>
+          <a
+            href="/calculator"
+            className="block mt-3 text-sm underline underline-offset-2 hover:opacity-80"
+            style={{ color: "#22c55e" }}
+          >
+            Or try our free revenue calculator →
+          </a>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-5 text-xs" style={{ color: "rgba(250, 250, 248, 0.75)" }}>
             <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={14} style={{ color: "#22c55e" }} /> Reviewed personally by Georgia</span>
             <span className="inline-flex items-center gap-1.5"><Star size={14} style={{ color: "#C9A84C" }} fill="#C9A84C" /> 5.0 average rating</span>

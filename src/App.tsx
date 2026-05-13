@@ -20,6 +20,8 @@ import ScrollToTop from "./components/ScrollToTop.tsx";
 import AnnouncementBar from "./components/AnnouncementBar.tsx";
 import FloatingBar from "./components/FloatingBar.tsx";
 import AuditPopup from "./components/AuditPopup.tsx";
+import ScrollProgress from "./components/ScrollProgress.tsx";
+import Calculator from "./pages/Calculator.tsx";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +32,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        
+        <ScrollProgress />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
@@ -42,6 +44,7 @@ const App = () => (
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/calculator" element={<Calculator />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
