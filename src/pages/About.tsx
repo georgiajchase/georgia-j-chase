@@ -74,7 +74,10 @@ const About = () => (
                 alt="Georgia J. Chase, SEO Specialist"
                 width="600"
                 height="600"
+                loading="eager"
+                decoding="async"
                 fetchPriority="high"
+                sizes="(min-width: 1024px) 600px, 100vw"
                 className="relative rounded-2xl shadow-2xl w-full object-cover"
               />
             </div>
