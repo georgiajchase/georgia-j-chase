@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, ArrowRight, Quote, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,6 +17,9 @@ const CaseStudies = () => (
       description="Deep dive case studies showing exactly how Georgia J. Chase helped businesses rank on page 1 and grow organic revenue."
       path="/case-studies"
     />
+    <Helmet>
+      <link rel="preload" as="image" href={caseStudies[0].image} fetchPriority="high" />
+    </Helmet>
     <Navbar />
     <main className="pt-28 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
@@ -51,13 +55,16 @@ const CaseStudies = () => (
               <TiltCard>
                 <article className="group bg-card border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-[0_0_40px_hsl(var(--primary)/0.25)] transition-all">
                   <div className="grid lg:grid-cols-2">
-                    <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
+                    <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-card">
                       <img
                         src={cs.image}
                         alt={cs.client}
                         width={1280}
                         height={720}
-                        loading="lazy"
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        fetchPriority={i === 0 ? "high" : "low"}
+                        sizes="(min-width: 1024px) 50vw, 100vw"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent lg:bg-gradient-to-l" />
