@@ -17,6 +17,9 @@ const CaseStudies = () => (
       description="Deep dive case studies showing exactly how Georgia J. Chase helped businesses rank on page 1 and grow organic revenue."
       path="/case-studies"
     />
+    <Helmet>
+      <link rel="preload" as="image" href={caseStudies[0].image} fetchPriority="high" />
+    </Helmet>
     <Navbar />
     <main className="pt-28 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
