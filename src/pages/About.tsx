@@ -137,6 +137,8 @@ const About = () => (
                       width="112"
                       height="112"
                       loading="lazy"
+                      decoding="async"
+                      sizes="112px"
                       className="relative w-28 h-28 rounded-full object-cover border-2 border-primary/50 shadow-xl"
                     />
                   ) : (
