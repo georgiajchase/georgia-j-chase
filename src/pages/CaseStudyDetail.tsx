@@ -68,8 +68,10 @@ const CaseStudyDetail = () => {
                 alt={cs.client}
                 width={1280}
                 height={720}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                fetchPriority="high"
+                sizes="(min-width: 1024px) 1024px, 100vw"
                 className="w-full h-auto block"
               />
               <div className="absolute inset-0 ring-1 ring-primary/20 rounded-2xl pointer-events-none" />
